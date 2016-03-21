@@ -12,12 +12,8 @@
 		19C8B7AB1C9C47660044D0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7A91C9C47660044D0C3 /* Main.storyboard */; };
 		19C8B7AD1C9C47660044D0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7AC1C9C47660044D0C3 /* Assets.xcassets */; };
 		19C8B7B01C9C47660044D0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7AE1C9C47660044D0C3 /* LaunchScreen.storyboard */; };
-		19C8B7D71C9D2CBE0044D0C3 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7D31C9D2CBE0044D0C3 /* LoginVC.m */; };
-		19C8B7D81C9D2CBE0044D0C3 /* PersonalCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7D51C9D2CBE0044D0C3 /* PersonalCenterVC.m */; };
 		19C8B7DB1C9D2CDB0044D0C3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7DA1C9D2CDB0044D0C3 /* BaseCell.m */; };
-		19C8B7E11C9D36AE0044D0C3 /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7E01C9D36AE0044D0C3 /* PersonalInfoVC.m */; };
 		19C8B7E41C9D575D0044D0C3 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7E31C9D575D0044D0C3 /* HttpTool.m */; };
-		19C8B7ED1C9D9FC50044D0C3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7EC1C9D9FC50044D0C3 /* BaseVC.m */; };
 		19C8B8021C9E773D0044D0C3 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8011C9E773D0044D0C3 /* NSString+Safe.m */; };
 		19C8B8091C9E77AF0044D0C3 /* MamaInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8061C9E77AF0044D0C3 /* MamaInfoCell.m */; };
 		19C8B80A1C9E77AF0044D0C3 /* PersonalCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8081C9E77AF0044D0C3 /* PersonalCenterCell.m */; };
@@ -33,11 +29,16 @@
 		19C8B8441C9EA8FC0044D0C3 /* ModifyNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8431C9EA8FC0044D0C3 /* ModifyNameCell.m */; };
 		19C8B8481C9EC9A60044D0C3 /* AddBabyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */; };
 		19C8B84C1C9ED3590044D0C3 /* BabySexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B84B1C9ED3590044D0C3 /* BabySexVC.m */; };
-		19C8B84F1C9ED7B00044D0C3 /* CustomNavgationButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B84E1C9ED7B00044D0C3 /* CustomNavgationButtonVC.m */; };
 		19C8B8521C9EDE880044D0C3 /* BabySexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8511C9EDE880044D0C3 /* BabySexCell.m */; };
 		19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8551C9F98040044D0C3 /* Baby.m */; };
 		19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8571C9F98040044D0C3 /* Mother.m */; };
 		19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8591C9F98040044D0C3 /* PersonBase.m */; };
+		19C8B8641C9FB0590044D0C3 /* PersonalCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8611C9FB0590044D0C3 /* PersonalCenterVC.m */; };
+		19C8B8651C9FB0590044D0C3 /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8631C9FB0590044D0C3 /* PersonalInfoVC.m */; };
+		19C8B86D1C9FB0740044D0C3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8681C9FB0740044D0C3 /* BaseVC.m */; };
+		19C8B86E1C9FB0740044D0C3 /* CustomNavgationButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */; };
+		19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B86C1C9FB0740044D0C3 /* LoginVC.m */; };
+		19C8B8731C9FBF8B0044D0C3 /* PersonalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8721C9FBF8B0044D0C3 /* PersonalHeader.m */; };
 		E8BBEB2AEE6786848DA8F7D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAEB6C4966ACADBEAB3DBAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -50,18 +51,10 @@
 		19C8B7AC1C9C47660044D0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19C8B7AF1C9C47660044D0C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19C8B7B11C9C47660044D0C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19C8B7D21C9D2CBE0044D0C3 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		19C8B7D31C9D2CBE0044D0C3 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
-		19C8B7D41C9D2CBE0044D0C3 /* PersonalCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterVC.h; sourceTree = "<group>"; };
-		19C8B7D51C9D2CBE0044D0C3 /* PersonalCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterVC.m; sourceTree = "<group>"; };
 		19C8B7D91C9D2CDB0044D0C3 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		19C8B7DA1C9D2CDB0044D0C3 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
-		19C8B7DF1C9D36AE0044D0C3 /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
-		19C8B7E01C9D36AE0044D0C3 /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
 		19C8B7E21C9D575D0044D0C3 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpTool.h; path = TestLanding/Basics/HttpTool.h; sourceTree = SOURCE_ROOT; };
 		19C8B7E31C9D575D0044D0C3 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpTool.m; path = TestLanding/Basics/HttpTool.m; sourceTree = SOURCE_ROOT; };
-		19C8B7EB1C9D9FC50044D0C3 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
-		19C8B7EC1C9D9FC50044D0C3 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		19C8B8001C9E773D0044D0C3 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
 		19C8B8011C9E773D0044D0C3 /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
 		19C8B8051C9E77AF0044D0C3 /* MamaInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MamaInfoCell.h; sourceTree = "<group>"; };
@@ -92,8 +85,6 @@
 		19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBabyVC.m; sourceTree = "<group>"; };
 		19C8B84A1C9ED3590044D0C3 /* BabySexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySexVC.h; sourceTree = "<group>"; };
 		19C8B84B1C9ED3590044D0C3 /* BabySexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexVC.m; sourceTree = "<group>"; };
-		19C8B84D1C9ED7B00044D0C3 /* CustomNavgationButtonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavgationButtonVC.h; sourceTree = "<group>"; };
-		19C8B84E1C9ED7B00044D0C3 /* CustomNavgationButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavgationButtonVC.m; sourceTree = "<group>"; };
 		19C8B8501C9EDE880044D0C3 /* BabySexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySexCell.h; sourceTree = "<group>"; };
 		19C8B8511C9EDE880044D0C3 /* BabySexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexCell.m; sourceTree = "<group>"; };
 		19C8B8541C9F98040044D0C3 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
@@ -103,6 +94,18 @@
 		19C8B8581C9F98040044D0C3 /* PersonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonBase.h; sourceTree = "<group>"; };
 		19C8B8591C9F98040044D0C3 /* PersonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonBase.m; sourceTree = "<group>"; };
 		19C8B85E1C9F9C500044D0C3 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
+		19C8B8601C9FB0590044D0C3 /* PersonalCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterVC.h; sourceTree = "<group>"; };
+		19C8B8611C9FB0590044D0C3 /* PersonalCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterVC.m; sourceTree = "<group>"; };
+		19C8B8621C9FB0590044D0C3 /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
+		19C8B8631C9FB0590044D0C3 /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
+		19C8B8671C9FB0740044D0C3 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		19C8B8681C9FB0740044D0C3 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		19C8B8691C9FB0740044D0C3 /* CustomNavgationButtonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavgationButtonVC.h; sourceTree = "<group>"; };
+		19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavgationButtonVC.m; sourceTree = "<group>"; };
+		19C8B86B1C9FB0740044D0C3 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		19C8B86C1C9FB0740044D0C3 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		19C8B8711C9FBF8B0044D0C3 /* PersonalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHeader.h; sourceTree = "<group>"; };
+		19C8B8721C9FBF8B0044D0C3 /* PersonalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHeader.m; sourceTree = "<group>"; };
 		4BAEB6C4966ACADBEAB3DBAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEC5CD80932C2E947128884 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C374A337BA9574433C04C3C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,16 +211,8 @@
 		19C8B7D11C9D2CBE0044D0C3 /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B7EB1C9D9FC50044D0C3 /* BaseVC.h */,
-				19C8B7EC1C9D9FC50044D0C3 /* BaseVC.m */,
-				19C8B84D1C9ED7B00044D0C3 /* CustomNavgationButtonVC.h */,
-				19C8B84E1C9ED7B00044D0C3 /* CustomNavgationButtonVC.m */,
-				19C8B7D21C9D2CBE0044D0C3 /* LoginVC.h */,
-				19C8B7D31C9D2CBE0044D0C3 /* LoginVC.m */,
-				19C8B7D41C9D2CBE0044D0C3 /* PersonalCenterVC.h */,
-				19C8B7D51C9D2CBE0044D0C3 /* PersonalCenterVC.m */,
-				19C8B7DF1C9D36AE0044D0C3 /* PersonalInfoVC.h */,
-				19C8B7E01C9D36AE0044D0C3 /* PersonalInfoVC.m */,
+				19C8B8661C9FB0740044D0C3 /* Base */,
+				19C8B85F1C9FB0590044D0C3 /* Personal */,
 				19C8B83E1C9EA8E10044D0C3 /* ModifyName */,
 				19C8B8451C9EC98B0044D0C3 /* AddBaby */,
 				19C8B8491C9ED3360044D0C3 /* BabySex */,
@@ -279,6 +274,8 @@
 				19C8B81A1C9E850F0044D0C3 /* MeLableItem.m */,
 				19C8B81B1C9E850F0044D0C3 /* PersonalCenter.h */,
 				19C8B81C1C9E850F0044D0C3 /* PersonalCenter.m */,
+				19C8B8711C9FBF8B0044D0C3 /* PersonalHeader.h */,
+				19C8B8721C9FBF8B0044D0C3 /* PersonalHeader.m */,
 			);
 			path = PersonalInfo;
 			sourceTree = "<group>";
@@ -341,6 +338,30 @@
 				19C8B85E1C9F9C500044D0C3 /* Gender.h */,
 			);
 			path = enum;
+			sourceTree = "<group>";
+		};
+		19C8B85F1C9FB0590044D0C3 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8601C9FB0590044D0C3 /* PersonalCenterVC.h */,
+				19C8B8611C9FB0590044D0C3 /* PersonalCenterVC.m */,
+				19C8B8621C9FB0590044D0C3 /* PersonalInfoVC.h */,
+				19C8B8631C9FB0590044D0C3 /* PersonalInfoVC.m */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		19C8B8661C9FB0740044D0C3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8671C9FB0740044D0C3 /* BaseVC.h */,
+				19C8B8681C9FB0740044D0C3 /* BaseVC.m */,
+				19C8B8691C9FB0740044D0C3 /* CustomNavgationButtonVC.h */,
+				19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */,
+				19C8B86B1C9FB0740044D0C3 /* LoginVC.h */,
+				19C8B86C1C9FB0740044D0C3 /* LoginVC.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		D2B999AF3FF06A5A3228B62F /* Frameworks */ = {
@@ -473,29 +494,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19C8B8641C9FB0590044D0C3 /* PersonalCenterVC.m in Sources */,
 				19C8B7DB1C9D2CDB0044D0C3 /* BaseCell.m in Sources */,
 				19C8B8021C9E773D0044D0C3 /* NSString+Safe.m in Sources */,
+				19C8B86E1C9FB0740044D0C3 /* CustomNavgationButtonVC.m in Sources */,
 				19C8B8221C9E850F0044D0C3 /* PersonalCenter.m in Sources */,
-				19C8B84F1C9ED7B00044D0C3 /* CustomNavgationButtonVC.m in Sources */,
 				19C8B8091C9E77AF0044D0C3 /* MamaInfoCell.m in Sources */,
-				19C8B7ED1C9D9FC50044D0C3 /* BaseVC.m in Sources */,
 				19C8B84C1C9ED3590044D0C3 /* BabySexVC.m in Sources */,
 				19C8B80D1C9E77CA0044D0C3 /* MamaAvatarCell.m in Sources */,
 				19C8B8441C9EA8FC0044D0C3 /* ModifyNameCell.m in Sources */,
 				19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */,
 				19C8B8211C9E850F0044D0C3 /* MeLableItem.m in Sources */,
+				19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */,
 				19C8B82D1C9E93030044D0C3 /* ImageItem.m in Sources */,
 				19C8B8391C9E95040044D0C3 /* BabyDetailsCell.m in Sources */,
+				19C8B8651C9FB0590044D0C3 /* PersonalInfoVC.m in Sources */,
 				19C8B8201C9E850F0044D0C3 /* MeGroup.m in Sources */,
+				19C8B8731C9FBF8B0044D0C3 /* PersonalHeader.m in Sources */,
 				19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */,
-				19C8B7E11C9D36AE0044D0C3 /* PersonalInfoVC.m in Sources */,
 				19C8B81F1C9E850F0044D0C3 /* MeBabyInfoItem.m in Sources */,
 				19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */,
-				19C8B7D71C9D2CBE0044D0C3 /* LoginVC.m in Sources */,
 				19C8B80A1C9E77AF0044D0C3 /* PersonalCenterCell.m in Sources */,
 				19C8B7A51C9C47660044D0C3 /* AppDelegate.m in Sources */,
+				19C8B86D1C9FB0740044D0C3 /* BaseVC.m in Sources */,
 				19C8B8521C9EDE880044D0C3 /* BabySexCell.m in Sources */,
-				19C8B7D81C9D2CBE0044D0C3 /* PersonalCenterVC.m in Sources */,
 				19C8B8381C9E95040044D0C3 /* BabyAddInfoCell.m in Sources */,
 				19C8B8411C9EA8E10044D0C3 /* ModifyNameVC.m in Sources */,
 				19C8B8481C9EC9A60044D0C3 /* AddBabyVC.m in Sources */,

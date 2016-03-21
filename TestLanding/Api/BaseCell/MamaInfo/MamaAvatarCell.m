@@ -25,14 +25,14 @@ static NSInteger const kAvatarSize = 50;
 }
 
 - (void)setAvatarData:(PersonalCenter *)avatarData {
-    
     self.textLabel.text = avatarData.title;
-    self.avatar.image = [UIImage imageNamed:@"default-avatar"];
-//    if (avatarData.avatar == nil) {
-//        self.avatar.image = [UIImage imageNamed:@"default-avatar"];
-//    }else {
-//        self.avatar.image = [UIImage imageNamed:avatarData.avatar];
-//    }
+    if (avatarData.avatar == nil) {
+        self.avatar.image = [UIImage imageNamed:@"default-avatar"];
+    }else {
+//        NSData *decodedImageData = [[NSData alloc] initWithBase64Encoding:avatarData.avatar];
+//        self.avatar.image = [UIImage imageWithData:decodedImageData];
+        self.avatar.image = [UIImage imageNamed:avatarData.avatar];
+    }
     
 }
 

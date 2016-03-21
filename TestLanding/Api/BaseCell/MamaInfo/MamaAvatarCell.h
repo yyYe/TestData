@@ -10,6 +10,8 @@
 #import "PersonalCenter.h"
 
 @interface MamaAvatarCell : BaseCell
+
 @property (nonatomic, strong) UIImageView *avatar;
 @property (nonatomic, strong) PersonalCenter *avatarData;
+
 @end

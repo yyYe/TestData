@@ -7,18 +7,20 @@
 //
 
 #import "PersonalInfoVC.h"
-#import <AFNetworking/AFNetworking.h>
-#import "MamaInfoCell.h"
-#import "MamaAvatarCell.h"
-#import "MeBabyInfoItem.h"
-#import "BabyAddInfoCell.h"
-#import "BabyDetailsCell.h"
 #import "ModifyNameVC.h"
 #import "AddBabyVC.h"
 #import "BabySexVC.h"
 
+#import "MamaInfoCell.h"
+#import "MamaAvatarCell.h"
+#import "BabyAddInfoCell.h"
+#import "BabyDetailsCell.h"
+
+#import "MeBabyInfoItem.h"
+
 static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getUserInfo";
 static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMamaInfo";
+static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";
 
 @implementation PersonalInfoVC
 
@@ -44,7 +46,7 @@ static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMam
                                    @"msgType":@"getMamaInfo",
                                    @"timestamp":@"2016-02-29 13:07:57.429",
                                    @"clientRes":@"iOS",
-                                   @"token":@"a06be987ef5e4852be76d9b3d2be012821264973556186006258165347027804"
+                                   @"token":@"776fc594d9c6403696ac46c0af31cc4324471288525134868655473389927841"
                                    }
                            };
     
@@ -163,14 +165,77 @@ static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMam
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSArray *list = self.data[indexPath.section];
-    id item = list[indexPath.row];
-    
-    UIViewController *vc = [[[item targetClass]alloc]init];
-    vc.title = [item title];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (indexPath.section == 0) {
+        [self showSheetView];
+    } else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        NSArray *list = self.data[indexPath.section];
+        id item = list[indexPath.row];
+        
+        UIViewController *vc = [[[item targetClass]alloc]init];
+        vc.title = [item title];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
+- (void)showSheetView {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openGallery];
+    }];
+    UIAlertAction *cameraActon = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:photoAction];
+    [alertController addAction:cameraActon];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)openGallery {
+    UIImagePickerController *pickerController = [UIImagePickerController new];
+    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    NSData *data = UIImageJPEGRepresentation(image, 1.0f);
+    NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
+                                   @"headerImg":@"3"
+                                   },
+                           @"header":@{
+                                   @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
+                                   @"msgType":@"modifyMamaHeaderImg",
+                                   @"timestamp":@"2016-02-29 13:07:57.429",
+                                   @"clientRes":@"iOS",
+                                   @"token":@"776fc594d9c6403696ac46c0af31cc4324471288525134868655473389927841"
+                                   }
+                           };
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];
+    [manager POST:kModifyMamaHeaderImg parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"response-%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.tableView reloadData];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -8,7 +8,7 @@
 
 #import "BaseVC.h"
 
-@interface PersonalInfoVC : BaseVC
+@interface PersonalInfoVC : BaseVC <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *token;

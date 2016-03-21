@@ -51,7 +51,7 @@ static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/mod
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ModifyNameCell *nameCell = [tableView dequeueReusableCellWithIdentifier:@"ModifyNameCell"];
-    nameCell.tfName.text = self.labelItem.details;
+//    nameCell.tfName.text = self.labelItem.details;
     nameCell.tfContent = ^(NSString *tfText){
         nameText = tfText;
         [self.tableView reloadData];

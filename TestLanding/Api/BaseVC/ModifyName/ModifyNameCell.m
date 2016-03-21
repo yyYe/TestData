@@ -38,7 +38,8 @@
 }
 
 - (void)textFieldDidChange:(UITextField *)textField {
-    NSLog(@"%@",textField);
+    self.tfName.text = textField.text;
+    NSLog(@"%@",textField.text);
     self.tfContent(textField.text);
 }
 
