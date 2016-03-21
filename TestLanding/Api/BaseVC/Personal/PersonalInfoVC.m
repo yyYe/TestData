@@ -40,7 +40,8 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
 
     NSDictionary *dict = @{
                            @"data":@{
-                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00"
+                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
+                                   @"headerImg":@"3"
                                    },
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
@@ -48,11 +49,8 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
                                    @"token":kToken
                                    }
                            };
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];
-    [manager POST:kGetMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+
+    [self.manager POST:kGetMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
@@ -222,10 +220,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
                                    }
                            };
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];
-    [manager POST:kModifyMamaHeaderImg parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    [self.manager POST:kModifyMamaHeaderImg parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"response-%@",responseObject);

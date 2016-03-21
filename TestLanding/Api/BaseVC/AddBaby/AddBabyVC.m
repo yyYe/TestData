@@ -32,7 +32,6 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     list1 = @[avatar];
     
     MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:@"" targrtClass:[ModifyNameVC class]];
-//    NSString *sex = [NSString stringWithFormat:@"%@",[dictData[@"gender"] isEqual: @"1"]?@"女":@"男"];
     MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:@"小公举" targrtClass:[BabySexVC class]];
     MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:@"" targrtClass:nil];
     NSArray *list2 = [NSArray new];
@@ -53,10 +52,8 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
                                    @"token":kToken
                                    }
                            };
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];
-    [manager POST:kAddBabyInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+
+    [self.manager POST:kAddBabyInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
@@ -105,6 +102,9 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSArray *list = self.data[indexPath.section];
     id item = list[indexPath.row];

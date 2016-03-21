@@ -8,6 +8,7 @@
 
 #import "BabySexVC.h"
 #import "ModifyMeInfoTool.h"
+#import "HttpTool.h"
 
 @implementation BabySexVC
 
@@ -19,6 +20,27 @@
 - (void)rightBtnAction {
     self.person = [PersonBase new];
     self.person.gender = (self.selectedRow == 0) ? GenderMan : GenderWoman;
+
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
+                                   @"gender":@(self.person.gender),
+                                   },
+                           @"header":@{
+                                   @"msgType":@"modifyBabyInfo",
+                                   @"token":kToken
+                                   }
+                           };
+    [self.manager POST:kModifyBabyInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject-%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+- (void)modifyMamaInfo {
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
@@ -29,11 +51,7 @@
                                    @"token":kToken
                                    }
                            };
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];
-    [manager POST:kModifyMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    [self.manager POST:kModifyMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
