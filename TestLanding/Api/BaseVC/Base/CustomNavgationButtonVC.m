@@ -30,7 +30,7 @@
 }
 
 - (void)rightBtnAction {
-    
+    self.refresh();
 }
 
 @end

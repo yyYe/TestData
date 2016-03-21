@@ -31,7 +31,7 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
     
-    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.babyInfo.nickName targrtClass:[ModifyNameVC class]];
+    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.babyName targrtClass:[ModifyNameVC class]];//self.babyInfo.nickName
     MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:(self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举" targrtClass:[BabySexVC class]];
     MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.babyInfo.birthday targrtClass:nil];
     NSArray *list2 = [NSArray new];
@@ -43,10 +43,10 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-//                                   @"headerImg":self.babyInfo.avatar,
-                                   @"babyName":@"test",
-//                                   @"birthday":self.babyInfo.birthday,
-//                                   @"gender":@(self.babyInfo.sex),
+                                   @"headerImg":self.babyInfo.avatar,
+                                   @"babyName":self.babyInfo.nickName, //@"test"
+                                   @"birthday":self.babyInfo.birthday,
+                                   @"gender":@(self.babyInfo.sex),
                                    },
                            @"header":@{
                                    @"msgType":@"addBabyInfo",
@@ -60,11 +60,10 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
-        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
-    self.refresh();
+//    self.refresh();
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

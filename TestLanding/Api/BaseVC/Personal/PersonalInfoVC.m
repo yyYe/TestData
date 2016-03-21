@@ -22,9 +22,15 @@
 static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getUserInfo";
 static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMamaInfo";
 static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";
-
+static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/removeBabyInfo";
 
 @implementation PersonalInfoVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self contentData];
+    [self setUpMamaData];
+}
 
 - (void)contentData {
     [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
@@ -89,6 +95,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
         babyInfoItem.avatar = baby.avatarString;
         babyInfoItem.nickName = baby.nickName;
         babyInfoItem.birthday = baby.birthday;
+        babyInfoItem.targetClass = [AddBabyVC class];
         [babyArray addObject:babyInfoItem];
     }
     NSArray *list3 = [NSArray new];
@@ -141,6 +148,8 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
         } else {
             BabyDetailsCell *detailsCell = [tableView dequeueReusableCellWithIdentifier:@"BabyDetailsCell"];
             detailsCell.babyItem = list[indexPath.row];
+            UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressAction:)];
+            [detailsCell addGestureRecognizer:longPress];
             return detailsCell;
         }
     }
@@ -154,6 +163,69 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     }
     cell.textLabel.text = @"test";
     return cell;
+}
+
+- (void)longPressAction:(UILongPressGestureRecognizer *)longPress{
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"你确定要删除?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cameraActon = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            BabyDetailsCell *cell = (BabyDetailsCell *)longPress.view;
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            NSInteger index = indexPath.row - 1;
+            [self deleteBabyAtIndex:index];
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:cameraActon];
+        [self presentViewController:alertController animated:YES completion:nil];
+    };
+}
+
+- (void)deleteBabyAtIndex:(NSInteger)index{
+    Baby *baby = self.mother.babies[index];
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"xuid":baby.xuid,
+                                   },
+                           @"header":@{
+                                   @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
+                                   @"msgType":@"removeBabyInfo",
+                                   @"token":kToken
+                                   }
+                           };
+    
+    [self.manager POST:kRemoveBabyInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject-%@",responseObject);
+        NSMutableArray *babies = [self.mother.babies mutableCopy];
+        [babies removeObjectAtIndex:index];
+        self.mother.babies = [babies copy];
+        [self updateBabies:babies];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+   
+}
+
+- (void)updateBabies:(NSArray *)babies{
+    NSArray *list = self.data[2];
+    PersonalCenter *addItem = list.firstObject;
+    
+    NSMutableArray *tempArr = [NSMutableArray arrayWithObject:addItem];
+    for (int i = 0; i < babies.count; i++) {
+        MeBabyInfoItem *babyInfoItem = [[MeBabyInfoItem alloc]init];
+        Baby *baby = babies[i];
+        babyInfoItem.sex = baby.gender;
+        babyInfoItem.nickName = baby.nickName;
+        babyInfoItem.birthday = baby.birthday;
+        babyInfoItem.avatar = baby.avatarString;
+        [tempArr addObject:babyInfoItem];
+    }
+    list = [tempArr copy];
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark UITableViewDelegate
@@ -180,6 +252,8 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     
     if (indexPath.section == 2) {
         AddBabyVC *babyVC = [AddBabyVC new];
+        MeBabyInfoItem *infoItem = item;
+        babyVC.babyName = infoItem.nickName;
         babyVC.babyInfo = item;
         babyVC.refresh = ^(){
             [self.tableView reloadData];

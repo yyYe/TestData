@@ -35,7 +35,6 @@ static NSInteger const kDatePickerHeight = 200;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
-    [self.tableView reloadData];
     self.refresh();
 }
 
@@ -50,11 +49,16 @@ static NSInteger const kDatePickerHeight = 200;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [self datePickerMethod];
+    self.selectedIndexPath = indexPath;
 }
 
 - (void)datePickerMethod {
     UIDatePicker *datePicker = [UIDatePicker new];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    datePicker.date = [formatter dateFromString:self.person.birthday];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
     [datePicker setLocale:[[NSLocale alloc ]initWithLocaleIdentifier:@"zh_Hans_CN"]];//zh_CN
     [datePicker addTarget:self action:@selector(datePickerTapped:) forControlEvents:UIControlEventValueChanged];
@@ -72,6 +76,7 @@ static NSInteger const kDatePickerHeight = 200;
     NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
     fmt.dateFormat = @"yyyy-MM-dd";
     self.person.birthday = [fmt stringFromDate:pickerDate];
+    [self.tableView reloadRowsAtIndexPaths:@[self.selectedIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

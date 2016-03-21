@@ -10,7 +10,7 @@
 
 @interface BirthdayVC : CustomNavgationButtonVC 
 
-//@property (nonatomic, strong) Mother *mother;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong) PersonBase *person;
 
 @end
