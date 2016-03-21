@@ -6,9 +6,17 @@
 //  Copyright © 2016年 yeyy. All rights reserved.
 //
 
+#import "CustomNavgationButtonVC.h"
 #import "BaseVC.h"
 
 @implementation BaseVC
+
+- (Mother *)mother {
+    if (!_mother) {
+        _mother = [Mother new];
+    }
+    return _mother;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +33,15 @@
 //        make.edges.equalTo(self.view);
 //    }];
     [self contentData];
+//    [self refreshTableView];
+}
+
+
+- (void)refreshTableView {
+    CustomNavgationButtonVC *navgationButtonVC = [CustomNavgationButtonVC new];
+    navgationButtonVC.refresh = ^(){
+        [self.tableView reloadData];
+    };
 }
 
 - (void)contentData {

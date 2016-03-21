@@ -10,6 +10,7 @@
 #import "ModifyNameVC.h"
 #import "AddBabyVC.h"
 #import "BabySexVC.h"
+#import "BirthdayVC.h"
 
 #import "MamaInfoCell.h"
 #import "MamaAvatarCell.h"
@@ -25,19 +26,12 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
 
 @implementation PersonalInfoVC
 
-- (Mother *)mother {
-    if (!_mother) {
-        _mother = [Mother new];
-    }
-    return _mother;
-}
-
 - (void)contentData {
     [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
     [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
     [self.tableView registerClass:[BabyAddInfoCell class] forCellReuseIdentifier:@"BabyAddInfoCell"];
     [self.tableView registerClass:[BabyDetailsCell class] forCellReuseIdentifier:@"BabyDetailsCell"];
-
+    
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
@@ -67,6 +61,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     
 }
 
+
 - (void)setUpMamaData {
     //头像
     PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.mother.avatarString targrtClass:nil];
@@ -78,7 +73,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     MeLableItem *areaItem = [MeLableItem itemWithTitle:@"区域" details:self.mother.address targrtClass:nil];
     NSString *sex = self.mother.gender == 1 ? @"女" : @"男";
     MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:sex targrtClass:[BabySexVC class]];
-    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.mother.birthday targrtClass:nil];
+    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.mother.birthday targrtClass:[BirthdayVC class]];
     MeLableItem *phoneItem = [MeLableItem itemWithTitle:kPhone details:self.mother.phoneNumber targrtClass:nil];
     MeLableItem *signatureItem = [MeLableItem itemWithTitle:@"签名" details:self.mother.signature targrtClass:nil];
     NSArray *list2 = [NSArray new];
@@ -163,26 +158,28 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
 
 #pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
     if (indexPath.section == 0) {
         [self showSheetView];
-    } /*else if () {
-        
-    }*/ else {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        NSArray *list = self.data[indexPath.section];
-        id item = list[indexPath.row];
-        
-        UIViewController *vc = [[[item targetClass]alloc]init];
-        vc.title = [item title];
-        
-        if (indexPath.section == 2) {
-            AddBabyVC *babyVC = [AddBabyVC new];
-            babyVC.babyInfo = item;
-            [self.navigationController pushViewController:babyVC animated:YES];
-        }
-        
-        [self.navigationController pushViewController:vc animated:YES];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSArray *list = self.data[indexPath.section];
+    id item = list[indexPath.row];
+    
+    UIViewController *vc = [[[item targetClass]alloc]init];
+    vc.title = [item title];
+    
+    if (indexPath.section == 1) {
+        BirthdayVC *commonVC = (BirthdayVC *)vc; //运行时
+        commonVC.person = self.mother;
+    }
+    
+    if (indexPath.section == 2) {
+        AddBabyVC *babyVC = [AddBabyVC new];
+        babyVC.babyInfo = item;
+    }
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

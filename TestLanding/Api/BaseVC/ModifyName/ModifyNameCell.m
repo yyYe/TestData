@@ -43,10 +43,8 @@
     self.tfContent(textField.text);
 }
 
-- (void)setLabelItem:(MeLableItem *)labelItem {
-    nameLabel.text = labelItem.title;
-    self.tfName.placeholder = @"请输入:";
-    self.tfName.text = labelItem.details;
+- (void)setPerson:(PersonBase *)person {
+    self.tfName.text = person.nickName;
 }
 
 @end

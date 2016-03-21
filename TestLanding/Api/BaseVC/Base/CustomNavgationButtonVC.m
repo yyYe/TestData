@@ -22,6 +22,7 @@
 
 - (void)leftBtnAction{
     [self.navigationController popViewControllerAnimated:YES];
+    [self.tableView reloadData];
 }
 
 - (void)setupNavRightBtnWithTitle:(NSString *)title {
@@ -29,7 +30,7 @@
 }
 
 - (void)rightBtnAction {
-    
+    self.refresh();
 }
 
 @end

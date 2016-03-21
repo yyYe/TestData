@@ -23,10 +23,15 @@ static NSString *const kToken = @"d9aea78e210249c08c928d12e1bcc7ec96078720425870
 static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/modifyMamaInfo"; //妈妈修改信息接口
 static NSString *const kModifyBabyInfo = @"http://app.yimama.com.cn/api/mama/modifyBabyInfo"; //宝宝修改信息接口
 
+#define screenHeight [UIScreen mainScreen].bounds.size.height
+#define screenWidth [UIScreen mainScreen].bounds.size.width
+
 @interface BaseVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
+@property (nonatomic, strong) Mother *mother;
+
 - (void)contentData;
 @end

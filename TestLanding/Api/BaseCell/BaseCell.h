@@ -10,9 +10,12 @@
 #import <Masonry/Masonry.h>
 #import "PersonalCenter.h"
 #import "MeLableItem.h"
+#import "Mother.h"
+#import "PersonBase.h"
 
 @interface BaseCell : UITableViewCell
 
 @property (nonatomic, strong) PersonalCenter *personalCenter;
+@property (nonatomic, strong) PersonBase *person;
 - (void)createUI;
 @end

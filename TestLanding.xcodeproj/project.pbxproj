@@ -38,6 +38,8 @@
 		19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B86C1C9FB0740044D0C3 /* LoginVC.m */; };
 		19C8B87E1C9FDC970044D0C3 /* BabySexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */; };
 		19C8B8891C9FE8080044D0C3 /* ModifyMeInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */; };
+		19C8B88D1CA0081E0044D0C3 /* BirthdayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B88C1CA0081E0044D0C3 /* BirthdayVC.m */; };
+		19C8B8901CA00CA00044D0C3 /* BirthdayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B88F1CA00CA00044D0C3 /* BirthdayCell.m */; };
 		E8BBEB2AEE6786848DA8F7D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAEB6C4966ACADBEAB3DBAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,10 @@
 		19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexVC.m; sourceTree = "<group>"; };
 		19C8B8871C9FE8080044D0C3 /* ModifyMeInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyMeInfoTool.h; sourceTree = "<group>"; };
 		19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMeInfoTool.m; sourceTree = "<group>"; };
+		19C8B88B1CA0081E0044D0C3 /* BirthdayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayVC.h; sourceTree = "<group>"; };
+		19C8B88C1CA0081E0044D0C3 /* BirthdayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayVC.m; sourceTree = "<group>"; };
+		19C8B88E1CA00CA00044D0C3 /* BirthdayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayCell.h; sourceTree = "<group>"; };
+		19C8B88F1CA00CA00044D0C3 /* BirthdayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayCell.m; sourceTree = "<group>"; };
 		4BAEB6C4966ACADBEAB3DBAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEC5CD80932C2E947128884 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C374A337BA9574433C04C3C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 				19C8B85F1C9FB0590044D0C3 /* Personal */,
 				19C8B83E1C9EA8E10044D0C3 /* ModifyName */,
 				19C8B8451C9EC98B0044D0C3 /* AddBaby */,
+				19C8B88A1CA007CD0044D0C3 /* Birthday */,
 				19C8B8781C9FDC970044D0C3 /* Sex */,
 			);
 			path = BaseVC;
@@ -358,6 +365,17 @@
 			path = ModifyMeInfoTool;
 			sourceTree = "<group>";
 		};
+		19C8B88A1CA007CD0044D0C3 /* Birthday */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B88B1CA0081E0044D0C3 /* BirthdayVC.h */,
+				19C8B88C1CA0081E0044D0C3 /* BirthdayVC.m */,
+				19C8B88E1CA00CA00044D0C3 /* BirthdayCell.h */,
+				19C8B88F1CA00CA00044D0C3 /* BirthdayCell.m */,
+			);
+			path = Birthday;
+			sourceTree = "<group>";
+		};
 		D2B999AF3FF06A5A3228B62F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +516,7 @@
 				19C8B8441C9EA8FC0044D0C3 /* ModifyNameCell.m in Sources */,
 				19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */,
 				19C8B8211C9E850F0044D0C3 /* MeLableItem.m in Sources */,
+				19C8B8901CA00CA00044D0C3 /* BirthdayCell.m in Sources */,
 				19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */,
 				19C8B82D1C9E93030044D0C3 /* ImageItem.m in Sources */,
 				19C8B8391C9E95040044D0C3 /* BabyDetailsCell.m in Sources */,
@@ -509,6 +528,7 @@
 				19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */,
 				19C8B8891C9FE8080044D0C3 /* ModifyMeInfoTool.m in Sources */,
 				19C8B80A1C9E77AF0044D0C3 /* PersonalCenterCell.m in Sources */,
+				19C8B88D1CA0081E0044D0C3 /* BirthdayVC.m in Sources */,
 				19C8B7A51C9C47660044D0C3 /* AppDelegate.m in Sources */,
 				19C8B86D1C9FB0740044D0C3 /* BaseVC.m in Sources */,
 				19C8B8381C9E95040044D0C3 /* BabyAddInfoCell.m in Sources */,

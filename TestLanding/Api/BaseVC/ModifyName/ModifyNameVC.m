@@ -51,7 +51,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ModifyNameCell *nameCell = [tableView dequeueReusableCellWithIdentifier:@"ModifyNameCell"];
-//    nameCell.tfName.text = self.labelItem.details;
+    nameCell.person = self.person;
     nameCell.tfContent = ^(NSString *tfText){
         nameText = tfText;
         [self.tableView reloadData];

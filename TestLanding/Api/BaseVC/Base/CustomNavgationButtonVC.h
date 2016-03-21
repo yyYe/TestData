@@ -8,8 +8,11 @@
 
 #import "BaseVC.h"
 
+typedef void(^refreshTableView)();
+
 @interface CustomNavgationButtonVC : BaseVC
 
+@property (nonatomic, strong) refreshTableView refresh;
 - (void)setupNavLeftBtnWithTitle:(NSString *)title;
 - (void)setupNavRightBtnWithTitle:(NSString *)title;
 - (void)rightBtnAction;

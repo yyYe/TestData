@@ -15,6 +15,5 @@
 @property (nonatomic, strong) NSString *xuid;
 @property (nonatomic, strong) NSDictionary *dict;
 
-@property (nonatomic, strong) Mother *mother;
 
 @end

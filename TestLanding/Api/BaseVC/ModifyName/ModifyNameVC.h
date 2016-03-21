@@ -13,4 +13,6 @@
 }
 
 @property (nonatomic, strong) MeLableItem *labelItem;
+@property (nonatomic, strong) PersonBase *person;
+
 @end
