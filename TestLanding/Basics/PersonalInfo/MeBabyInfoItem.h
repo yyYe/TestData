@@ -12,7 +12,7 @@
 
 @interface MeBabyInfoItem : PersonalCenter
 
-@property (nonatomic, strong) ImageItem *Avatar;
+//@property (nonatomic, strong) ImageItem *Avatar;
 @property (nonatomic, assign) Gender sex;
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *birthday;

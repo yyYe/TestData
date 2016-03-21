@@ -9,7 +9,7 @@
 #import "ModifyNameVC.h"
 #import "ModifyNameCell.h"
 
-static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/modifyMamaInfo";
+//static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/modifyMamaInfo";
 
 @implementation ModifyNameVC
 
@@ -28,7 +28,7 @@ static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/mod
                                    @"msgType":@"mygrouplist",
                                    @"timestamp":@"2016-02-29 13:07:57.429",
                                    @"clientRes":@"iOS",
-                                   @"token":@"776fc594d9c6403696ac46c0af31cc4324471288525134868655473389927841"
+                                   @"token":kToken
                                    }
                            };
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

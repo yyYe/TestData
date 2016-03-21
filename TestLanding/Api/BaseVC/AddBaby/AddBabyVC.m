@@ -50,7 +50,7 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
                                    @"msgType":@"addBabyInfo",
                                    @"timestamp":@"2016-02-29 13:07:57.429",
                                    @"clientRes":@"iOS",
-                                   @"token":@"2e66a5e1c29c43a3a36913a0b5daf48661874998366493504079781121225176"
+                                   @"token":kToken
                                    }
                            };
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

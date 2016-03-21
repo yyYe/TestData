@@ -66,10 +66,14 @@ static NSInteger const kAvatarSize = 70;
 }
 
 - (void)setBabyItem:(MeBabyInfoItem *)babyItem {
-    avatar.image = [UIImage imageNamed:@"default-avatar"];
+    if (babyItem.avatar == nil) {
+        avatar.image = [UIImage imageNamed:@"default-avatar"];
+    }else {
+        avatar.image = [UIImage imageNamed:babyItem.avatar];
+    }
     babyName.text = babyItem.nickName;
-    babySex.text = (babyItem.sex == GenderMan) ? @"男" : @"女";
-//    babyBirthday.text = babyItem.birthday;
+    babySex.text = (babyItem.sex == GenderMan) ? @"小王纸" : @"小公举";
+    babyBirthday.text = babyItem.birthday;
 }
 
 @end

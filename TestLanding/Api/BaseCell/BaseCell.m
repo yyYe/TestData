@@ -14,6 +14,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     [self createUI];
     self.separatorInset = UIEdgeInsetsZero;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
 

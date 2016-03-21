@@ -18,6 +18,9 @@
 #import "Mother.h"
 #import "Baby.h"
 
+static NSString *const kToken = @"d9aea78e210249c08c928d12e1bcc7ec96078720425870911543459616944626";
+static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/modifyMamaInfo";
+
 @interface BaseVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;

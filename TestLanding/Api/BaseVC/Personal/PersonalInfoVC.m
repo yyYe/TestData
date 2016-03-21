@@ -22,6 +22,7 @@ static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getU
 static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMamaInfo";
 static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";
 
+
 @implementation PersonalInfoVC
 
 - (Mother *)mother {
@@ -44,7 +45,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
                                    @"msgType":@"getMamaInfo",
-                                   @"token":@"d50268b04190405795832982ba1128cf85987960669936120137125277571745"
+                                   @"token":kToken
                                    }
                            };
     
@@ -91,9 +92,8 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     [babyArray addObject:babyTitle];
     for (Baby *baby in self.mother.babies) {
         MeBabyInfoItem *babyInfoItem = [[MeBabyInfoItem alloc]init];
-//        NSString *babySex = [NSString stringWithFormat:@"%@",[dictData[@"gender"] isEqual: @"1"]?@"男":@"女"];
         babyInfoItem.sex = baby.gender;
-        babyInfoItem.Avatar.originalUrl = baby.avatar.originalUrl;
+        babyInfoItem.avatar = baby.avatarString;
         babyInfoItem.nickName = baby.nickName;
         babyInfoItem.birthday = baby.birthday;
         [babyArray addObject:babyInfoItem];
@@ -105,6 +105,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     [self.tableView reloadData];
 }
 
+#pragma mark UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 60;
@@ -162,10 +163,13 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     return cell;
 }
 
+#pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         [self showSheetView];
-    } else {
+    } /*else if () {
+        
+    }*/ else {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         NSArray *list = self.data[indexPath.section];
         id item = list[indexPath.row];
@@ -176,6 +180,8 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     }
 }
 
+
+#pragma mark UIAlertController
 - (void)showSheetView {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -191,6 +197,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#pragma mark UIImagePickerController
 - (void)openGallery {
     UIImagePickerController *pickerController = [UIImagePickerController new];
     pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -211,7 +218,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
                                    @"msgType":@"modifyMamaHeaderImg",
-                                   @"token":@"d50268b04190405795832982ba1128cf85987960669936120137125277571745"
+                                   @"token":kToken
                                    }
                            };
     

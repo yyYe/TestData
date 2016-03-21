@@ -28,8 +28,6 @@
 		19C8B8411C9EA8E10044D0C3 /* ModifyNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8401C9EA8E10044D0C3 /* ModifyNameVC.m */; };
 		19C8B8441C9EA8FC0044D0C3 /* ModifyNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8431C9EA8FC0044D0C3 /* ModifyNameCell.m */; };
 		19C8B8481C9EC9A60044D0C3 /* AddBabyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */; };
-		19C8B84C1C9ED3590044D0C3 /* BabySexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B84B1C9ED3590044D0C3 /* BabySexVC.m */; };
-		19C8B8521C9EDE880044D0C3 /* BabySexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8511C9EDE880044D0C3 /* BabySexCell.m */; };
 		19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8551C9F98040044D0C3 /* Baby.m */; };
 		19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8571C9F98040044D0C3 /* Mother.m */; };
 		19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8591C9F98040044D0C3 /* PersonBase.m */; };
@@ -38,6 +36,9 @@
 		19C8B86D1C9FB0740044D0C3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8681C9FB0740044D0C3 /* BaseVC.m */; };
 		19C8B86E1C9FB0740044D0C3 /* CustomNavgationButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */; };
 		19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B86C1C9FB0740044D0C3 /* LoginVC.m */; };
+		19C8B87E1C9FDC970044D0C3 /* BabySexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */; };
+		19C8B8811C9FDCB80044D0C3 /* ModifyBabyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8801C9FDCB80044D0C3 /* ModifyBabyInfoVC.m */; };
+		19C8B8891C9FE8080044D0C3 /* ModifyMeInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */; };
 		E8BBEB2AEE6786848DA8F7D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAEB6C4966ACADBEAB3DBAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -82,10 +83,6 @@
 		19C8B8431C9EA8FC0044D0C3 /* ModifyNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameCell.m; sourceTree = "<group>"; };
 		19C8B8461C9EC9A60044D0C3 /* AddBabyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBabyVC.h; sourceTree = "<group>"; };
 		19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBabyVC.m; sourceTree = "<group>"; };
-		19C8B84A1C9ED3590044D0C3 /* BabySexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySexVC.h; sourceTree = "<group>"; };
-		19C8B84B1C9ED3590044D0C3 /* BabySexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexVC.m; sourceTree = "<group>"; };
-		19C8B8501C9EDE880044D0C3 /* BabySexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySexCell.h; sourceTree = "<group>"; };
-		19C8B8511C9EDE880044D0C3 /* BabySexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexCell.m; sourceTree = "<group>"; };
 		19C8B8541C9F98040044D0C3 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		19C8B8551C9F98040044D0C3 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		19C8B8561C9F98040044D0C3 /* Mother.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mother.h; sourceTree = "<group>"; };
@@ -103,6 +100,12 @@
 		19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavgationButtonVC.m; sourceTree = "<group>"; };
 		19C8B86B1C9FB0740044D0C3 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		19C8B86C1C9FB0740044D0C3 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		19C8B87B1C9FDC970044D0C3 /* BabySexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySexVC.h; sourceTree = "<group>"; };
+		19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexVC.m; sourceTree = "<group>"; };
+		19C8B87F1C9FDCB80044D0C3 /* ModifyBabyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyBabyInfoVC.h; sourceTree = "<group>"; };
+		19C8B8801C9FDCB80044D0C3 /* ModifyBabyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyBabyInfoVC.m; sourceTree = "<group>"; };
+		19C8B8871C9FE8080044D0C3 /* ModifyMeInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyMeInfoTool.h; sourceTree = "<group>"; };
+		19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMeInfoTool.m; sourceTree = "<group>"; };
 		4BAEB6C4966ACADBEAB3DBAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEC5CD80932C2E947128884 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C374A337BA9574433C04C3C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,7 +179,6 @@
 			children = (
 				19C8B7E21C9D575D0044D0C3 /* HttpTool.h */,
 				19C8B7E31C9D575D0044D0C3 /* HttpTool.m */,
-				19C8B8241C9E85330044D0C3 /* Custom */,
 				19C8B8531C9F98040044D0C3 /* Personal */,
 				19C8B8141C9E850F0044D0C3 /* PersonalInfo */,
 			);
@@ -188,6 +190,7 @@
 			children = (
 				19C8B85D1C9F9C500044D0C3 /* enum */,
 				19C8B7FE1C9E773D0044D0C3 /* Category */,
+				19C8B8861C9FE8080044D0C3 /* ModifyMeInfoTool */,
 				19C8B7D11C9D2CBE0044D0C3 /* BaseVC */,
 				19C8B7CE1C9D2CBE0044D0C3 /* BaseCell */,
 			);
@@ -212,7 +215,8 @@
 				19C8B85F1C9FB0590044D0C3 /* Personal */,
 				19C8B83E1C9EA8E10044D0C3 /* ModifyName */,
 				19C8B8451C9EC98B0044D0C3 /* AddBaby */,
-				19C8B8491C9ED3360044D0C3 /* BabySex */,
+				19C8B8781C9FDC970044D0C3 /* Sex */,
+				19C8B8771C9FDC590044D0C3 /* ModifyBabyInfo */,
 			);
 			path = BaseVC;
 			sourceTree = "<group>";
@@ -275,13 +279,6 @@
 			path = PersonalInfo;
 			sourceTree = "<group>";
 		};
-		19C8B8241C9E85330044D0C3 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
 		19C8B83E1C9EA8E10044D0C3 /* ModifyName */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,18 +297,6 @@
 				19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */,
 			);
 			path = AddBaby;
-			sourceTree = "<group>";
-		};
-		19C8B8491C9ED3360044D0C3 /* BabySex */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B84A1C9ED3590044D0C3 /* BabySexVC.h */,
-				19C8B84B1C9ED3590044D0C3 /* BabySexVC.m */,
-				19C8B8501C9EDE880044D0C3 /* BabySexCell.h */,
-				19C8B8511C9EDE880044D0C3 /* BabySexCell.m */,
-			);
-			name = BabySex;
-			path = AddBaby/BabySex;
 			sourceTree = "<group>";
 		};
 		19C8B8531C9F98040044D0C3 /* Personal */ = {
@@ -357,6 +342,33 @@
 				19C8B86C1C9FB0740044D0C3 /* LoginVC.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		19C8B8771C9FDC590044D0C3 /* ModifyBabyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B87F1C9FDCB80044D0C3 /* ModifyBabyInfoVC.h */,
+				19C8B8801C9FDCB80044D0C3 /* ModifyBabyInfoVC.m */,
+			);
+			path = ModifyBabyInfo;
+			sourceTree = "<group>";
+		};
+		19C8B8781C9FDC970044D0C3 /* Sex */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B87B1C9FDC970044D0C3 /* BabySexVC.h */,
+				19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */,
+			);
+			path = Sex;
+			sourceTree = "<group>";
+		};
+		19C8B8861C9FE8080044D0C3 /* ModifyMeInfoTool */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8871C9FE8080044D0C3 /* ModifyMeInfoTool.h */,
+				19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */,
+			);
+			path = ModifyMeInfoTool;
 			sourceTree = "<group>";
 		};
 		D2B999AF3FF06A5A3228B62F /* Frameworks */ = {
@@ -495,7 +507,6 @@
 				19C8B86E1C9FB0740044D0C3 /* CustomNavgationButtonVC.m in Sources */,
 				19C8B8221C9E850F0044D0C3 /* PersonalCenter.m in Sources */,
 				19C8B8091C9E77AF0044D0C3 /* MamaInfoCell.m in Sources */,
-				19C8B84C1C9ED3590044D0C3 /* BabySexVC.m in Sources */,
 				19C8B80D1C9E77CA0044D0C3 /* MamaAvatarCell.m in Sources */,
 				19C8B8441C9EA8FC0044D0C3 /* ModifyNameCell.m in Sources */,
 				19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */,
@@ -503,15 +514,17 @@
 				19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */,
 				19C8B82D1C9E93030044D0C3 /* ImageItem.m in Sources */,
 				19C8B8391C9E95040044D0C3 /* BabyDetailsCell.m in Sources */,
+				19C8B87E1C9FDC970044D0C3 /* BabySexVC.m in Sources */,
 				19C8B8651C9FB0590044D0C3 /* PersonalInfoVC.m in Sources */,
 				19C8B8201C9E850F0044D0C3 /* MeGroup.m in Sources */,
 				19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */,
 				19C8B81F1C9E850F0044D0C3 /* MeBabyInfoItem.m in Sources */,
 				19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */,
+				19C8B8891C9FE8080044D0C3 /* ModifyMeInfoTool.m in Sources */,
 				19C8B80A1C9E77AF0044D0C3 /* PersonalCenterCell.m in Sources */,
+				19C8B8811C9FDCB80044D0C3 /* ModifyBabyInfoVC.m in Sources */,
 				19C8B7A51C9C47660044D0C3 /* AppDelegate.m in Sources */,
 				19C8B86D1C9FB0740044D0C3 /* BaseVC.m in Sources */,
-				19C8B8521C9EDE880044D0C3 /* BabySexCell.m in Sources */,
 				19C8B8381C9E95040044D0C3 /* BabyAddInfoCell.m in Sources */,
 				19C8B8411C9EA8E10044D0C3 /* ModifyNameVC.m in Sources */,
 				19C8B8481C9EC9A60044D0C3 /* AddBabyVC.m in Sources */,
