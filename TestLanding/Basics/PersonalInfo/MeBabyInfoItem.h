@@ -8,11 +8,12 @@
 
 #import "PersonalCenter.h"
 #import "ImageItem.h"
+#import "Gender.h"
 
 @interface MeBabyInfoItem : PersonalCenter
 
-//@property (nonatomic, strong) ImageItem *Avatar;
-@property (nonatomic, copy) NSString *sex;
+@property (nonatomic, strong) ImageItem *Avatar;
+@property (nonatomic, assign) Gender sex;
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *birthday;
 

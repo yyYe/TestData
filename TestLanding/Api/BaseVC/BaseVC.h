@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
+
 #import "PersonalCenter.h"
 #import "MeLableItem.h"
 #import "HttpTool.h"
 #import "MeGroup.h"
+#import "PersonBase.h"
+#import "Mother.h"
+#import "Baby.h"
 
 @interface BaseVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

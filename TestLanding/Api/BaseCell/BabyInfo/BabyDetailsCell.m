@@ -68,7 +68,7 @@ static NSInteger const kAvatarSize = 70;
 - (void)setBabyItem:(MeBabyInfoItem *)babyItem {
     avatar.image = [UIImage imageNamed:@"default-avatar"];
     babyName.text = babyItem.nickName;
-    babySex.text = babyItem.sex;
+    babySex.text = (babyItem.sex == GenderMan) ? @"男" : @"女";
 //    babyBirthday.text = babyItem.birthday;
 }
 

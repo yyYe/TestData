@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NSString+Safe.h"
 #import "ImageItem.h"
+#import "Gender.h"
 
 //基类
 @interface PersonBase : NSObject
@@ -28,7 +29,7 @@
 /**   如未设置就是手机号,后台处理    */
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *address;
-//@property (nonatomic, assign) Gender gender;
+@property (nonatomic, assign) Gender gender;
 @property (nonatomic, copy) NSString *age;
 @property (nonatomic, copy) NSString *birthday;
 @property (nonatomic, copy) NSString *phoneNumber;

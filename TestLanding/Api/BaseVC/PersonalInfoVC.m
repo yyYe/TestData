@@ -22,6 +22,13 @@ static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMam
 
 @implementation PersonalInfoVC
 
+- (Mother *)mother {
+    if (!_mother) {
+        _mother = [Mother new];
+    }
+    return _mother;
+}
+
 - (void)contentData {
     [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
     [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
@@ -37,9 +44,10 @@ static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMam
                                    @"msgType":@"getMamaInfo",
                                    @"timestamp":@"2016-02-29 13:07:57.429",
                                    @"clientRes":@"iOS",
-                                   @"token":@"2e66a5e1c29c43a3a36913a0b5daf48661874998366493504079781121225176"
+                                   @"token":@"a06be987ef5e4852be76d9b3d2be012821264973556186006258165347027804"
                                    }
                            };
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];
@@ -47,11 +55,10 @@ static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMam
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
-        self.dict = responseObject;
-        
-        
-        
-        
+        NSDictionary *dictData = [responseObject valueForKeyPath:@"data.mama"];
+        Mother *mother = [Mother motherWithDict:dictData[@"mamaInfo"]];
+        mother.babies = [Baby babyWithArray:dictData[@"babies"]];
+        self.mother = mother;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
@@ -62,20 +69,19 @@ static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMam
 }
 
 - (void)setUpMamaData {
-    NSDictionary *dictData = [self.dict valueForKeyPath:@"data.mama.mamaInfo"];
     //头像
-    PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:dictData[@"headerImg"] targrtClass:nil];
+    PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.mother.avatar.originalUrl targrtClass:nil];
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
     
     //父母的信息
-    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:dictData[@"userNick"] targrtClass:[ModifyNameVC class]];
-    MeLableItem *areaItem = [MeLableItem itemWithTitle:@"区域" details:dictData[@"area"] targrtClass:nil];
-    NSString *sex = [NSString stringWithFormat:@"%@",[dictData[@"gender"] isEqual: @"1"]?@"女":@"男"];
+    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.mother.nickName targrtClass:[ModifyNameVC class]];
+    MeLableItem *areaItem = [MeLableItem itemWithTitle:@"区域" details:self.mother.address targrtClass:nil];
+    NSString *sex = self.mother.gender == 1 ? @"女" : @"男";
     MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:sex targrtClass:[BabySexVC class]];
-    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:dictData[@"birthday"] targrtClass:nil];
-    MeLableItem *phoneItem = [MeLableItem itemWithTitle:kPhone details:dictData[@"phone"] targrtClass:nil];
-    MeLableItem *signatureItem = [MeLableItem itemWithTitle:@"签名" details:dictData[@"userSig"] targrtClass:nil];
+    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.mother.birthday targrtClass:nil];
+    MeLableItem *phoneItem = [MeLableItem itemWithTitle:kPhone details:self.mother.phoneNumber targrtClass:nil];
+    MeLableItem *signatureItem = [MeLableItem itemWithTitle:@"签名" details:self.mother.signature targrtClass:nil];
     NSArray *list2 = [NSArray new];
     list2 = @[nikeNameItem,areaItem,sexItem,birthDayItem,phoneItem,signatureItem];
     
@@ -83,14 +89,13 @@ static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMam
     PersonalCenter *babyTitle = [PersonalCenter itemWithTitle:@"宝宝信息" avatar:@"addBabyInfo" targrtClass:[AddBabyVC class]];
     NSMutableArray *babyArray = [@[] mutableCopy];
     [babyArray addObject:babyTitle];
-    NSArray *babyList = [self.dict valueForKeyPath:@"data.mama.babies"];
-    for (NSDictionary *dicData in babyList) {
+    for (Baby *baby in self.mother.babies) {
         MeBabyInfoItem *babyInfoItem = [[MeBabyInfoItem alloc]init];
-        babyInfoItem.nickName = dicData[@"babyName"];
-        NSString *babySex = [NSString stringWithFormat:@"%@",[dictData[@"gender"] isEqual: @"1"]?@"男":@"女"];
-        babyInfoItem.sex = babySex;
-        babyInfoItem.birthday = dicData[@"birthday"];
-        babyInfoItem.avatar = dicData[@"headerImg"];
+//        NSString *babySex = [NSString stringWithFormat:@"%@",[dictData[@"gender"] isEqual: @"1"]?@"男":@"女"];
+        babyInfoItem.sex = baby.gender;
+        babyInfoItem.Avatar.originalUrl = baby.avatar.originalUrl;
+        babyInfoItem.nickName = baby.nickName;
+        babyInfoItem.birthday = baby.birthday;
         [babyArray addObject:babyInfoItem];
     }
     NSArray *list3 = [NSArray new];

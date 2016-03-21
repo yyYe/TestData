@@ -22,7 +22,7 @@
     person.xuid = nonNullString(dict[@"xuid"]);
     person.signature = nonNullString(dict[@"userSig"]);
     person.level = nonNullString(dict[@"userRank"]);
-//    person.gender = [nonNullString(dict[@"gender"]) intValue];
+    person.gender = [nonNullString(dict[@"gender"]) intValue];
     
     return person;
 }
