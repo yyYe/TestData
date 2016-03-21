@@ -1,0 +1,6 @@
+pod 'AFNetworking'
+pod 'Masonry', '~> 0.6.3'
+pod 'SDWebImage', '~> 3.7.3'
+pod 'MBProgressHUD', '~> 0.9.1'
+pod 'MJRefresh', '~> 3.0.2'
+pod 'Realm', '~> 0.96.2'
