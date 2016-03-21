@@ -28,7 +28,7 @@ static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/mod
                                    @"msgType":@"mygrouplist",
                                    @"timestamp":@"2016-02-29 13:07:57.429",
                                    @"clientRes":@"iOS",
-                                   @"token":@"2e66a5e1c29c43a3a36913a0b5daf48661874998366493504079781121225176"
+                                   @"token":@"776fc594d9c6403696ac46c0af31cc4324471288525134868655473389927841"
                                    }
                            };
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

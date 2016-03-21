@@ -22,6 +22,7 @@
 
 /**   头像   */
 @property (nonatomic, strong) ImageItem *avatar;
+@property (nonatomic, strong) NSString *avatarString;
 
 /**   baby只用nickName,目前baby没有name属性    */
 @property (nonatomic, copy) NSString *name;

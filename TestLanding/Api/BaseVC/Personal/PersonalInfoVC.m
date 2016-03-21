@@ -36,7 +36,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
     [self.tableView registerClass:[BabyAddInfoCell class] forCellReuseIdentifier:@"BabyAddInfoCell"];
     [self.tableView registerClass:[BabyDetailsCell class] forCellReuseIdentifier:@"BabyDetailsCell"];
-    
+
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00"
@@ -44,9 +44,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
                                    @"msgType":@"getMamaInfo",
-                                   @"timestamp":@"2016-02-29 13:07:57.429",
-                                   @"clientRes":@"iOS",
-                                   @"token":@"776fc594d9c6403696ac46c0af31cc4324471288525134868655473389927841"
+                                   @"token":@"d50268b04190405795832982ba1128cf85987960669936120137125277571745"
                                    }
                            };
     
@@ -72,7 +70,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
 
 - (void)setUpMamaData {
     //头像
-    PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.mother.avatar.originalUrl targrtClass:nil];
+    PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.mother.avatarString targrtClass:nil];
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
     
@@ -204,7 +202,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     NSData *data = UIImageJPEGRepresentation(image, 1.0f);
     NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-
+    
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
@@ -213,9 +211,7 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
                                    @"msgType":@"modifyMamaHeaderImg",
-                                   @"timestamp":@"2016-02-29 13:07:57.429",
-                                   @"clientRes":@"iOS",
-                                   @"token":@"776fc594d9c6403696ac46c0af31cc4324471288525134868655473389927841"
+                                   @"token":@"d50268b04190405795832982ba1128cf85987960669936120137125277571745"
                                    }
                            };
     

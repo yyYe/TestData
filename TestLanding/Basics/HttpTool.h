@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FGParams : NSObject
+@interface Params : NSObject
 
 @property (strong, nonatomic) NSMutableDictionary *data;
 @property (strong, nonatomic) NSMutableDictionary *header;

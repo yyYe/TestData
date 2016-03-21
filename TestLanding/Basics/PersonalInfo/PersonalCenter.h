@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ImageItem.h"
 
 @interface PersonalCenter : NSObject
 
 /**  注意:这个不是头像, 头像是avatar   */
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *avatar;
+@property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, assign) BOOL needToken;
 @property (nonatomic, assign) Class targetClass;
 @property (nonatomic, copy) void(^doneBlock)();

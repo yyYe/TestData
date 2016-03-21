@@ -11,7 +11,7 @@
 @interface ImageItem : NSObject
 
 /* 原图地址 */
-@property (nonatomic, copy) NSString *originalUrl;
+@property (nonatomic, strong) NSString *originalUrl;
 
 /* 缩略图地址 */
 @property (nonatomic, copy) NSString *thumbnailUrl;

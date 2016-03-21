@@ -40,3 +40,41 @@
 
 @end
 
+
+@implementation Params
+
+- (instancetype)init{
+    if (self = [super init]) {
+        self.data = [@{} mutableCopy];
+        
+        self.header = [@{} mutableCopy];
+        self.header[@"clientRes"] = @"iOS";
+//        self.header[@"msgId"] = [UIDevice generateMsgId];
+        self.header[@"timestamp"] = [self fetchTimestamp]; //"2015-11-09 16:50:44.091"
+    }
+    return self;
+}
+
++ (instancetype)paramsWithMsgType:(NSString*)msgType{
+    Params *params = [[self alloc]init];
+    params.header[@"msgType"] = msgType ? msgType : @"";
+    return params;
+}
+
++ (instancetype)createWithMsgType:(NSString*)msgType{
+    Params* params =[[self alloc]init];
+    params.header[@"msgType"] = msgType ? msgType : @"";
+    
+    return params;
+}
+
+- (NSString *)fetchTimestamp{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSString *str = [fmt stringFromDate:now];
+    NSString *timestamp = [NSString stringWithFormat:@"%@.000", str];
+    return timestamp;
+}
+
+@end

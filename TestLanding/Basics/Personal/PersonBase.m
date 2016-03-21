@@ -14,6 +14,7 @@
     PersonBase *person = [[self alloc]init];
     person.userId = nonNullString(dict[@"id"]);
 //    person.avatar.originalUrl = nonNullString(dict[@"headerImg"]);
+    person.avatarString = nonNullString(dict[@"headerImg"]);
     person.phoneNumber = nonNullString(dict[@"phone"]);
     person.levelName = nonNullString(dict[@"rankTitle"]);
     person.address = nonNullString(dict[@"area"]);
