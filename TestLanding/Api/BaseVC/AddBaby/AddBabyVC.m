@@ -27,13 +27,13 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     
     self.title = @"新增宝宝信息";
     
-    PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:@"default-avatar" targrtClass:nil];
+    PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.babyInfo.avatar targrtClass:nil];
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
     
-    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:@"" targrtClass:[ModifyNameVC class]];
-    MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:@"小公举" targrtClass:[BabySexVC class]];
-    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:@"" targrtClass:nil];
+    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.babyInfo.nickName targrtClass:[ModifyNameVC class]];
+    MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:(self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举" targrtClass:[BabySexVC class]];
+    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.babyInfo.birthday targrtClass:nil];
     NSArray *list2 = [NSArray new];
     list2 = @[nikeNameItem,sexItem,birthDayItem];
     self.data = [NSMutableArray arrayWithObjects:list1,list2, nil];
@@ -43,7 +43,10 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"babyName":@"test"
+                                   @"headerImg":self.babyInfo.avatar,
+                                   @"babyName":self.babyInfo.nickName,
+                                   @"birthday":self.babyInfo.birthday,
+                                   @"gender":@(self.babyInfo.sex),
                                    },
                            @"header":@{
                                    @"msgType":@"addBabyInfo",

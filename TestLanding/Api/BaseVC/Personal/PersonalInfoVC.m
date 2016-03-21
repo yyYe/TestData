@@ -174,6 +174,13 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
         
         UIViewController *vc = [[[item targetClass]alloc]init];
         vc.title = [item title];
+        
+        if (indexPath.section == 2) {
+            AddBabyVC *babyVC = [AddBabyVC new];
+            babyVC.babyInfo = item;
+            [self.navigationController pushViewController:babyVC animated:YES];
+        }
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

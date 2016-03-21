@@ -7,7 +7,10 @@
 //
 
 #import "CustomNavgationButtonVC.h"
+#import "MeBabyInfoItem.h"
 
 @interface AddBabyVC : CustomNavgationButtonVC
+
+@property (nonatomic, strong) MeBabyInfoItem *babyInfo;
 
 @end
