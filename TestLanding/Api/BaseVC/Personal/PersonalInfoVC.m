@@ -170,13 +170,20 @@ static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mam
     vc.title = [item title];
     
     if (indexPath.section == 1) {
-        BirthdayVC *commonVC = (BirthdayVC *)vc; //运行时
+        ModifyNameVC *commonVC = (ModifyNameVC *)vc; //运行时
         commonVC.person = self.mother;
+        commonVC.refresh = ^(){
+            //刷新了就是没有改变值
+            [self.tableView reloadData];
+        };
     }
     
     if (indexPath.section == 2) {
         AddBabyVC *babyVC = [AddBabyVC new];
         babyVC.babyInfo = item;
+        babyVC.refresh = ^(){
+            [self.tableView reloadData];
+        };
     }
     
     [self.navigationController pushViewController:vc animated:YES];

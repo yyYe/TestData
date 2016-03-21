@@ -36,6 +36,7 @@ static NSInteger const kDatePickerHeight = 200;
         NSLog(@"error-%@",error);
     }];
     [self.tableView reloadData];
+    self.refresh();
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

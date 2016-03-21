@@ -43,10 +43,10 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"headerImg":self.babyInfo.avatar,
-                                   @"babyName":self.babyInfo.nickName,
-                                   @"birthday":self.babyInfo.birthday,
-                                   @"gender":@(self.babyInfo.sex),
+//                                   @"headerImg":self.babyInfo.avatar,
+                                   @"babyName":@"test",
+//                                   @"birthday":self.babyInfo.birthday,
+//                                   @"gender":@(self.babyInfo.sex),
                                    },
                            @"header":@{
                                    @"msgType":@"addBabyInfo",
@@ -64,6 +64,7 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
+    self.refresh();
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

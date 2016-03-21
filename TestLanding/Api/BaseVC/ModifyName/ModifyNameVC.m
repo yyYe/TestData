@@ -24,7 +24,7 @@
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"userNick":nameText
+                                   @"userNick":self.person.nickName
                                    },
                            @"header":@{
                                    @"msgType":@"mygrouplist",
@@ -38,10 +38,10 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
-        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
+    self.refresh();
 }
 
 
@@ -53,8 +53,12 @@
     ModifyNameCell *nameCell = [tableView dequeueReusableCellWithIdentifier:@"ModifyNameCell"];
     nameCell.person = self.person;
     nameCell.tfContent = ^(NSString *tfText){
-        nameText = tfText;
-        [self.tableView reloadData];
+        if (tfText == nil) {
+            [self.tableView reloadData];
+        } else {
+            self.person.nickName = tfText;
+            [self.tableView reloadData];
+        }
     };
     return nameCell;
 }

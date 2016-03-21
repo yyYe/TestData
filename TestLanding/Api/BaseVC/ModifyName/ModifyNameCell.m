@@ -21,7 +21,7 @@
     self.tfName.placeholder = @"请输入:";
     self.tfName.delegate = self;
     [self.tfName addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-//    tfName.text = self.labelItem.details;
+    self.tfName.text = self.person.nickName;
     [self addSubview:self.tfName];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -38,9 +38,8 @@
 }
 
 - (void)textFieldDidChange:(UITextField *)textField {
-    self.tfName.text = textField.text;
     NSLog(@"%@",textField.text);
-    self.tfContent(textField.text);
+    self.tfContent(self.tfName.text);
 }
 
 - (void)setPerson:(PersonBase *)person {

@@ -6,7 +6,6 @@
 //  Copyright © 2016年 yeyy. All rights reserved.
 //
 
-#import "CustomNavgationButtonVC.h"
 #import "BaseVC.h"
 
 @implementation BaseVC
@@ -29,19 +28,8 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
-//    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
+
     [self contentData];
-//    [self refreshTableView];
-}
-
-
-- (void)refreshTableView {
-    CustomNavgationButtonVC *navgationButtonVC = [CustomNavgationButtonVC new];
-    navgationButtonVC.refresh = ^(){
-        [self.tableView reloadData];
-    };
 }
 
 - (void)contentData {
