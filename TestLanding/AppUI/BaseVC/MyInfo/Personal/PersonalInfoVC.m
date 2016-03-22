@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yeyy. All rights reserved.
 //
 
+#import "UIImage+Extension.h"
 #import "PersonalInfoVC.h"
 #import "ModifyNameVC.h"
 #import "AddBabyVC.h"
@@ -137,7 +138,7 @@
     if (indexPath.section == 0) {
         MamaAvatarCell *avatarCell = [tableView dequeueReusableCellWithIdentifier:@"MamaAvatarCell"];
         avatarCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        avatarCell.avatarData = list[indexPath.row];
+        avatarCell.personalCenter = list[indexPath.row];
         return avatarCell;
     } else if (indexPath.section == 1) {
         MamaInfoCell *mamaInfoCell = [tableView dequeueReusableCellWithIdentifier:@"MamaInfoCell"];
@@ -272,7 +273,10 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    NSData *data = UIImageJPEGRepresentation(image, 1.0f);
+    UIImage *iconImage = [image generateThumbnail:YMMIconSize];
+    NSData *data = UIImageJPEGRepresentation(iconImage, 1.0f);
+    PersonalCenter *personal = [PersonalCenter new];
+    personal.avatarData = data;
     FGPictureFile *picture = [FGPictureFile fileWithData:data];
     NSDictionary *dict = @{
                            @"data":@{
@@ -322,7 +326,8 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"response-%@",responseObject);
         [self dismissViewControllerAnimated:YES completion:nil];
-        [self contentData];
+//        [self contentData];
+        [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];

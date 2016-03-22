@@ -24,14 +24,15 @@ static NSInteger const kAvatarSize = 50;
     }];
 }
 
-- (void)setAvatarData:(PersonalCenter *)avatarData {
-    self.textLabel.text = avatarData.title;
-    if (avatarData.avatar == nil) {
+- (void)setPersonalCenter:(PersonalCenter *)personalCenter {
+    self.textLabel.text = personalCenter.title;
+    if (personalCenter.avatar == nil) {
         self.avatar.image = [UIImage imageNamed:@"default-avatar"];
     }else {
-        [self.avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://res.yimama.com.cn/media/%@",avatarData.avatar]]];
+        [self.avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://res.yimama.com.cn/media/%@",personalCenter.avatar]]];
+//        self.avatar.image = [UIImage imageWithData:personalCenter.avatarData];
     }
-    
 }
+
 
 @end

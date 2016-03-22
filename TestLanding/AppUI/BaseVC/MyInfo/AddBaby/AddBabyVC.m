@@ -88,7 +88,7 @@
     if (indexPath.section == 0) {
         MamaAvatarCell *avatarCell = [tableView dequeueReusableCellWithIdentifier:@"MamaAvatarCell"];
         avatarCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        avatarCell.avatarData = list[indexPath.row];
+        avatarCell.personalCenter = list[indexPath.row];
         return avatarCell;
     } else if (indexPath.section == 1) {
         MamaInfoCell *mamaInfoCell = [tableView dequeueReusableCellWithIdentifier:@"MamaInfoCell"];
