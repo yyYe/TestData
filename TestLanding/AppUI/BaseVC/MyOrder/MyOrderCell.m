@@ -26,11 +26,11 @@
 
 -(void)createUI{
     orderId = [UILabel new];
-    orderId.font = [UIFont systemFontOfSize:14];
+    orderId.font = fontSize(14);
     [self addSubview:orderId];
     
     orderSta = [UILabel new];
-    orderSta.font = [UIFont systemFontOfSize:14];
+    orderSta.font = fontSize(14);
     [self addSubview:orderSta];
     
     ivLogo = [UIImageView new];
@@ -38,27 +38,27 @@
     
     cfTitle = [UILabel new];
     cfTitle.textColor = [UIColor lightGrayColor];
-    cfTitle.font = [UIFont systemFontOfSize:15];
+    cfTitle.font = fontSize(15);
     [self addSubview:cfTitle];
     
     sizeName = [UILabel new];
     sizeName.textColor = [UIColor grayColor];
-    sizeName.font = [UIFont systemFontOfSize:12];
+    sizeName.font = fontSize(12);
     [self addSubview:sizeName];
     
     num = [UILabel new];
     num.textColor = [UIColor grayColor];
-    num.font = [UIFont systemFontOfSize:12];
+    num.font = fontSize(12);
     [self addSubview:num];
     
     price = [UILabel new];
     price.textColor = [UIColor purpleColor];
-    price.font = [UIFont systemFontOfSize:14];
+    price.font = fontSize(14);
     [self addSubview:price];
     
     total = [UILabel new];
     total.textColor = [UIColor purpleColor];
-    total.font = [UIFont systemFontOfSize:14];
+    total.font = fontSize(14);
     [self addSubview:total];
     
     [orderId mas_makeConstraints:^(MASConstraintMaker *make) {

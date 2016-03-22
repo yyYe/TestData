@@ -31,4 +31,11 @@
     return item;
 }
 
++ (instancetype)itemWithTitle:(NSString *)title placeholder:(NSString *)placeholder {
+    PersonalCenter *item = [[self alloc]init];
+    item.title = title;
+    item.placeholder = placeholder;
+    return item;
+}
+
 @end

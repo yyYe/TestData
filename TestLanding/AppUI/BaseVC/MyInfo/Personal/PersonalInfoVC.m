@@ -35,8 +35,7 @@
  
     NSDictionary *dict = @{
                            @"data":@{
-                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"headerImg":@"3"
+                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00"
                                    },
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",

@@ -18,6 +18,10 @@
 
 - (void)contentData {
     [self.tableView registerClass:[MyOrderCell class] forCellReuseIdentifier:@"MyOrderCell"];
+    [self orderItem];
+}
+
+- (void)orderItem {
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",

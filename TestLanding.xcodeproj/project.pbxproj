@@ -43,6 +43,11 @@
 		19C8B99E1CA136E40044D0C3 /* PersonalInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B99D1CA136E40044D0C3 /* PersonalInfoCell.m */; };
 		19C8B9A11CA156D80044D0C3 /* MyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9A01CA156D80044D0C3 /* MyOrderVC.m */; };
 		19C8B9A41CA158150044D0C3 /* MyOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9A31CA158150044D0C3 /* MyOrder.m */; };
+		19C8B9A81CA1731D0044D0C3 /* MyAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9A71CA1731D0044D0C3 /* MyAddressVC.m */; };
+		19C8B9AB1CA1735E0044D0C3 /* MyAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9AA1CA1735E0044D0C3 /* MyAddressCell.m */; };
+		19C8B9AE1CA173830044D0C3 /* MyAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9AD1CA173830044D0C3 /* MyAddress.m */; };
+		19C8B9B11CA17C860044D0C3 /* AddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9B01CA17C860044D0C3 /* AddAddressVC.m */; };
+		19C8B9B41CA185170044D0C3 /* AddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9B31CA185170044D0C3 /* AddAddressCell.m */; };
 		E8BBEB2AEE6786848DA8F7D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAEB6C4966ACADBEAB3DBAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +126,16 @@
 		19C8B9A01CA156D80044D0C3 /* MyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderVC.m; sourceTree = "<group>"; };
 		19C8B9A21CA158150044D0C3 /* MyOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrder.h; sourceTree = "<group>"; };
 		19C8B9A31CA158150044D0C3 /* MyOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrder.m; sourceTree = "<group>"; };
+		19C8B9A61CA1731D0044D0C3 /* MyAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressVC.h; sourceTree = "<group>"; };
+		19C8B9A71CA1731D0044D0C3 /* MyAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressVC.m; sourceTree = "<group>"; };
+		19C8B9A91CA1735E0044D0C3 /* MyAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressCell.h; sourceTree = "<group>"; };
+		19C8B9AA1CA1735E0044D0C3 /* MyAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressCell.m; sourceTree = "<group>"; };
+		19C8B9AC1CA173830044D0C3 /* MyAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddress.h; sourceTree = "<group>"; };
+		19C8B9AD1CA173830044D0C3 /* MyAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddress.m; sourceTree = "<group>"; };
+		19C8B9AF1CA17C860044D0C3 /* AddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressVC.h; sourceTree = "<group>"; };
+		19C8B9B01CA17C860044D0C3 /* AddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressVC.m; sourceTree = "<group>"; };
+		19C8B9B21CA185170044D0C3 /* AddAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressCell.h; sourceTree = "<group>"; };
+		19C8B9B31CA185170044D0C3 /* AddAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressCell.m; sourceTree = "<group>"; };
 		4BAEB6C4966ACADBEAB3DBAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEC5CD80932C2E947128884 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C374A337BA9574433C04C3C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +251,7 @@
 				19C8B9981CA136500044D0C3 /* Login */,
 				19C8B94D1CA12DC90044D0C3 /* MyInfo */,
 				19C8B9071CA127790044D0C3 /* MyOrder */,
+				19C8B9A51CA172B30044D0C3 /* MyAddrees */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -408,6 +424,24 @@
 			path = BaseVC/Login;
 			sourceTree = "<group>";
 		};
+		19C8B9A51CA172B30044D0C3 /* MyAddrees */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B9A61CA1731D0044D0C3 /* MyAddressVC.h */,
+				19C8B9A71CA1731D0044D0C3 /* MyAddressVC.m */,
+				19C8B9A91CA1735E0044D0C3 /* MyAddressCell.h */,
+				19C8B9AA1CA1735E0044D0C3 /* MyAddressCell.m */,
+				19C8B9AF1CA17C860044D0C3 /* AddAddressVC.h */,
+				19C8B9B01CA17C860044D0C3 /* AddAddressVC.m */,
+				19C8B9B21CA185170044D0C3 /* AddAddressCell.h */,
+				19C8B9B31CA185170044D0C3 /* AddAddressCell.m */,
+				19C8B9AC1CA173830044D0C3 /* MyAddress.h */,
+				19C8B9AD1CA173830044D0C3 /* MyAddress.m */,
+			);
+			name = MyAddrees;
+			path = BaseVC/MyAddrees;
+			sourceTree = "<group>";
+		};
 		D2B999AF3FF06A5A3228B62F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,19 +579,24 @@
 				19C8B97C1CA12DC90044D0C3 /* BirthdayCell.m in Sources */,
 				19C8B8221C9E850F0044D0C3 /* PersonalCenter.m in Sources */,
 				19C8B9A41CA158150044D0C3 /* MyOrder.m in Sources */,
+				19C8B9AB1CA1735E0044D0C3 /* MyAddressCell.m in Sources */,
 				19C8B9811CA12DC90044D0C3 /* ModifyNameVC.m in Sources */,
 				19C8B8DA1CA11F070044D0C3 /* ModifyMeInfoTool.m in Sources */,
 				19C8B9871CA12DC90044D0C3 /* BabySexVC.m in Sources */,
 				19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */,
+				19C8B9B41CA185170044D0C3 /* AddAddressCell.m in Sources */,
+				19C8B9B11CA17C860044D0C3 /* AddAddressVC.m in Sources */,
 				19C8B9821CA12DC90044D0C3 /* MamaAvatarCell.m in Sources */,
 				19C8B8211C9E850F0044D0C3 /* MeLableItem.m in Sources */,
 				19C8B9931CA12DFF0044D0C3 /* CustomNavgationButtonVC.m in Sources */,
 				19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */,
 				19C8B99B1CA136500044D0C3 /* LoginVC.m in Sources */,
 				19C8B90A1CA127790044D0C3 /* MyOrderCell.m in Sources */,
+				19C8B9A81CA1731D0044D0C3 /* MyAddressVC.m in Sources */,
 				19C8B9861CA12DC90044D0C3 /* PersonalInfoVC.m in Sources */,
 				19C8B81F1C9E850F0044D0C3 /* MeBabyInfoItem.m in Sources */,
 				19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */,
+				19C8B9AE1CA173830044D0C3 /* MyAddress.m in Sources */,
 				19C8B9771CA12DC90044D0C3 /* AddBabyVC.m in Sources */,
 				19C8B97D1CA12DC90044D0C3 /* BirthdayVC.m in Sources */,
 				19C8B9921CA12DFF0044D0C3 /* BaseVC.m in Sources */,

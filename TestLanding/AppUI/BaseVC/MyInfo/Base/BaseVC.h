@@ -29,6 +29,7 @@ static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_up
 static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBabyInfo";
 static NSString *const kListFollows = @"http://app.yimama.com.cn/api/follow/listFollows";
 static NSString *const kList = @"http://app.yimama.com.cn/api/cforder/list"; //用户订单列表
+static NSString *const kAddUserAddress = @"http://app.yimama.com.cn/api/adr/addUserAddress"; 
 
 #define screenHeight [UIScreen mainScreen].bounds.size.height
 #define screenWidth [UIScreen mainScreen].bounds.size.width

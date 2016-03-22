@@ -15,6 +15,8 @@
 #import "Mother.h"
 #import "PersonBase.h"
 
+#define fontSize(size) [UIFont systemFontOfSize:size]
+
 @interface BaseCell : UITableViewCell
 
 @property (nonatomic, strong) PersonalCenter *personalCenter;
