@@ -12,34 +12,34 @@
 		19C8B7AB1C9C47660044D0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7A91C9C47660044D0C3 /* Main.storyboard */; };
 		19C8B7AD1C9C47660044D0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7AC1C9C47660044D0C3 /* Assets.xcassets */; };
 		19C8B7B01C9C47660044D0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7AE1C9C47660044D0C3 /* LaunchScreen.storyboard */; };
-		19C8B7DB1C9D2CDB0044D0C3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7DA1C9D2CDB0044D0C3 /* BaseCell.m */; };
 		19C8B7E41C9D575D0044D0C3 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7E31C9D575D0044D0C3 /* HttpTool.m */; };
-		19C8B8021C9E773D0044D0C3 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8011C9E773D0044D0C3 /* NSString+Safe.m */; };
-		19C8B8091C9E77AF0044D0C3 /* MamaInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8061C9E77AF0044D0C3 /* MamaInfoCell.m */; };
-		19C8B80A1C9E77AF0044D0C3 /* PersonalCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8081C9E77AF0044D0C3 /* PersonalCenterCell.m */; };
-		19C8B80D1C9E77CA0044D0C3 /* MamaAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B80C1C9E77CA0044D0C3 /* MamaAvatarCell.m */; };
 		19C8B81F1C9E850F0044D0C3 /* MeBabyInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8161C9E850F0044D0C3 /* MeBabyInfoItem.m */; };
 		19C8B8201C9E850F0044D0C3 /* MeGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8181C9E850F0044D0C3 /* MeGroup.m */; };
 		19C8B8211C9E850F0044D0C3 /* MeLableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B81A1C9E850F0044D0C3 /* MeLableItem.m */; };
 		19C8B8221C9E850F0044D0C3 /* PersonalCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B81C1C9E850F0044D0C3 /* PersonalCenter.m */; };
 		19C8B82D1C9E93030044D0C3 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B82C1C9E93030044D0C3 /* ImageItem.m */; };
-		19C8B8381C9E95040044D0C3 /* BabyAddInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8351C9E95040044D0C3 /* BabyAddInfoCell.m */; };
-		19C8B8391C9E95040044D0C3 /* BabyDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8371C9E95040044D0C3 /* BabyDetailsCell.m */; };
-		19C8B8411C9EA8E10044D0C3 /* ModifyNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8401C9EA8E10044D0C3 /* ModifyNameVC.m */; };
-		19C8B8441C9EA8FC0044D0C3 /* ModifyNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8431C9EA8FC0044D0C3 /* ModifyNameCell.m */; };
-		19C8B8481C9EC9A60044D0C3 /* AddBabyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */; };
 		19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8551C9F98040044D0C3 /* Baby.m */; };
 		19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8571C9F98040044D0C3 /* Mother.m */; };
 		19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8591C9F98040044D0C3 /* PersonBase.m */; };
-		19C8B8641C9FB0590044D0C3 /* PersonalCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8611C9FB0590044D0C3 /* PersonalCenterVC.m */; };
-		19C8B8651C9FB0590044D0C3 /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8631C9FB0590044D0C3 /* PersonalInfoVC.m */; };
-		19C8B86D1C9FB0740044D0C3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8681C9FB0740044D0C3 /* BaseVC.m */; };
-		19C8B86E1C9FB0740044D0C3 /* CustomNavgationButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */; };
-		19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B86C1C9FB0740044D0C3 /* LoginVC.m */; };
-		19C8B87E1C9FDC970044D0C3 /* BabySexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */; };
-		19C8B8891C9FE8080044D0C3 /* ModifyMeInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */; };
-		19C8B88D1CA0081E0044D0C3 /* BirthdayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B88C1CA0081E0044D0C3 /* BirthdayVC.m */; };
-		19C8B8901CA00CA00044D0C3 /* BirthdayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B88F1CA00CA00044D0C3 /* BirthdayCell.m */; };
+		19C8B8C91CA11F070044D0C3 /* BabyAddInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8951CA11F070044D0C3 /* BabyAddInfoCell.m */; };
+		19C8B8CA1CA11F070044D0C3 /* BabyDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8971CA11F070044D0C3 /* BabyDetailsCell.m */; };
+		19C8B8CB1CA11F070044D0C3 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8991CA11F070044D0C3 /* BaseCell.m */; };
+		19C8B8CC1CA11F070044D0C3 /* MamaAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B89C1CA11F070044D0C3 /* MamaAvatarCell.m */; };
+		19C8B8CD1CA11F070044D0C3 /* MamaInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B89E1CA11F070044D0C3 /* MamaInfoCell.m */; };
+		19C8B8CE1CA11F070044D0C3 /* PersonalCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8A01CA11F070044D0C3 /* PersonalCenterCell.m */; };
+		19C8B8CF1CA11F070044D0C3 /* AddBabyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8A41CA11F070044D0C3 /* AddBabyVC.m */; };
+		19C8B8D01CA11F070044D0C3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8A71CA11F070044D0C3 /* BaseVC.m */; };
+		19C8B8D11CA11F070044D0C3 /* CustomNavgationButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8A91CA11F070044D0C3 /* CustomNavgationButtonVC.m */; };
+		19C8B8D21CA11F070044D0C3 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8AB1CA11F070044D0C3 /* LoginVC.m */; };
+		19C8B8D31CA11F070044D0C3 /* BirthdayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8AE1CA11F070044D0C3 /* BirthdayCell.m */; };
+		19C8B8D41CA11F070044D0C3 /* BirthdayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8B01CA11F070044D0C3 /* BirthdayVC.m */; };
+		19C8B8D51CA11F070044D0C3 /* ModifyNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8B51CA11F070044D0C3 /* ModifyNameCell.m */; };
+		19C8B8D61CA11F070044D0C3 /* ModifyNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8B71CA11F070044D0C3 /* ModifyNameVC.m */; };
+		19C8B8D71CA11F070044D0C3 /* PersonalCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8BA1CA11F070044D0C3 /* PersonalCenterVC.m */; };
+		19C8B8D81CA11F070044D0C3 /* PersonalInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8BC1CA11F070044D0C3 /* PersonalInfoVC.m */; };
+		19C8B8D91CA11F070044D0C3 /* BabySexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8BF1CA11F070044D0C3 /* BabySexVC.m */; };
+		19C8B8DA1CA11F070044D0C3 /* ModifyMeInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8C51CA11F070044D0C3 /* ModifyMeInfoTool.m */; };
+		19C8B8DB1CA11F070044D0C3 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8C81CA11F070044D0C3 /* NSString+Safe.m */; };
 		E8BBEB2AEE6786848DA8F7D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAEB6C4966ACADBEAB3DBAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,18 +52,8 @@
 		19C8B7AC1C9C47660044D0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19C8B7AF1C9C47660044D0C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19C8B7B11C9C47660044D0C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19C8B7D91C9D2CDB0044D0C3 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
-		19C8B7DA1C9D2CDB0044D0C3 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		19C8B7E21C9D575D0044D0C3 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpTool.h; path = TestLanding/Basics/HttpTool.h; sourceTree = SOURCE_ROOT; };
 		19C8B7E31C9D575D0044D0C3 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpTool.m; path = TestLanding/Basics/HttpTool.m; sourceTree = SOURCE_ROOT; };
-		19C8B8001C9E773D0044D0C3 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
-		19C8B8011C9E773D0044D0C3 /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
-		19C8B8051C9E77AF0044D0C3 /* MamaInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MamaInfoCell.h; sourceTree = "<group>"; };
-		19C8B8061C9E77AF0044D0C3 /* MamaInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MamaInfoCell.m; sourceTree = "<group>"; };
-		19C8B8071C9E77AF0044D0C3 /* PersonalCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterCell.h; sourceTree = "<group>"; };
-		19C8B8081C9E77AF0044D0C3 /* PersonalCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterCell.m; sourceTree = "<group>"; };
-		19C8B80B1C9E77CA0044D0C3 /* MamaAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MamaAvatarCell.h; sourceTree = "<group>"; };
-		19C8B80C1C9E77CA0044D0C3 /* MamaAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MamaAvatarCell.m; sourceTree = "<group>"; };
 		19C8B8151C9E850F0044D0C3 /* MeBabyInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeBabyInfoItem.h; sourceTree = "<group>"; };
 		19C8B8161C9E850F0044D0C3 /* MeBabyInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeBabyInfoItem.m; sourceTree = "<group>"; };
 		19C8B8171C9E850F0044D0C3 /* MeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeGroup.h; sourceTree = "<group>"; };
@@ -74,41 +64,51 @@
 		19C8B81C1C9E850F0044D0C3 /* PersonalCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenter.m; sourceTree = "<group>"; };
 		19C8B82B1C9E93030044D0C3 /* ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItem.h; sourceTree = "<group>"; };
 		19C8B82C1C9E93030044D0C3 /* ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
-		19C8B8341C9E95040044D0C3 /* BabyAddInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyAddInfoCell.h; sourceTree = "<group>"; };
-		19C8B8351C9E95040044D0C3 /* BabyAddInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyAddInfoCell.m; sourceTree = "<group>"; };
-		19C8B8361C9E95040044D0C3 /* BabyDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyDetailsCell.h; sourceTree = "<group>"; };
-		19C8B8371C9E95040044D0C3 /* BabyDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDetailsCell.m; sourceTree = "<group>"; };
-		19C8B83F1C9EA8E10044D0C3 /* ModifyNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNameVC.h; sourceTree = "<group>"; };
-		19C8B8401C9EA8E10044D0C3 /* ModifyNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameVC.m; sourceTree = "<group>"; };
-		19C8B8421C9EA8FC0044D0C3 /* ModifyNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNameCell.h; sourceTree = "<group>"; };
-		19C8B8431C9EA8FC0044D0C3 /* ModifyNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameCell.m; sourceTree = "<group>"; };
-		19C8B8461C9EC9A60044D0C3 /* AddBabyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBabyVC.h; sourceTree = "<group>"; };
-		19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBabyVC.m; sourceTree = "<group>"; };
 		19C8B8541C9F98040044D0C3 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		19C8B8551C9F98040044D0C3 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		19C8B8561C9F98040044D0C3 /* Mother.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mother.h; sourceTree = "<group>"; };
 		19C8B8571C9F98040044D0C3 /* Mother.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mother.m; sourceTree = "<group>"; };
 		19C8B8581C9F98040044D0C3 /* PersonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonBase.h; sourceTree = "<group>"; };
 		19C8B8591C9F98040044D0C3 /* PersonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonBase.m; sourceTree = "<group>"; };
-		19C8B85E1C9F9C500044D0C3 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
-		19C8B8601C9FB0590044D0C3 /* PersonalCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterVC.h; sourceTree = "<group>"; };
-		19C8B8611C9FB0590044D0C3 /* PersonalCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterVC.m; sourceTree = "<group>"; };
-		19C8B8621C9FB0590044D0C3 /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
-		19C8B8631C9FB0590044D0C3 /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
-		19C8B8671C9FB0740044D0C3 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
-		19C8B8681C9FB0740044D0C3 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
-		19C8B8691C9FB0740044D0C3 /* CustomNavgationButtonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavgationButtonVC.h; sourceTree = "<group>"; };
-		19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavgationButtonVC.m; sourceTree = "<group>"; };
-		19C8B86B1C9FB0740044D0C3 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		19C8B86C1C9FB0740044D0C3 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
-		19C8B87B1C9FDC970044D0C3 /* BabySexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySexVC.h; sourceTree = "<group>"; };
-		19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexVC.m; sourceTree = "<group>"; };
-		19C8B8871C9FE8080044D0C3 /* ModifyMeInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyMeInfoTool.h; sourceTree = "<group>"; };
-		19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMeInfoTool.m; sourceTree = "<group>"; };
-		19C8B88B1CA0081E0044D0C3 /* BirthdayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayVC.h; sourceTree = "<group>"; };
-		19C8B88C1CA0081E0044D0C3 /* BirthdayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayVC.m; sourceTree = "<group>"; };
-		19C8B88E1CA00CA00044D0C3 /* BirthdayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayCell.h; sourceTree = "<group>"; };
-		19C8B88F1CA00CA00044D0C3 /* BirthdayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayCell.m; sourceTree = "<group>"; };
+		19C8B8941CA11F070044D0C3 /* BabyAddInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyAddInfoCell.h; sourceTree = "<group>"; };
+		19C8B8951CA11F070044D0C3 /* BabyAddInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyAddInfoCell.m; sourceTree = "<group>"; };
+		19C8B8961CA11F070044D0C3 /* BabyDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyDetailsCell.h; sourceTree = "<group>"; };
+		19C8B8971CA11F070044D0C3 /* BabyDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDetailsCell.m; sourceTree = "<group>"; };
+		19C8B8981CA11F070044D0C3 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
+		19C8B8991CA11F070044D0C3 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
+		19C8B89B1CA11F070044D0C3 /* MamaAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MamaAvatarCell.h; sourceTree = "<group>"; };
+		19C8B89C1CA11F070044D0C3 /* MamaAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MamaAvatarCell.m; sourceTree = "<group>"; };
+		19C8B89D1CA11F070044D0C3 /* MamaInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MamaInfoCell.h; sourceTree = "<group>"; };
+		19C8B89E1CA11F070044D0C3 /* MamaInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MamaInfoCell.m; sourceTree = "<group>"; };
+		19C8B89F1CA11F070044D0C3 /* PersonalCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterCell.h; sourceTree = "<group>"; };
+		19C8B8A01CA11F070044D0C3 /* PersonalCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterCell.m; sourceTree = "<group>"; };
+		19C8B8A31CA11F070044D0C3 /* AddBabyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBabyVC.h; sourceTree = "<group>"; };
+		19C8B8A41CA11F070044D0C3 /* AddBabyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBabyVC.m; sourceTree = "<group>"; };
+		19C8B8A61CA11F070044D0C3 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		19C8B8A71CA11F070044D0C3 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		19C8B8A81CA11F070044D0C3 /* CustomNavgationButtonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavgationButtonVC.h; sourceTree = "<group>"; };
+		19C8B8A91CA11F070044D0C3 /* CustomNavgationButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavgationButtonVC.m; sourceTree = "<group>"; };
+		19C8B8AA1CA11F070044D0C3 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		19C8B8AB1CA11F070044D0C3 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		19C8B8AD1CA11F070044D0C3 /* BirthdayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayCell.h; sourceTree = "<group>"; };
+		19C8B8AE1CA11F070044D0C3 /* BirthdayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayCell.m; sourceTree = "<group>"; };
+		19C8B8AF1CA11F070044D0C3 /* BirthdayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthdayVC.h; sourceTree = "<group>"; };
+		19C8B8B01CA11F070044D0C3 /* BirthdayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthdayVC.m; sourceTree = "<group>"; };
+		19C8B8B41CA11F070044D0C3 /* ModifyNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNameCell.h; sourceTree = "<group>"; };
+		19C8B8B51CA11F070044D0C3 /* ModifyNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameCell.m; sourceTree = "<group>"; };
+		19C8B8B61CA11F070044D0C3 /* ModifyNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNameVC.h; sourceTree = "<group>"; };
+		19C8B8B71CA11F070044D0C3 /* ModifyNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameVC.m; sourceTree = "<group>"; };
+		19C8B8B91CA11F070044D0C3 /* PersonalCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterVC.h; sourceTree = "<group>"; };
+		19C8B8BA1CA11F070044D0C3 /* PersonalCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterVC.m; sourceTree = "<group>"; };
+		19C8B8BB1CA11F070044D0C3 /* PersonalInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoVC.h; sourceTree = "<group>"; };
+		19C8B8BC1CA11F070044D0C3 /* PersonalInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoVC.m; sourceTree = "<group>"; };
+		19C8B8BE1CA11F070044D0C3 /* BabySexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySexVC.h; sourceTree = "<group>"; };
+		19C8B8BF1CA11F070044D0C3 /* BabySexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySexVC.m; sourceTree = "<group>"; };
+		19C8B8C21CA11F070044D0C3 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
+		19C8B8C41CA11F070044D0C3 /* ModifyMeInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyMeInfoTool.h; sourceTree = "<group>"; };
+		19C8B8C51CA11F070044D0C3 /* ModifyMeInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMeInfoTool.m; sourceTree = "<group>"; };
+		19C8B8C71CA11F070044D0C3 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
+		19C8B8C81CA11F070044D0C3 /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
 		4BAEB6C4966ACADBEAB3DBAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEC5CD80932C2E947128884 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C374A337BA9574433C04C3C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,7 +158,9 @@
 			children = (
 				19C8B7A31C9C47660044D0C3 /* AppDelegate.h */,
 				19C8B7A41C9C47660044D0C3 /* AppDelegate.m */,
-				19C8B7C41C9D2C4D0044D0C3 /* Api */,
+				19C8B8DC1CA11F2A0044D0C3 /* Utilities */,
+				19C8B8911CA11F070044D0C3 /* AppUI */,
+				19C8B8C01CA11F070044D0C3 /* Category */,
 				19C8B7B71C9C48E80044D0C3 /* Basics */,
 				19C8B7A91C9C47660044D0C3 /* Main.storyboard */,
 				19C8B7AC1C9C47660044D0C3 /* Assets.xcassets */,
@@ -188,83 +190,6 @@
 			path = Basics;
 			sourceTree = "<group>";
 		};
-		19C8B7C41C9D2C4D0044D0C3 /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B85D1C9F9C500044D0C3 /* enum */,
-				19C8B7FE1C9E773D0044D0C3 /* Category */,
-				19C8B8861C9FE8080044D0C3 /* ModifyMeInfoTool */,
-				19C8B7D11C9D2CBE0044D0C3 /* BaseVC */,
-				19C8B7CE1C9D2CBE0044D0C3 /* BaseCell */,
-			);
-			path = Api;
-			sourceTree = "<group>";
-		};
-		19C8B7CE1C9D2CBE0044D0C3 /* BaseCell */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B7D91C9D2CDB0044D0C3 /* BaseCell.h */,
-				19C8B7DA1C9D2CDB0044D0C3 /* BaseCell.m */,
-				19C8B8031C9E77AF0044D0C3 /* BabyInfo */,
-				19C8B8041C9E77AF0044D0C3 /* MamaInfo */,
-			);
-			path = BaseCell;
-			sourceTree = "<group>";
-		};
-		19C8B7D11C9D2CBE0044D0C3 /* BaseVC */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B8661C9FB0740044D0C3 /* Base */,
-				19C8B85F1C9FB0590044D0C3 /* Personal */,
-				19C8B83E1C9EA8E10044D0C3 /* ModifyName */,
-				19C8B8451C9EC98B0044D0C3 /* AddBaby */,
-				19C8B88A1CA007CD0044D0C3 /* Birthday */,
-				19C8B8781C9FDC970044D0C3 /* Sex */,
-			);
-			path = BaseVC;
-			sourceTree = "<group>";
-		};
-		19C8B7FE1C9E773D0044D0C3 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B7FF1C9E773D0044D0C3 /* NSString+Safe */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		19C8B7FF1C9E773D0044D0C3 /* NSString+Safe */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B8001C9E773D0044D0C3 /* NSString+Safe.h */,
-				19C8B8011C9E773D0044D0C3 /* NSString+Safe.m */,
-			);
-			path = "NSString+Safe";
-			sourceTree = "<group>";
-		};
-		19C8B8031C9E77AF0044D0C3 /* BabyInfo */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B8341C9E95040044D0C3 /* BabyAddInfoCell.h */,
-				19C8B8351C9E95040044D0C3 /* BabyAddInfoCell.m */,
-				19C8B8361C9E95040044D0C3 /* BabyDetailsCell.h */,
-				19C8B8371C9E95040044D0C3 /* BabyDetailsCell.m */,
-			);
-			path = BabyInfo;
-			sourceTree = "<group>";
-		};
-		19C8B8041C9E77AF0044D0C3 /* MamaInfo */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B8051C9E77AF0044D0C3 /* MamaInfoCell.h */,
-				19C8B8061C9E77AF0044D0C3 /* MamaInfoCell.m */,
-				19C8B8071C9E77AF0044D0C3 /* PersonalCenterCell.h */,
-				19C8B8081C9E77AF0044D0C3 /* PersonalCenterCell.m */,
-				19C8B80B1C9E77CA0044D0C3 /* MamaAvatarCell.h */,
-				19C8B80C1C9E77CA0044D0C3 /* MamaAvatarCell.m */,
-			);
-			path = MamaInfo;
-			sourceTree = "<group>";
-		};
 		19C8B8141C9E850F0044D0C3 /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,26 +207,6 @@
 			path = PersonalInfo;
 			sourceTree = "<group>";
 		};
-		19C8B83E1C9EA8E10044D0C3 /* ModifyName */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B83F1C9EA8E10044D0C3 /* ModifyNameVC.h */,
-				19C8B8401C9EA8E10044D0C3 /* ModifyNameVC.m */,
-				19C8B8421C9EA8FC0044D0C3 /* ModifyNameCell.h */,
-				19C8B8431C9EA8FC0044D0C3 /* ModifyNameCell.m */,
-			);
-			path = ModifyName;
-			sourceTree = "<group>";
-		};
-		19C8B8451C9EC98B0044D0C3 /* AddBaby */ = {
-			isa = PBXGroup;
-			children = (
-				19C8B8461C9EC9A60044D0C3 /* AddBabyVC.h */,
-				19C8B8471C9EC9A60044D0C3 /* AddBabyVC.m */,
-			);
-			path = AddBaby;
-			sourceTree = "<group>";
-		};
 		19C8B8531C9F98040044D0C3 /* Personal */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,65 +220,184 @@
 			path = Personal;
 			sourceTree = "<group>";
 		};
-		19C8B85D1C9F9C500044D0C3 /* enum */ = {
+		19C8B8911CA11F070044D0C3 /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B85E1C9F9C500044D0C3 /* Gender.h */,
+				19C8B8A11CA11F070044D0C3 /* BaseVC */,
+				19C8B8921CA11F070044D0C3 /* BaseCell */,
 			);
-			path = enum;
+			path = AppUI;
 			sourceTree = "<group>";
 		};
-		19C8B85F1C9FB0590044D0C3 /* Personal */ = {
+		19C8B8921CA11F070044D0C3 /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B8601C9FB0590044D0C3 /* PersonalCenterVC.h */,
-				19C8B8611C9FB0590044D0C3 /* PersonalCenterVC.m */,
-				19C8B8621C9FB0590044D0C3 /* PersonalInfoVC.h */,
-				19C8B8631C9FB0590044D0C3 /* PersonalInfoVC.m */,
+				19C8B8981CA11F070044D0C3 /* BaseCell.h */,
+				19C8B8991CA11F070044D0C3 /* BaseCell.m */,
+				19C8B8931CA11F070044D0C3 /* BabyInfo */,
+				19C8B89A1CA11F070044D0C3 /* MamaInfo */,
 			);
-			path = Personal;
+			path = BaseCell;
 			sourceTree = "<group>";
 		};
-		19C8B8661C9FB0740044D0C3 /* Base */ = {
+		19C8B8931CA11F070044D0C3 /* BabyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B8671C9FB0740044D0C3 /* BaseVC.h */,
-				19C8B8681C9FB0740044D0C3 /* BaseVC.m */,
-				19C8B8691C9FB0740044D0C3 /* CustomNavgationButtonVC.h */,
-				19C8B86A1C9FB0740044D0C3 /* CustomNavgationButtonVC.m */,
-				19C8B86B1C9FB0740044D0C3 /* LoginVC.h */,
-				19C8B86C1C9FB0740044D0C3 /* LoginVC.m */,
+				19C8B8941CA11F070044D0C3 /* BabyAddInfoCell.h */,
+				19C8B8951CA11F070044D0C3 /* BabyAddInfoCell.m */,
+				19C8B8961CA11F070044D0C3 /* BabyDetailsCell.h */,
+				19C8B8971CA11F070044D0C3 /* BabyDetailsCell.m */,
+			);
+			path = BabyInfo;
+			sourceTree = "<group>";
+		};
+		19C8B89A1CA11F070044D0C3 /* MamaInfo */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B89B1CA11F070044D0C3 /* MamaAvatarCell.h */,
+				19C8B89C1CA11F070044D0C3 /* MamaAvatarCell.m */,
+				19C8B89D1CA11F070044D0C3 /* MamaInfoCell.h */,
+				19C8B89E1CA11F070044D0C3 /* MamaInfoCell.m */,
+				19C8B89F1CA11F070044D0C3 /* PersonalCenterCell.h */,
+				19C8B8A01CA11F070044D0C3 /* PersonalCenterCell.m */,
+			);
+			path = MamaInfo;
+			sourceTree = "<group>";
+		};
+		19C8B8A11CA11F070044D0C3 /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8A51CA11F070044D0C3 /* Base */,
+				19C8B8B81CA11F070044D0C3 /* Personal */,
+				19C8B8A21CA11F070044D0C3 /* AddBaby */,
+				19C8B8AC1CA11F070044D0C3 /* Birthday */,
+				19C8B8B11CA11F070044D0C3 /* MamaAvatar */,
+				19C8B8B21CA11F070044D0C3 /* ModifyBabyInfo */,
+				19C8B8B31CA11F070044D0C3 /* ModifyName */,
+				19C8B8BD1CA11F070044D0C3 /* Sex */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		19C8B8A21CA11F070044D0C3 /* AddBaby */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8A31CA11F070044D0C3 /* AddBabyVC.h */,
+				19C8B8A41CA11F070044D0C3 /* AddBabyVC.m */,
+			);
+			path = AddBaby;
+			sourceTree = "<group>";
+		};
+		19C8B8A51CA11F070044D0C3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8A61CA11F070044D0C3 /* BaseVC.h */,
+				19C8B8A71CA11F070044D0C3 /* BaseVC.m */,
+				19C8B8A81CA11F070044D0C3 /* CustomNavgationButtonVC.h */,
+				19C8B8A91CA11F070044D0C3 /* CustomNavgationButtonVC.m */,
+				19C8B8AA1CA11F070044D0C3 /* LoginVC.h */,
+				19C8B8AB1CA11F070044D0C3 /* LoginVC.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		19C8B8781C9FDC970044D0C3 /* Sex */ = {
+		19C8B8AC1CA11F070044D0C3 /* Birthday */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B87B1C9FDC970044D0C3 /* BabySexVC.h */,
-				19C8B87C1C9FDC970044D0C3 /* BabySexVC.m */,
+				19C8B8AD1CA11F070044D0C3 /* BirthdayCell.h */,
+				19C8B8AE1CA11F070044D0C3 /* BirthdayCell.m */,
+				19C8B8AF1CA11F070044D0C3 /* BirthdayVC.h */,
+				19C8B8B01CA11F070044D0C3 /* BirthdayVC.m */,
+			);
+			path = Birthday;
+			sourceTree = "<group>";
+		};
+		19C8B8B11CA11F070044D0C3 /* MamaAvatar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MamaAvatar;
+			sourceTree = "<group>";
+		};
+		19C8B8B21CA11F070044D0C3 /* ModifyBabyInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModifyBabyInfo;
+			sourceTree = "<group>";
+		};
+		19C8B8B31CA11F070044D0C3 /* ModifyName */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8B41CA11F070044D0C3 /* ModifyNameCell.h */,
+				19C8B8B51CA11F070044D0C3 /* ModifyNameCell.m */,
+				19C8B8B61CA11F070044D0C3 /* ModifyNameVC.h */,
+				19C8B8B71CA11F070044D0C3 /* ModifyNameVC.m */,
+			);
+			path = ModifyName;
+			sourceTree = "<group>";
+		};
+		19C8B8B81CA11F070044D0C3 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8B91CA11F070044D0C3 /* PersonalCenterVC.h */,
+				19C8B8BA1CA11F070044D0C3 /* PersonalCenterVC.m */,
+				19C8B8BB1CA11F070044D0C3 /* PersonalInfoVC.h */,
+				19C8B8BC1CA11F070044D0C3 /* PersonalInfoVC.m */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		19C8B8BD1CA11F070044D0C3 /* Sex */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8BE1CA11F070044D0C3 /* BabySexVC.h */,
+				19C8B8BF1CA11F070044D0C3 /* BabySexVC.m */,
 			);
 			path = Sex;
 			sourceTree = "<group>";
 		};
-		19C8B8861C9FE8080044D0C3 /* ModifyMeInfoTool */ = {
+		19C8B8C01CA11F070044D0C3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B8871C9FE8080044D0C3 /* ModifyMeInfoTool.h */,
-				19C8B8881C9FE8080044D0C3 /* ModifyMeInfoTool.m */,
+				19C8B8C11CA11F070044D0C3 /* enum */,
+				19C8B8C31CA11F070044D0C3 /* ModifyMeInfoTool */,
+				19C8B8C61CA11F070044D0C3 /* NSString+Safe */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		19C8B8C11CA11F070044D0C3 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8C21CA11F070044D0C3 /* Gender.h */,
+			);
+			path = enum;
+			sourceTree = "<group>";
+		};
+		19C8B8C31CA11F070044D0C3 /* ModifyMeInfoTool */ = {
+			isa = PBXGroup;
+			children = (
+				19C8B8C41CA11F070044D0C3 /* ModifyMeInfoTool.h */,
+				19C8B8C51CA11F070044D0C3 /* ModifyMeInfoTool.m */,
 			);
 			path = ModifyMeInfoTool;
 			sourceTree = "<group>";
 		};
-		19C8B88A1CA007CD0044D0C3 /* Birthday */ = {
+		19C8B8C61CA11F070044D0C3 /* NSString+Safe */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B88B1CA0081E0044D0C3 /* BirthdayVC.h */,
-				19C8B88C1CA0081E0044D0C3 /* BirthdayVC.m */,
-				19C8B88E1CA00CA00044D0C3 /* BirthdayCell.h */,
-				19C8B88F1CA00CA00044D0C3 /* BirthdayCell.m */,
+				19C8B8C71CA11F070044D0C3 /* NSString+Safe.h */,
+				19C8B8C81CA11F070044D0C3 /* NSString+Safe.m */,
 			);
-			path = Birthday;
+			path = "NSString+Safe";
+			sourceTree = "<group>";
+		};
+		19C8B8DC1CA11F2A0044D0C3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		D2B999AF3FF06A5A3228B62F /* Frameworks */ = {
@@ -506,36 +530,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19C8B8641C9FB0590044D0C3 /* PersonalCenterVC.m in Sources */,
-				19C8B7DB1C9D2CDB0044D0C3 /* BaseCell.m in Sources */,
-				19C8B8021C9E773D0044D0C3 /* NSString+Safe.m in Sources */,
-				19C8B86E1C9FB0740044D0C3 /* CustomNavgationButtonVC.m in Sources */,
+				19C8B8D31CA11F070044D0C3 /* BirthdayCell.m in Sources */,
 				19C8B8221C9E850F0044D0C3 /* PersonalCenter.m in Sources */,
-				19C8B8091C9E77AF0044D0C3 /* MamaInfoCell.m in Sources */,
-				19C8B80D1C9E77CA0044D0C3 /* MamaAvatarCell.m in Sources */,
-				19C8B8441C9EA8FC0044D0C3 /* ModifyNameCell.m in Sources */,
+				19C8B8D61CA11F070044D0C3 /* ModifyNameVC.m in Sources */,
+				19C8B8D01CA11F070044D0C3 /* BaseVC.m in Sources */,
+				19C8B8CD1CA11F070044D0C3 /* MamaInfoCell.m in Sources */,
+				19C8B8D11CA11F070044D0C3 /* CustomNavgationButtonVC.m in Sources */,
+				19C8B8DA1CA11F070044D0C3 /* ModifyMeInfoTool.m in Sources */,
+				19C8B8D41CA11F070044D0C3 /* BirthdayVC.m in Sources */,
 				19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */,
+				19C8B8D21CA11F070044D0C3 /* LoginVC.m in Sources */,
 				19C8B8211C9E850F0044D0C3 /* MeLableItem.m in Sources */,
-				19C8B8901CA00CA00044D0C3 /* BirthdayCell.m in Sources */,
-				19C8B86F1C9FB0740044D0C3 /* LoginVC.m in Sources */,
+				19C8B8CF1CA11F070044D0C3 /* AddBabyVC.m in Sources */,
 				19C8B82D1C9E93030044D0C3 /* ImageItem.m in Sources */,
-				19C8B8391C9E95040044D0C3 /* BabyDetailsCell.m in Sources */,
-				19C8B87E1C9FDC970044D0C3 /* BabySexVC.m in Sources */,
-				19C8B8651C9FB0590044D0C3 /* PersonalInfoVC.m in Sources */,
+				19C8B8CB1CA11F070044D0C3 /* BaseCell.m in Sources */,
+				19C8B8D91CA11F070044D0C3 /* BabySexVC.m in Sources */,
 				19C8B8201C9E850F0044D0C3 /* MeGroup.m in Sources */,
+				19C8B8D81CA11F070044D0C3 /* PersonalInfoVC.m in Sources */,
+				19C8B8CA1CA11F070044D0C3 /* BabyDetailsCell.m in Sources */,
 				19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */,
 				19C8B81F1C9E850F0044D0C3 /* MeBabyInfoItem.m in Sources */,
+				19C8B8D71CA11F070044D0C3 /* PersonalCenterVC.m in Sources */,
 				19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */,
-				19C8B8891C9FE8080044D0C3 /* ModifyMeInfoTool.m in Sources */,
-				19C8B80A1C9E77AF0044D0C3 /* PersonalCenterCell.m in Sources */,
-				19C8B88D1CA0081E0044D0C3 /* BirthdayVC.m in Sources */,
+				19C8B8DB1CA11F070044D0C3 /* NSString+Safe.m in Sources */,
 				19C8B7A51C9C47660044D0C3 /* AppDelegate.m in Sources */,
-				19C8B86D1C9FB0740044D0C3 /* BaseVC.m in Sources */,
-				19C8B8381C9E95040044D0C3 /* BabyAddInfoCell.m in Sources */,
-				19C8B8411C9EA8E10044D0C3 /* ModifyNameVC.m in Sources */,
-				19C8B8481C9EC9A60044D0C3 /* AddBabyVC.m in Sources */,
 				19C8B7A21C9C47660044D0C3 /* main.m in Sources */,
+				19C8B8CE1CA11F070044D0C3 /* PersonalCenterCell.m in Sources */,
+				19C8B8D51CA11F070044D0C3 /* ModifyNameCell.m in Sources */,
 				19C8B7E41C9D575D0044D0C3 /* HttpTool.m in Sources */,
+				19C8B8C91CA11F070044D0C3 /* BabyAddInfoCell.m in Sources */,
+				19C8B8CC1CA11F070044D0C3 /* MamaAvatarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +611,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -628,6 +653,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

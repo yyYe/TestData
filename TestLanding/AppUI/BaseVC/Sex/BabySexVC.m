@@ -14,7 +14,6 @@
 
 - (void)contentData {
     
-//    self.list = @[@"小王纸",@"小公举"];
 }
 
 - (void)rightBtnAction {

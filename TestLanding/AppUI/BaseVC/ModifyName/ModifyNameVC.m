@@ -9,8 +9,6 @@
 #import "ModifyNameVC.h"
 #import "ModifyNameCell.h"
 
-//static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/modifyMamaInfo";
-
 @implementation ModifyNameVC
 
 - (void)contentData {

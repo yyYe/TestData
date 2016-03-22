@@ -12,7 +12,6 @@
 #import "MamaInfoCell.h"
 #import "BabySexVC.h"
 
-static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBabyInfo";
 
 @implementation AddBabyVC
 

@@ -16,8 +16,6 @@
 #import "PersonalInfoVC.h"
 #import "HttpTool.h"
 
-static NSString *const kListFollows = @"http://app.yimama.com.cn/api/follow/listFollows";
-static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getUserInfo";
 
 @interface PersonalCenterVC () <UITableViewDataSource, UITableViewDelegate>
 

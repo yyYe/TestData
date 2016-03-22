@@ -19,11 +19,6 @@
 
 #import "MeBabyInfoItem.h"
 
-static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getUserInfo";
-static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMamaInfo";
-static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";
-static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/removeBabyInfo";
-static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_upload_batch";
 
 @implementation PersonalInfoVC
 

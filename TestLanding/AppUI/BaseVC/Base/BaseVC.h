@@ -22,6 +22,13 @@
 static NSString *const kToken = @"a68e58ae97ef410d9d730d8618b4af8d95789903638697255885331133727644";
 static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/modifyMamaInfo"; //妈妈修改信息接口
 static NSString *const kModifyBabyInfo = @"http://app.yimama.com.cn/api/mama/modifyBabyInfo"; //宝宝修改信息接口
+static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getUserInfo";
+static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMamaInfo";
+static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";
+static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/removeBabyInfo";
+static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_upload_batch";
+static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBabyInfo";
+static NSString *const kListFollows = @"http://app.yimama.com.cn/api/follow/listFollows";
 
 #define screenHeight [UIScreen mainScreen].bounds.size.height
 #define screenWidth [UIScreen mainScreen].bounds.size.width
