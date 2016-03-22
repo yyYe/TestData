@@ -29,9 +29,7 @@ static NSInteger const kAvatarSize = 50;
     if (avatarData.avatar == nil) {
         self.avatar.image = [UIImage imageNamed:@"default-avatar"];
     }else {
-//        NSData *decodedImageData = [[NSData alloc] initWithBase64Encoding:avatarData.avatar];
-//        self.avatar.image = [UIImage imageWithData:decodedImageData];
-        self.avatar.image = [UIImage imageNamed:avatarData.avatar];
+        [self.avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://res.yimama.com.cn/media/%@",avatarData.avatar]]];
     }
     
 }

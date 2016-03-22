@@ -288,7 +288,7 @@ static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_up
                                    },
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
-                                   @"msgType":@"fileList",
+//                                   @"msgType":@"fileList",
                                    @"token":kToken
                                    }
                            };
@@ -301,7 +301,7 @@ static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_up
         if (list.count == 0) { //上传失败
         } else{ //上传成功
             for (NSDictionary *dict in list) {
-                ImageItem *item = [ImageItem itemWithDict:dict];
+                NSString *item = dict[@"filePath"];
                 [self motherHeader:item];
             }
         }
@@ -311,11 +311,11 @@ static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_up
     
 }
 
-- (void)motherHeader:(ImageItem *)item {
+- (void)motherHeader:(NSString *)item {
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"headerImg":item.originalUrl
+                                   @"headerImg":item
                                    },
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",

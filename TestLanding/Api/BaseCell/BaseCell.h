@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
 #import "PersonalCenter.h"
 #import "MeLableItem.h"

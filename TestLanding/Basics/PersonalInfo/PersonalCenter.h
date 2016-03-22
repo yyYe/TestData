@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSData *phoneData;
 @property (nonatomic, assign) BOOL needToken;
 @property (nonatomic, assign) Class targetClass;
 @property (nonatomic, copy) void(^doneBlock)();
