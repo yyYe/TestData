@@ -21,7 +21,7 @@
 		19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8591C9F98040044D0C3 /* PersonBase.m */; };
 		19C8B8DA1CA11F070044D0C3 /* ModifyMeInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8C51CA11F070044D0C3 /* ModifyMeInfoTool.m */; };
 		19C8B8DB1CA11F070044D0C3 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B8C81CA11F070044D0C3 /* NSString+Safe.m */; };
-		19C8B90A1CA127790044D0C3 /* MyWorkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9091CA127790044D0C3 /* MyWorkCell.m */; };
+		19C8B90A1CA127790044D0C3 /* MyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9091CA127790044D0C3 /* MyOrderCell.m */; };
 		19C8B9771CA12DC90044D0C3 /* AddBabyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9501CA12DC90044D0C3 /* AddBabyVC.m */; };
 		19C8B9781CA12DC90044D0C3 /* BabyAddInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9521CA12DC90044D0C3 /* BabyAddInfoCell.m */; };
 		19C8B9791CA12DC90044D0C3 /* BabyDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9541CA12DC90044D0C3 /* BabyDetailsCell.m */; };
@@ -41,6 +41,8 @@
 		19C8B9971CA12F660044D0C3 /* MeInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9961CA12F660044D0C3 /* MeInfoItem.m */; };
 		19C8B99B1CA136500044D0C3 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B99A1CA136500044D0C3 /* LoginVC.m */; };
 		19C8B99E1CA136E40044D0C3 /* PersonalInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B99D1CA136E40044D0C3 /* PersonalInfoCell.m */; };
+		19C8B9A11CA156D80044D0C3 /* MyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9A01CA156D80044D0C3 /* MyOrderVC.m */; };
+		19C8B9A41CA158150044D0C3 /* MyOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B9A31CA158150044D0C3 /* MyOrder.m */; };
 		E8BBEB2AEE6786848DA8F7D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAEB6C4966ACADBEAB3DBAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +74,8 @@
 		19C8B8C51CA11F070044D0C3 /* ModifyMeInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMeInfoTool.m; sourceTree = "<group>"; };
 		19C8B8C71CA11F070044D0C3 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
 		19C8B8C81CA11F070044D0C3 /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
-		19C8B9081CA127790044D0C3 /* MyWorkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWorkCell.h; sourceTree = "<group>"; };
-		19C8B9091CA127790044D0C3 /* MyWorkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWorkCell.m; sourceTree = "<group>"; };
+		19C8B9081CA127790044D0C3 /* MyOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCell.h; sourceTree = "<group>"; };
+		19C8B9091CA127790044D0C3 /* MyOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCell.m; sourceTree = "<group>"; };
 		19C8B94A1CA128BA0044D0C3 /* ConstMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstMacro.h; sourceTree = "<group>"; };
 		19C8B94B1CA128BA0044D0C3 /* URLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacro.h; sourceTree = "<group>"; };
 		19C8B94C1CA128BA0044D0C3 /* VenderMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenderMacro.h; sourceTree = "<group>"; };
@@ -115,6 +117,10 @@
 		19C8B99A1CA136500044D0C3 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		19C8B99C1CA136E40044D0C3 /* PersonalInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoCell.h; sourceTree = "<group>"; };
 		19C8B99D1CA136E40044D0C3 /* PersonalInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoCell.m; sourceTree = "<group>"; };
+		19C8B99F1CA156D80044D0C3 /* MyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderVC.h; sourceTree = "<group>"; };
+		19C8B9A01CA156D80044D0C3 /* MyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderVC.m; sourceTree = "<group>"; };
+		19C8B9A21CA158150044D0C3 /* MyOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrder.h; sourceTree = "<group>"; };
+		19C8B9A31CA158150044D0C3 /* MyOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrder.m; sourceTree = "<group>"; };
 		4BAEB6C4966ACADBEAB3DBAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEC5CD80932C2E947128884 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C374A337BA9574433C04C3C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -283,8 +289,12 @@
 		19C8B9071CA127790044D0C3 /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B9081CA127790044D0C3 /* MyWorkCell.h */,
-				19C8B9091CA127790044D0C3 /* MyWorkCell.m */,
+				19C8B99F1CA156D80044D0C3 /* MyOrderVC.h */,
+				19C8B9A01CA156D80044D0C3 /* MyOrderVC.m */,
+				19C8B9081CA127790044D0C3 /* MyOrderCell.h */,
+				19C8B9091CA127790044D0C3 /* MyOrderCell.m */,
+				19C8B9A21CA158150044D0C3 /* MyOrder.h */,
+				19C8B9A31CA158150044D0C3 /* MyOrder.m */,
 			);
 			name = MyOrder;
 			path = BaseVC/MyOrder;
@@ -378,10 +388,10 @@
 		19C8B9881CA12DFF0044D0C3 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B9891CA12DFF0044D0C3 /* BaseCell.h */,
-				19C8B98A1CA12DFF0044D0C3 /* BaseCell.m */,
 				19C8B98B1CA12DFF0044D0C3 /* BaseVC.h */,
 				19C8B98C1CA12DFF0044D0C3 /* BaseVC.m */,
+				19C8B9891CA12DFF0044D0C3 /* BaseCell.h */,
+				19C8B98A1CA12DFF0044D0C3 /* BaseCell.m */,
 				19C8B98D1CA12DFF0044D0C3 /* CustomNavgationButtonVC.h */,
 				19C8B98E1CA12DFF0044D0C3 /* CustomNavgationButtonVC.m */,
 			);
@@ -529,10 +539,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C8B9911CA12DFF0044D0C3 /* BaseCell.m in Sources */,
+				19C8B9A11CA156D80044D0C3 /* MyOrderVC.m in Sources */,
 				19C8B99E1CA136E40044D0C3 /* PersonalInfoCell.m in Sources */,
 				19C8B9851CA12DC90044D0C3 /* PersonalCenterVC.m in Sources */,
 				19C8B97C1CA12DC90044D0C3 /* BirthdayCell.m in Sources */,
 				19C8B8221C9E850F0044D0C3 /* PersonalCenter.m in Sources */,
+				19C8B9A41CA158150044D0C3 /* MyOrder.m in Sources */,
 				19C8B9811CA12DC90044D0C3 /* ModifyNameVC.m in Sources */,
 				19C8B8DA1CA11F070044D0C3 /* ModifyMeInfoTool.m in Sources */,
 				19C8B9871CA12DC90044D0C3 /* BabySexVC.m in Sources */,
@@ -542,7 +554,7 @@
 				19C8B9931CA12DFF0044D0C3 /* CustomNavgationButtonVC.m in Sources */,
 				19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */,
 				19C8B99B1CA136500044D0C3 /* LoginVC.m in Sources */,
-				19C8B90A1CA127790044D0C3 /* MyWorkCell.m in Sources */,
+				19C8B90A1CA127790044D0C3 /* MyOrderCell.m in Sources */,
 				19C8B9861CA12DC90044D0C3 /* PersonalInfoVC.m in Sources */,
 				19C8B81F1C9E850F0044D0C3 /* MeBabyInfoItem.m in Sources */,
 				19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */,

@@ -11,6 +11,7 @@
 
 #import "PersonalCenterVC.h"
 #import "PersonalInfoVC.h"
+#import "MyOrderVC.h"
 #import "PersonalCenterCell.h"
 #import "PersonalInfoCell.h"
 
@@ -67,7 +68,7 @@
     
     PersonalCenter *myWork = [PersonalCenter itemWithIcon:@"myWork" title:@"我的作品" targrtClass:nil];
     myWork.needToken = YES;
-    PersonalCenter *myOrder = [PersonalCenter itemWithIcon:@"myOrder" title:@"我的订单" targrtClass:nil];
+    PersonalCenter *myOrder = [PersonalCenter itemWithIcon:@"myOrder" title:@"我的订单" targrtClass:[MyOrderVC class]];
     myOrder.needToken = YES;
     PersonalCenter *myAddress = [PersonalCenter itemWithIcon:@"myAddress" title:@"我的地址" targrtClass:nil];
     myAddress.needToken = YES;

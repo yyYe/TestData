@@ -7,11 +7,11 @@
 //
 
 #import "BaseCell.h"
+#import "MyOrder.h"
 
-@interface MyWorkCell : BaseCell
+@interface MyOrderCell : BaseCell
 
-
-
+@property (nonatomic, strong) MyOrder *myOrder;
 
 @end
 

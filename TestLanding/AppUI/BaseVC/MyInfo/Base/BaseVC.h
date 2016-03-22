@@ -18,7 +18,7 @@
 #import "Mother.h"
 #import "Baby.h"
 
-static NSString *const kToken = @"a68e58ae97ef410d9d730d8618b4af8d95789903638697255885331133727644";
+static NSString *const kToken = @"0861329c495e40c49ff973745214cb8154546556665290210768289694033397";
 static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";
 static NSString *const kModifyMamaInfo = @"http://app.yimama.com.cn/api/mama/modifyMamaInfo"; //妈妈修改信息接口
 static NSString *const kModifyBabyInfo = @"http://app.yimama.com.cn/api/mama/modifyBabyInfo"; //宝宝修改信息接口
