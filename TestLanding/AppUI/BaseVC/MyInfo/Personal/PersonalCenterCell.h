@@ -10,5 +10,6 @@
 
 @interface PersonalCenterCell : BaseCell
 
+@property (nonatomic, strong) PersonalCenter *personal;
 
 @end

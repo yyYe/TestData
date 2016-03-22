@@ -6,11 +6,10 @@
 //  Copyright © 2016年 yeyy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseVC.h"
 
-@interface PersonalCenterVC : UIViewController
+@interface PersonalCenterVC : BaseVC
 
-@property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *token;
 

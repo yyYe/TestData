@@ -7,7 +7,6 @@
 //
 
 #import "PersonalCenter.h"
-#import "ImageItem.h"
 #import "Gender.h"
 
 @interface MeBabyInfoItem : PersonalCenter

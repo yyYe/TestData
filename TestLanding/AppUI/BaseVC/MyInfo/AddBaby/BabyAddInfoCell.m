@@ -21,7 +21,7 @@
 
 - (void)setBabyDetails:(PersonalCenter *)babyDetails {
     self.textLabel.text = babyDetails.title;
-    self.avatar.image = [UIImage imageNamed:babyDetails.avatar];
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://res.yimama.com.cn/media/%@",babyDetails.avatar]]];
 }
 
 @end

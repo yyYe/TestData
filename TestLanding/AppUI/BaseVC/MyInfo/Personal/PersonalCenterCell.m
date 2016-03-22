@@ -14,6 +14,11 @@
     
 }
 
+- (void)setPersonal:(PersonalCenter *)personal {
+    self.imageView.image = [UIImage imageNamed:personal.icon];
+    self.textLabel.text = personal.title;
+}
+
 - (void)setPersonalCenter:(PersonalCenter *)personalCenter {
     self.personalCenter = personalCenter;
     self.imageView.image = [UIImage imageNamed:personalCenter.icon];

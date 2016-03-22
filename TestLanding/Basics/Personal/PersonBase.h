@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "NSString+Safe.h"
-#import "ImageItem.h"
 #import "Gender.h"
 
 //基类
@@ -21,7 +20,7 @@
 @property (nonatomic, copy) NSString *xuid;
 
 /**   头像   */
-@property (nonatomic, strong) ImageItem *avatar;
+//@property (nonatomic, strong) ImageItem *avatar;
 @property (nonatomic, strong) NSString *avatarString;
 
 /**   baby只用nickName,目前baby没有name属性    */

@@ -28,7 +28,7 @@
     [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
     [self.tableView registerClass:[BabyAddInfoCell class] forCellReuseIdentifier:@"BabyAddInfoCell"];
     [self.tableView registerClass:[BabyDetailsCell class] forCellReuseIdentifier:@"BabyDetailsCell"];
-    
+    self.title = @"个人信息";
 }
 
 - (void)contentData {

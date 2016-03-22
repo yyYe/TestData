@@ -12,9 +12,11 @@
 
 - (void)createUI {
     detailsLabel = [UILabel new];
+    detailsLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:detailsLabel];
     [detailsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self);
+        make.left.equalTo(self).offset(70);
         make.right.equalTo(self).offset(-30);
     }];
 }
