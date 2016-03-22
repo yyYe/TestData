@@ -31,7 +31,7 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
     
-    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.babyName targrtClass:[ModifyNameVC class]];//self.babyInfo.nickName
+    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.babyInfo.nickName targrtClass:[ModifyNameVC class]];
     MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:(self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举" targrtClass:[BabySexVC class]];
     MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.babyInfo.birthday targrtClass:nil];
     NSArray *list2 = [NSArray new];

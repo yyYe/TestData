@@ -12,7 +12,7 @@ typedef void(^refreshTableView)();
 
 @interface CustomNavgationButtonVC : BaseVC
 
-@property (nonatomic, strong) refreshTableView refresh;
+@property (nonatomic, copy) refreshTableView refresh;
 - (void)setupNavLeftBtnWithTitle:(NSString *)title;
 - (void)setupNavRightBtnWithTitle:(NSString *)title;
 - (void)rightBtnAction;

@@ -12,6 +12,5 @@
 @interface AddBabyVC : CustomNavgationButtonVC
 
 @property (nonatomic, strong) MeBabyInfoItem *babyInfo;
-@property (nonatomic, strong) NSString *babyName;
 
 @end

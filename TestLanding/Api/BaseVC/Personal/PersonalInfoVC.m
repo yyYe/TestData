@@ -28,16 +28,15 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self contentData];
-    [self setUpMamaData];
-}
-
-- (void)contentData {
     [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
     [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
     [self.tableView registerClass:[BabyAddInfoCell class] forCellReuseIdentifier:@"BabyAddInfoCell"];
     [self.tableView registerClass:[BabyDetailsCell class] forCellReuseIdentifier:@"BabyDetailsCell"];
     
+}
+
+- (void)contentData {
+ 
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
@@ -50,23 +49,33 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
                                    }
                            };
 
-    [self.manager POST:kGetMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    [self.manager POST:kGetMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
-        NSDictionary *dictData = [responseObject valueForKeyPath:@"data.mama"];
-        Mother *mother = [Mother motherWithDict:dictData[@"mamaInfo"]];
-        mother.babies = [Baby babyWithArray:dictData[@"babies"]];
-        self.mother = mother;
+        NSString *resultCode = responseObject[@"resultCode"];
+        //如果resultCode的最后一位是0，表示返回请求成功
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+            NSDictionary *dictData = [responseObject valueForKeyPath:@"data.mama"];
+            Mother *mother = [Mother motherWithDict:dictData[@"mamaInfo"]];
+            mother.babies = [Baby babyWithArray:dictData[@"babies"]];
+            self.mother = mother;
+            [self setUpMamaData];
+        } else {
+            [self alertMessage:responseObject[@"resultMsg"]];
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self setUpMamaData];
-    });
     
 }
-
+//失败就弹出框，提示错误信息
+- (void)alertMessage:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 - (void)setUpMamaData {
     //头像
@@ -77,7 +86,7 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
     //父母的信息
     MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.mother.nickName targrtClass:[ModifyNameVC class]];
     MeLableItem *areaItem = [MeLableItem itemWithTitle:@"区域" details:self.mother.address targrtClass:nil];
-    NSString *sex = self.mother.gender == 1 ? @"女" : @"男";
+    NSString *sex = self.mother.gender == GenderMan ? @"男" : @"女";
     MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:sex targrtClass:[BabySexVC class]];
     MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.mother.birthday targrtClass:[BirthdayVC class]];
     MeLableItem *phoneItem = [MeLableItem itemWithTitle:kPhone details:self.mother.phoneNumber targrtClass:nil];
@@ -165,6 +174,7 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
     return cell;
 }
 
+#pragma mark 长按删除
 - (void)longPressAction:(UILongPressGestureRecognizer *)longPress{
     if (longPress.state == UIGestureRecognizerStateBegan) {
         
@@ -246,14 +256,13 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
         commonVC.person = self.mother;
         commonVC.refresh = ^(){
             //刷新了就是没有改变值
-            [self.tableView reloadData];
+            [self contentData];
+//            [self.tableView reloadData];
         };
     }
     
     if (indexPath.section == 2) {
-        AddBabyVC *babyVC = [AddBabyVC new];
-        MeBabyInfoItem *infoItem = item;
-        babyVC.babyName = infoItem.nickName;
+        AddBabyVC *babyVC = (AddBabyVC *)vc;
         babyVC.babyInfo = item;
         babyVC.refresh = ^(){
             [self.tableView reloadData];
