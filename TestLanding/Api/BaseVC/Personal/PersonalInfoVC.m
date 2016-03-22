@@ -23,6 +23,7 @@ static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getU
 static NSString *const kGetMamaInfo = @"http://app.yimama.com.cn/api/mama/getMamaInfo";
 static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";
 static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/removeBabyInfo";
+static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_upload_batch";
 
 @implementation PersonalInfoVC
 
@@ -209,33 +210,11 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
-        NSMutableArray *babies = [self.mother.babies mutableCopy];
-        [babies removeObjectAtIndex:index];
-        self.mother.babies = [babies copy];
-        [self updateBabies:babies];
+        [self contentData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
    
-}
-
-- (void)updateBabies:(NSArray *)babies{
-    NSArray *list = self.data[2];
-    PersonalCenter *addItem = list.firstObject;
-    
-    NSMutableArray *tempArr = [NSMutableArray arrayWithObject:addItem];
-    for (int i = 0; i < babies.count; i++) {
-        MeBabyInfoItem *babyInfoItem = [[MeBabyInfoItem alloc]init];
-        Baby *baby = babies[i];
-        babyInfoItem.sex = baby.gender;
-        babyInfoItem.nickName = baby.nickName;
-        babyInfoItem.birthday = baby.birthday;
-        babyInfoItem.avatar = baby.avatarString;
-        [tempArr addObject:babyInfoItem];
-    }
-    list = [tempArr copy];
-    
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark UITableViewDelegate
@@ -265,7 +244,7 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
         AddBabyVC *babyVC = (AddBabyVC *)vc;
         babyVC.babyInfo = item;
         babyVC.refresh = ^(){
-            [self.tableView reloadData];
+            [self contentData];
         };
     }
     
@@ -300,12 +279,43 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     NSData *data = UIImageJPEGRepresentation(image, 1.0f);
-    NSString *encodedImageStr = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    
+    FGPictureFile *picture = [FGPictureFile fileWithData:data];
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"headerImg":@"3"
+                                   @"fileName":picture.name,
+                                   @"filePath":picture.filename
+                                   },
+                           @"header":@{
+                                   @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
+                                   @"msgType":@"fileList",
+                                   @"token":kToken
+                                   }
+                           };
+    NSString *filePath = [NSString stringWithFormat:@"%@?token=%@",kPost_upload_batch,kToken];
+    [self.manager POST:filePath parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileData:picture.data name:picture.name fileName:picture.filename mimeType:picture.mimeType];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *list = responseObject[@"fileList"];
+        if (list.count == 0) { //上传失败
+        } else{ //上传成功
+            for (NSDictionary *dict in list) {
+                ImageItem *item = [ImageItem itemWithDict:dict];
+                [self motherHeader:item];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+}
+
+- (void)motherHeader:(ImageItem *)item {
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
+                                   @"headerImg":item.originalUrl
                                    },
                            @"header":@{
                                    @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
@@ -313,17 +323,16 @@ static NSString *const kRemoveBabyInfo = @"http://app.yimama.com.cn/api/mama/rem
                                    @"token":kToken
                                    }
                            };
-    
     [self.manager POST:kModifyMamaHeaderImg parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"response-%@",responseObject);
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self contentData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.tableView reloadData];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

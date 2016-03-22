@@ -19,6 +19,23 @@
 
 @end
 
+//文件对象基类
+@interface FGBaseFile : NSObject
+
+@property (nonatomic, strong) NSData *data;
+@property (nonatomic, copy) NSString *name; //参数名
+@property (nonatomic, copy) NSString *filename; //文件名
+@property (nonatomic, copy) NSString *mimeType; //文件类型
+
++ (instancetype)fileWithData:(NSData *)data;
+
+@end
+
+/**  默认jpg格式   */
+@interface FGPictureFile : FGBaseFile
+
+
+@end
 
 @interface HttpTool : NSObject
 

@@ -41,6 +41,41 @@
 @end
 
 
+@implementation FGBaseFile
+
++ (instancetype)fileWithData:(NSData *)data{
+    FGBaseFile *file = [[self alloc]init];
+    file.data = data;
+    return file;
+}
+
+@end
+
+@implementation FGPictureFile
+
+- (instancetype)init{
+    if (self = [super init]) {
+        NSString *name = [NSString stringWithFormat:@"%@.jpg",[self generateMsgId]];
+        self.name = name;
+        self.filename = name;
+        self.mimeType = @"image/jpeg";
+    }
+    
+    return self;
+}
+
+- (NSString *)generateMsgId{
+    CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
+    CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
+    CFRelease(uuid_ref);
+    NSString *uuid = [NSString stringWithString:(__bridge NSString*)uuid_string_ref];
+    CFRelease(uuid_string_ref);
+    return uuid;
+}
+
+
+@end
+
 @implementation Params
 
 - (instancetype)init{

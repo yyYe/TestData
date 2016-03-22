@@ -30,10 +30,10 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.babyInfo.avatar targrtClass:nil];
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
-    
-    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.babyInfo.nickName targrtClass:[ModifyNameVC class]];
-    MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:(self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举" targrtClass:[BabySexVC class]];
-    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.babyInfo.birthday targrtClass:nil];
+    //self.babyInfo.nickName  self.babyInfo.birthday (self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举"
+    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:@"" targrtClass:[ModifyNameVC class]];
+    MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:@"小公举" targrtClass:[BabySexVC class]];
+    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:@"" targrtClass:nil];
     NSArray *list2 = [NSArray new];
     list2 = @[nikeNameItem,sexItem,birthDayItem];
     self.data = [NSMutableArray arrayWithObjects:list1,list2, nil];
@@ -43,10 +43,10 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"headerImg":self.babyInfo.avatar,
-                                   @"babyName":self.babyInfo.nickName, //@"test"
-                                   @"birthday":self.babyInfo.birthday,
-                                   @"gender":@(self.babyInfo.sex),
+//                                   @"headerImg":self.babyInfo.avatar,
+                                   @"babyName":@"test", //@"test"  self.babyInfo.nickName
+//                                   @"birthday":self.babyInfo.birthday,
+//                                   @"gender":@(self.babyInfo.sex),
                                    },
                            @"header":@{
                                    @"msgType":@"addBabyInfo",
@@ -60,10 +60,10 @@ static NSString *const kAddBabyInfo = @"http://app.yimama.com.cn/api/mama/addBab
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
+        self.refresh();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
-//    self.refresh();
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
