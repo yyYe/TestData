@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ConstMacro.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
+#import "ConstMacro.h"
+#import "UIImage+Extension.h"
 #import "PersonalCenter.h"
 #import "MeLableItem.h"
 #import "Mother.h"

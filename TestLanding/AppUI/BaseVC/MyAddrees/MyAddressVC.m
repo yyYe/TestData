@@ -19,8 +19,11 @@
 @implementation MyAddressVC
 
 - (void)contentData {
+    self.tableView.layer.borderColor = [UIColor grayColor].CGColor;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(self.view);
+        make.top.equalTo(self.view);
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
         make.bottom.equalTo(self.view).offset(-50);
     }];
     [self.tableView registerClass:[MyAddressCell class] forCellReuseIdentifier:@"MyAddressCell"];
@@ -31,10 +34,10 @@
 - (void)addAddressInfo {
     NSDictionary *dict = @{
                            @"data":@{
-                                       @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
+                                       @"xuid":kXuid,
                                    },
                            @"header":@{
-                                       @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
+                                       @"msgId":kMsgID,
                                        @"msgType":@"userAddressList",
                                        @"token":kToken
                                    }
@@ -48,11 +51,15 @@
             self.address = [MyAddress new];
             self.address.fullname = data[@"fullname"];
             self.address.mobliePhone = data[@"mobilephone"];
+            self.address.deliveryid = data[@"deliveryid"];
             self.address.prov = data[@"prov"];
             self.address.city = data[@"city"];
             self.address.areaname = data[@"areaname"];
             self.address.street = data[@"address"];
             self.address.postCode = data[@"postCode"];
+            self.address.provCode = data[@"provCode"];
+            self.address.cityCode = data[@"cityCode"];
+            self.address.areaCode = data[@"areaCode"];
             [self.data addObject:self.address];
         }
         [self.tableView reloadData];
@@ -67,7 +74,7 @@
     button.layer.cornerRadius = 22;
     button.backgroundColor = YMMNavBarColor;
     [button setTitle:@"添加新地址" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(buttonTapped:row:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -77,19 +84,18 @@
     }];
 }
 
-- (void)buttonTapped:(BOOL)yes {
+- (void)buttonTapped:(BOOL)yes row:(NSInteger)row {
     AddAddressVC *addVC = [AddAddressVC new];
     if (yes == isYES) {
         addVC.isModify = isYES;
-        addVC.address = self.address;
-        [self.navigationController pushViewController:addVC animated:YES];
+        addVC.address = self.data[row];
     } else {
         addVC.isModify = isNO;
-        addVC.refresh = ^(){
-            [self addAddressInfo];
-        };
-        [self.navigationController pushViewController:addVC animated:YES];
     }
+    addVC.refresh = ^(){
+        [self addAddressInfo];
+    };
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 
 #pragma mark UITableViewDataSource
@@ -113,7 +119,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self buttonTapped:YES];
+    [self buttonTapped:YES row:indexPath.section];
 }
 
 - (void)didReceiveMemoryWarning {

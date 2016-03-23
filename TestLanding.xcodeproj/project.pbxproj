@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		199CF7071CA27A3800F01233 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 199CF7061CA27A3800F01233 /* NSString+Extension.m */; };
 		19C8B7A21C9C47660044D0C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7A11C9C47660044D0C3 /* main.m */; };
 		19C8B7A51C9C47660044D0C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7A41C9C47660044D0C3 /* AppDelegate.m */; };
 		19C8B7AB1C9C47660044D0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7A91C9C47660044D0C3 /* Main.storyboard */; };
@@ -53,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		199CF7051CA27A3800F01233 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		199CF7061CA27A3800F01233 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		19C8B79D1C9C47660044D0C3 /* TestLanding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestLanding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C8B7A11C9C47660044D0C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19C8B7A31C9C47660044D0C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -165,6 +168,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		199CF7041CA27A3800F01233 /* NSString+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				199CF7051CA27A3800F01233 /* NSString+Extension.h */,
+				199CF7061CA27A3800F01233 /* NSString+Extension.m */,
+			);
+			path = "NSString+Extension";
+			sourceTree = "<group>";
+		};
 		19C8B7941C9C47660044D0C3 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +275,7 @@
 		19C8B8C01CA11F070044D0C3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				199CF7041CA27A3800F01233 /* NSString+Extension */,
 				19C8B8C11CA11F070044D0C3 /* enum */,
 				19C8B8C31CA11F070044D0C3 /* ModifyMeInfoTool */,
 				19C8B8C61CA11F070044D0C3 /* NSString+Safe */,
@@ -597,6 +610,7 @@
 				19C8B9811CA12DC90044D0C3 /* ModifyNameVC.m in Sources */,
 				19C8B8DA1CA11F070044D0C3 /* ModifyMeInfoTool.m in Sources */,
 				19C8B9871CA12DC90044D0C3 /* BabySexVC.m in Sources */,
+				199CF7071CA27A3800F01233 /* NSString+Extension.m in Sources */,
 				19C8B85C1C9F98040044D0C3 /* PersonBase.m in Sources */,
 				19C8B9B41CA185170044D0C3 /* AddAddressCell.m in Sources */,
 				19C8B9B11CA17C860044D0C3 /* AddAddressVC.m in Sources */,

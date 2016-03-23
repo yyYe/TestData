@@ -24,6 +24,8 @@
 
 - (void)buttonLayout {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.layer.masksToBounds = YES;
+    button.layer.cornerRadius = 5;
     button.backgroundColor = YMMNavBarColor;
     [button setTitle:@"登陆" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(addressItem) forControlEvents:UIControlEventTouchUpInside];
@@ -37,21 +39,62 @@
 }
 
 - (void)addressItem {
+    if (self.isModify == YES) {
+        //这里是修改的
+        [self modifyAddressItem];
+    } else {
+        //这里是添加的
+        [self addAddressItem];
+    }
+}
+
+- (void)addAddressItem {
     NSDictionary *dict = @{
                            @"data":@{
-                                       @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-//                                       @"userName":self.address.fullname,
-//                                       @"mobliePhone":self.address.mobliePhone,
-//                                       @"provCode":self.address.postCode
+                                   @"xuid":kXuid
                                    },
                            @"header":@{
-                                       @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
-                                       @"msgType":@"concentrate",
+                                   @"msgId":kMsgID,
+                                   @"msgType":@"addUserAddress",
+                                   @"token":kToken
+                                   }
+                           };
+    [self.manager POST:kAddUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject-%@",responseObject);
+        NSString *resultCode = responseObject[@"resultCode"];
+        //如果resultCode的最后一位是0，表示返回请求成功
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+            self.refresh();
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [self alertMessage:responseObject[@"resultMsg"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+- (void)modifyAddressItem {
+    NSDictionary *dict = @{
+                           @"data":@{
+                                       @"xuid":kXuid,
+                                       @"userName":self.address.fullname,
+                                       @"mobliePhone":self.address.mobliePhone,
+                                       @"postCode":self.address.postCode,
+                                       @"addressDetail":self.address.street,
+                                       @"deliveryId":self.address.deliveryid,
+                                       @"provCode":self.address.provCode,
+                                       @"cityCode":self.address.cityCode,
+                                       @"areaCode":self.address.areaCode
+                                   },
+                           @"header":@{
+                                       @"msgId":kMsgID,
+                                       @"msgType":@"modifyUserAddress",
                                        @"token":kToken
                                    }
                            };
-    
-    [self.manager POST:kAddUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager POST:kUpdateUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
         NSString *resultCode = responseObject[@"resultCode"];
         //如果resultCode的最后一位是0，表示返回请求成功
@@ -113,6 +156,8 @@
 }
 
 - (void)row:(NSInteger)row value:(NSString *)value {
+    self.address = [MyAddress new];
+    self.data = [@[] mutableCopy];
     switch (row) {
         case 0:
             self.address.fullname = value;
@@ -133,7 +178,7 @@
         default:
             break;
     }
-    [self.tableView reloadData];
+    [self.data addObject:self.address];
 }
 
 - (void)didReceiveMemoryWarning {

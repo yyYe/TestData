@@ -11,6 +11,7 @@
 
 @interface MyAddressCell : BaseCell {
     UILabel *nameLabel;
+    UILabel *phoneLabel;
     UILabel *addressLabel;
 }
 @property (nonatomic, strong) MyAddress *address;

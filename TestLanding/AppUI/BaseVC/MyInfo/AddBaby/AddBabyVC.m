@@ -42,8 +42,9 @@
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
+                                   @"babyName":@"test",
 //                                   @"headerImg":self.babyInfo.avatar,
-                                   @"babyName":@"test", //@"test"  self.babyInfo.nickName
+//                                   @"babyName":self.babyInfo.nickName
 //                                   @"birthday":self.babyInfo.birthday,
 //                                   @"gender":@(self.babyInfo.sex),
                                    },
