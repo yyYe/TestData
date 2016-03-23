@@ -17,22 +17,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupNavLeftBtnWithTitle:@"个人信息"];
+    if (self.isModify == YES) {
+        [self setupNavRightBtnWithTitle:nil];
+        self.title = self.babyInfo.nickName;
+    }else {
+        self.title = @"新增宝宝信息";
+    }
 }
 
 - (void)contentData {
     [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
     [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
     
-    self.title = @"新增宝宝信息";
-    
     PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.babyInfo.avatar targrtClass:nil];
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
-    //self.babyInfo.nickName  self.babyInfo.birthday (self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举"
-    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:@"" targrtClass:[ModifyNameVC class]];
-    MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:@"小公举" targrtClass:[BabySexVC class]];
-    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:@"" targrtClass:nil];
+
+    MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.isModify == NO ? @"" : self.babyInfo.nickName targrtClass:[ModifyNameVC class]];
+    NSString *sex = (self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举";
+    MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:self.isModify == NO ? @"小公举" : sex targrtClass:[BabySexVC class]];
+    MeLableItem *birthDayItem = [MeLableItem itemWithTitle:@"生日" details:self.isModify == NO ? @"" : self.babyInfo.birthday targrtClass:nil];
     NSArray *list2 = [NSArray new];
     list2 = @[nikeNameItem,sexItem,birthDayItem];
     self.data = [NSMutableArray arrayWithObjects:list1,list2, nil];

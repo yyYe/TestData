@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		199CF7071CA27A3800F01233 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 199CF7061CA27A3800F01233 /* NSString+Extension.m */; };
+		199CF70D1CA28E5900F01233 /* AlertSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 199CF70C1CA28E5900F01233 /* AlertSheetView.m */; };
 		19C8B7A21C9C47660044D0C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7A11C9C47660044D0C3 /* main.m */; };
 		19C8B7A51C9C47660044D0C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C8B7A41C9C47660044D0C3 /* AppDelegate.m */; };
 		19C8B7AB1C9C47660044D0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C8B7A91C9C47660044D0C3 /* Main.storyboard */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		199CF7051CA27A3800F01233 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		199CF7061CA27A3800F01233 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		199CF70B1CA28E5900F01233 /* AlertSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertSheetView.h; sourceTree = "<group>"; };
+		199CF70C1CA28E5900F01233 /* AlertSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertSheetView.m; sourceTree = "<group>"; };
 		19C8B79D1C9C47660044D0C3 /* TestLanding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestLanding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C8B7A11C9C47660044D0C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19C8B7A31C9C47660044D0C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -401,6 +404,8 @@
 				19C8B99D1CA136E40044D0C3 /* PersonalInfoCell.m */,
 				19C8B9721CA12DC90044D0C3 /* PersonalInfoVC.h */,
 				19C8B9731CA12DC90044D0C3 /* PersonalInfoVC.m */,
+				199CF70B1CA28E5900F01233 /* AlertSheetView.h */,
+				199CF70C1CA28E5900F01233 /* AlertSheetView.m */,
 				19C8B96A1CA12DC90044D0C3 /* MamaAvatarCell.h */,
 				19C8B96B1CA12DC90044D0C3 /* MamaAvatarCell.m */,
 				19C8B96C1CA12DC90044D0C3 /* MamaInfoCell.h */,
@@ -617,6 +622,7 @@
 				19C8B9821CA12DC90044D0C3 /* MamaAvatarCell.m in Sources */,
 				19C8B8211C9E850F0044D0C3 /* MeLableItem.m in Sources */,
 				19C8B9931CA12DFF0044D0C3 /* CustomNavgationButtonVC.m in Sources */,
+				199CF70D1CA28E5900F01233 /* AlertSheetView.m in Sources */,
 				19C8B85A1C9F98040044D0C3 /* Baby.m in Sources */,
 				19C8B99B1CA136500044D0C3 /* LoginVC.m in Sources */,
 				19C8B90A1CA127790044D0C3 /* MyOrderCell.m in Sources */,

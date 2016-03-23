@@ -12,6 +12,7 @@
 #import "AddBabyVC.h"
 #import "BabySexVC.h"
 #import "BirthdayVC.h"
+#import "AlertSheetView.h"
 
 #import "MamaInfoCell.h"
 #import "MamaAvatarCell.h"
@@ -218,34 +219,38 @@
     if (indexPath.section == 0) {
         [self showSheetView];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSArray *list = self.data[indexPath.section];
-    id item = list[indexPath.row];
-    
-    UIViewController *vc = [[[item targetClass]alloc]init];
-    vc.title = [item title];
-    
-    if (indexPath.section == 1) {
-        ModifyNameVC *commonVC = (ModifyNameVC *)vc; //运行时
-        commonVC.person = self.mother;
-        commonVC.refresh = ^(){
-            //刷新了就是没有改变值
-            [self contentData];
-//            [self.tableView reloadData];
-        };
+    else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        NSArray *list = self.data[indexPath.section];
+        id item = list[indexPath.row];
+        
+        UIViewController *vc = [[[item targetClass]alloc]init];
+        vc.title = [item title];
+        
+        if (indexPath.section == 1) {
+            ModifyNameVC *commonVC = (ModifyNameVC *)vc; //运行时
+            commonVC.person = self.mother;
+            commonVC.refresh = ^(){
+                [self contentData];
+            };
+        }
+        
+        if (indexPath.section == 2) {
+            AddBabyVC *babyVC = (AddBabyVC *)vc;
+            if (indexPath.row == 0) {
+                babyVC.isModify = NO;
+            } else {
+                babyVC.isModify = YES;
+                babyVC.babyInfo = item;
+            }
+            babyVC.refresh = ^(){
+                [self contentData];
+            };
+        }
+        
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    
-    if (indexPath.section == 2) {
-        AddBabyVC *babyVC = (AddBabyVC *)vc;
-        babyVC.babyInfo = item;
-        babyVC.refresh = ^(){
-            [self contentData];
-        };
-    }
-    
-    [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 #pragma mark UIAlertController
 - (void)showSheetView {

@@ -34,5 +34,4 @@ static NSInteger const kAvatarSize = 50;
     }
 }
 
-
 @end
