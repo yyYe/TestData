@@ -228,11 +228,20 @@
         vc.title = [item title];
         
         if (indexPath.section == 1) {
-            ModifyNameVC *commonVC = (ModifyNameVC *)vc; //运行时
-            commonVC.person = self.mother;
-            commonVC.refresh = ^(){
-                [self contentData];
-            };
+            if ([vc isKindOfClass:[BabySexVC class]]) {
+                BabySexVC *sexVC = (BabySexVC *)vc;
+                sexVC.person = self.mother;
+                sexVC.refresh = ^(){
+                    [self contentData];
+                };
+            } else if ([vc isKindOfClass:[ModifyNameVC class]]) {
+                ModifyNameVC *commonVC = (ModifyNameVC *)vc; //运行时
+                commonVC.person = self.mother;
+                commonVC.refresh = ^(){
+                    [self contentData];
+                };
+            }
+            
         }
         
         if (indexPath.section == 2) {
@@ -243,6 +252,7 @@
                 babyVC.isModify = YES;
                 babyVC.babyInfo = item;
             }
+            babyVC.baby = self.mother.babies[indexPath.row - 1];
             babyVC.refresh = ^(){
                 [self contentData];
             };

@@ -9,11 +9,8 @@
 #import "CustomNavgationButtonVC.h"
 @class PersonBase;
 
-typedef void(^returnSex)(NSInteger sex);
-
 @interface BabySexVC : CustomNavgationButtonVC
 
-@property (nonatomic, strong) returnSex sexNumber;
 @property (nonatomic, strong) NSArray *list;
 @property (nonatomic, strong) PersonBase *person;
 @property (nonatomic, strong) UIImageView *checkView;

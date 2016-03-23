@@ -12,7 +12,7 @@
 
 + (instancetype)babyWithDict:(NSDictionary *)dict{
     Baby *baby = [[self alloc]init];
-//    baby.gender = [dict[@"gender"] intValue];
+    baby.gender = [dict[@"gender"] intValue];
     baby.userId = nonNullString(dict[@"id"]);
     baby.age = nonNullString(dict[@"age"]);
 //    baby.name = dict[@"babyName"]; baby只用nickName

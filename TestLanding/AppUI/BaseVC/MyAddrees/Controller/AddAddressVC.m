@@ -78,15 +78,15 @@
 - (void)modifyAddressItem {
     NSDictionary *dict = @{
                            @"data":@{
-                                       @"xuid":kXuid,
-                                       @"userName":self.address.fullname,
-                                       @"mobliePhone":self.address.mobliePhone,
-                                       @"postCode":self.address.postCode,
-                                       @"addressDetail":self.address.street,
-                                       @"deliveryId":self.address.deliveryid,
-                                       @"provCode":self.address.provCode,
-                                       @"cityCode":self.address.cityCode,
-                                       @"areaCode":self.address.areaCode
+                                       @"deliveryId":self.address.deliveryid
+//                                       @"userName":self.address.fullname,
+//                                       @"mobliePhone":self.address.mobliePhone,
+//                                       @"postCode":self.address.postCode,
+//                                       @"addressDetail":self.address.street,
+//                                       @"deliveryId":self.address.deliveryid,
+//                                       @"provCode":self.address.provCode,
+//                                       @"cityCode":self.address.cityCode,
+//                                       @"areaCode":self.address.areaCode
                                    },
                            @"header":@{
                                        @"msgId":kMsgID,
@@ -156,7 +156,7 @@
 }
 
 - (void)row:(NSInteger)row value:(NSString *)value {
-    self.address = [MyAddress new];
+//    self.address = [MyAddress new];
     self.data = [@[] mutableCopy];
     switch (row) {
         case 0:

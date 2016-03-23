@@ -17,9 +17,14 @@
 }
 
 - (void)rightBtnAction {
-    self.person = [PersonBase new];
     self.person.gender = (self.selectedRow == 0) ? GenderMan : GenderWoman;
-    [self modifyBabyInfo];
+    //修改信息
+//    __weak __typeof(self)weakSelf = self;
+    if ([self.person isKindOfClass:[Mother class]]) { //修改妈妈信息
+        [self modifyMamaInfo];
+    } else if ([self.person isKindOfClass:[Baby class]]) { //修改宝宝信息
+        [self modifyBabyInfo];
+    }
 }
 
 - (void)modifyMamaInfo {
@@ -46,10 +51,11 @@
 - (void)modifyBabyInfo {
     NSDictionary *dict = @{
                            @"data":@{
-                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
+                                   @"xuid":self.person.xuid,
                                    @"gender":@(self.person.gender),
                                    },
                            @"header":@{
+                                   @"id":self.person.userId,
                                    @"msgType":@"modifyBabyInfo",
                                    @"token":kToken
                                    }
@@ -58,6 +64,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
+        self.refresh();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
@@ -76,7 +83,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.separatorInset = UIEdgeInsetsZero;
     }
-//    cell.textLabel.text = self.list[indexPath.row];
     [self setupCell:cell withRow:indexPath.row];
     return cell;
 }
@@ -84,25 +90,25 @@
 - (void)setupCell:(UITableViewCell *)cell withRow:(NSInteger)row{
     
     NSString *title = nil;
-    if ([self.person isKindOfClass:[Baby class]]){ //小孩
-        switch (row) {
-            case 0:
-                title = @"小王纸";
-                break;
-            case 1:
-                title = @"小公举";
-                break;
-            default:
-                title = @"未知";
-                break;
-        }
-    } else{ //成人
+    if ([self.person isKindOfClass:[Mother class]]){ //成人
         switch (row) {
             case 0:
                 title = @"男";
                 break;
             case 1:
                 title = @"女";
+                break;
+            default:
+                title = @"未知";
+                break;
+        }
+    } else if ([self.person isKindOfClass:[Baby class]]) {//小孩
+        switch (row) {
+            case 0:
+                title = @"小王纸";
+                break;
+            case 1:
+                title = @"小公举";
                 break;
             default:
                 title = @"未知";

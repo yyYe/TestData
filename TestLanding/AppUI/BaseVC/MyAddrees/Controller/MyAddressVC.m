@@ -11,6 +11,8 @@
 #import "MyAddressCell.h"
 #import "MyAddress.h"
 
+static NSString *const kDefaultUserAddress = @"http://app.yimama.com.cn/api/adr/defaultUserAddress";
+
 @interface MyAddressVC ()
 @property (nonatomic, strong) MyAddress *address;
 
@@ -52,6 +54,7 @@
             self.address.fullname = data[@"fullname"];
             self.address.mobliePhone = data[@"mobilephone"];
             self.address.deliveryid = data[@"deliveryid"];
+            self.address.defaultAddress = [data[@"defaultdeliveraddress"] isEqual: @"1"] ? YES : NO ;
             self.address.prov = data[@"prov"];
             self.address.city = data[@"city"];
             self.address.areaname = data[@"areaname"];
@@ -63,6 +66,30 @@
             [self.data addObject:self.address];
         }
         [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+- (void)defaultAddress:(NSInteger)row {
+    self.address = [MyAddress new];
+    self.address = self.data[row];
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"deliveryId":self.address.deliveryid,
+//                                   @"xuid":kXuid
+                                   },
+                           @"header":@{
+                                   @"clientRes":@"iOS",
+                                   @"msgId":@"9667B374-7534-4479-8394-C4C9A7EECB3B",
+                                   @"timestamp":@"2016-03-23 23:09:59.000",
+                                   @"msgType":@"setDefaultAddress",
+                                   @"token":kToken
+                                   }
+                           };
+    
+    [self.manager POST:kDefaultUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject-%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
@@ -100,7 +127,7 @@
 
 #pragma mark UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90;
+    return 120;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -115,11 +142,17 @@
 //    NSArray *list = self.data[indexPath.section];
     MyAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyAddressCell"];
     cell.address = self.data[indexPath.section];
+    cell.defaultTapped = ^(){
+        [self defaultAddress:indexPath.section];
+    };
+    cell.edit = ^(){
+        [self buttonTapped:YES row:indexPath.section];
+    };
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self buttonTapped:YES row:indexPath.section];
+//    [self buttonTapped:YES row:indexPath.section];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,12 +8,15 @@
 
 #import "MyAddressCell.h"
 
+#define targerTapped(button,buttonTapped) [button addTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
+#define buttonImage(button,image) [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+
+
 @implementation MyAddressCell
 
 - (void)createUI {
     
-    UIImageView *ivLogo = [UIImageView new];
-    ivLogo.image = [UIImage imageNamed:@"defaultAddress"];
+    ivLogo = [UIImageView new];
     [self addSubview:ivLogo];
     
     nameLabel = [UILabel new];
@@ -27,6 +30,47 @@
     addressLabel.textColor = [UIColor grayColor];
     addressLabel.numberOfLines = 0;
     [self addSubview:addressLabel];
+    
+    UIView *view = [UIView new];
+    view.layer.borderWidth = 1;
+    view.layer.borderColor = [UIColor grayColor].CGColor;
+    [self addSubview:view];
+    
+    UIButton *defaultBtn = [UIButton new];
+    targerTapped(defaultBtn, defaultButtonTapped);
+    [self addSubview:defaultBtn];
+    
+    clickBtn = [UIButton new];
+    buttonImage(clickBtn, @"defaultAddressUncheck");
+    [defaultBtn addSubview:clickBtn];
+    
+    defaultLabel = [UILabel new];
+    defaultLabel.text = @"设为默认";
+    [defaultBtn addSubview:defaultLabel];
+    
+    UIButton *editBtn = [UIButton new];
+    targerTapped(editBtn, editButtonTapped);
+    [self addSubview:editBtn];
+    
+    UIImageView *ivEdit = [UIImageView new];
+    ivEdit.image = [UIImage imageNamed:@"editAddress"];
+    [editBtn addSubview:ivEdit];
+    
+    editLabel = [UILabel new];
+    editLabel.text = @"编辑";
+    [editBtn addSubview:editLabel];
+    
+    UIButton *deleteBtn = [UIButton new];
+    targerTapped(deleteBtn, deleteButtonTapped);
+    [self addSubview:deleteBtn];
+    
+    UIImageView *ivDelete = [UIImageView new];
+    ivDelete.image = [UIImage imageNamed:@"deleteAddress"];
+    [deleteBtn addSubview:ivDelete];
+    
+    deleteLabel = [UILabel new];
+    deleteLabel.text = @"删除";
+    [deleteBtn addSubview:deleteLabel];
     
     [ivLogo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.top.equalTo(self);
@@ -47,12 +91,91 @@
         make.right.equalTo(self).offset(-10);
     }];
     
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self);
+        make.top.equalTo(addressLabel.mas_bottom).offset(5);
+        make.height.equalTo(@1);
+    }];
+    
+    [defaultBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view.mas_bottom).offset(5);
+        make.left.equalTo(nameLabel).offset(5);
+        make.width.equalTo(@110);
+        make.height.equalTo(@44);
+    }];
+    
+    [clickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(defaultBtn);
+        make.centerY.equalTo(defaultBtn);
+    }];
+    
+    [defaultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(clickBtn.mas_right).offset(5);
+        make.centerY.equalTo(clickBtn);
+    }];
+    
+    [editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.height.equalTo(defaultBtn);
+        make.left.equalTo(defaultBtn.mas_right).offset(10);
+        make.width.equalTo(@80);
+    }];
+    
+    [ivEdit mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(editBtn);
+        make.centerY.equalTo(editBtn);
+    }];
+    
+    [editLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ivEdit.mas_right).offset(5);
+        make.centerY.equalTo(editBtn);
+    }];
+    
+    [deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.height.equalTo(defaultBtn);
+        make.left.equalTo(editBtn.mas_right).offset(10);
+        make.width.equalTo(@80);
+    }];
+    
+    [ivDelete mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(deleteBtn);
+        make.centerY.equalTo(deleteBtn);
+    }];
+    
+    [deleteLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ivDelete.mas_right).offset(5);
+        make.centerY.equalTo(ivDelete);
+    }];
 }
 
 - (void)setAddress:(MyAddress *)address {
+    if (address.defaultAddress == YES) {
+        
+    } else {
+        ivLogo.image = [UIImage imageNamed:@"defaultAddress"];
+        buttonImage(clickBtn, @"gou");
+    }
     nameLabel.text = address.fullname;
     phoneLabel.text = address.mobliePhone;
     addressLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@",address.prov,address.city,address.areaname,address.street];
+}
+
+- (void)defaultButtonTapped {
+    if (self.address.defaultAddress == YES) {
+        ivLogo.image = [UIImage imageNamed:@"defaultAddress"];
+        buttonImage(clickBtn, @"gou");
+        self.defaultTapped();
+    } else {
+        self.defaultTapped();
+    }
+    
+}
+
+- (void)editButtonTapped {
+    self.edit();
+}
+
+- (void)deleteButtonTapped {
+    
 }
 
 @end

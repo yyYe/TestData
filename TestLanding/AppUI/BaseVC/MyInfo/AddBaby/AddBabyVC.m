@@ -119,6 +119,14 @@
         
         UIViewController *vc = [[[item targetClass]alloc]init];
         vc.title = [item title];
+        
+        if (indexPath.section == 1) {
+            BabySexVC *sexVC = (BabySexVC *)vc;
+            sexVC.person = self.baby;
+            sexVC.refresh = ^(){
+                [self contentData];
+            };
+        }
         [self.navigationController pushViewController:vc animated:YES];
     }
     

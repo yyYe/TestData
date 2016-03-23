@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		196991971CA2B72E0042350A /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1969914E1CA2B72E0042350A /* LoginVC.m */; };
 		196991981CA2B72E0042350A /* AddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196991521CA2B72E0042350A /* AddAddressCell.m */; };
-		196991991CA2B72E0042350A /* AddressToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 196991541CA2B72E0042350A /* AddressToolBar.m */; };
-		1969919A1CA2B72E0042350A /* AddressToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196991551CA2B72E0042350A /* AddressToolBar.xib */; };
 		1969919B1CA2B72E0042350A /* MyAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196991571CA2B72E0042350A /* MyAddressCell.m */; };
 		1969919C1CA2B72E0042350A /* AddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1969915A1CA2B72E0042350A /* AddAddressVC.m */; };
 		1969919D1CA2B72E0042350A /* MyAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1969915C1CA2B72E0042350A /* MyAddressVC.m */; };
@@ -62,9 +60,6 @@
 		1969914E1CA2B72E0042350A /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		196991511CA2B72E0042350A /* AddAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressCell.h; sourceTree = "<group>"; };
 		196991521CA2B72E0042350A /* AddAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressCell.m; sourceTree = "<group>"; };
-		196991531CA2B72E0042350A /* AddressToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressToolBar.h; sourceTree = "<group>"; };
-		196991541CA2B72E0042350A /* AddressToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressToolBar.m; sourceTree = "<group>"; };
-		196991551CA2B72E0042350A /* AddressToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressToolBar.xib; sourceTree = "<group>"; };
 		196991561CA2B72E0042350A /* MyAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressCell.h; sourceTree = "<group>"; };
 		196991571CA2B72E0042350A /* MyAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressCell.m; sourceTree = "<group>"; };
 		196991591CA2B72E0042350A /* AddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressVC.h; sourceTree = "<group>"; };
@@ -220,13 +215,10 @@
 		196991501CA2B72E0042350A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				196991511CA2B72E0042350A /* AddAddressCell.h */,
-				196991521CA2B72E0042350A /* AddAddressCell.m */,
-				196991531CA2B72E0042350A /* AddressToolBar.h */,
-				196991541CA2B72E0042350A /* AddressToolBar.m */,
-				196991551CA2B72E0042350A /* AddressToolBar.xib */,
 				196991561CA2B72E0042350A /* MyAddressCell.h */,
 				196991571CA2B72E0042350A /* MyAddressCell.m */,
+				196991511CA2B72E0042350A /* AddAddressCell.h */,
+				196991521CA2B72E0042350A /* AddAddressCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -234,10 +226,10 @@
 		196991581CA2B72E0042350A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				196991591CA2B72E0042350A /* AddAddressVC.h */,
-				1969915A1CA2B72E0042350A /* AddAddressVC.m */,
 				1969915B1CA2B72E0042350A /* MyAddressVC.h */,
 				1969915C1CA2B72E0042350A /* MyAddressVC.m */,
+				196991591CA2B72E0042350A /* AddAddressVC.h */,
+				1969915A1CA2B72E0042350A /* AddAddressVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,10 +273,10 @@
 		196991681CA2B72E0042350A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				196991691CA2B72E0042350A /* BaseCell.h */,
-				1969916A1CA2B72E0042350A /* BaseCell.m */,
 				1969916B1CA2B72E0042350A /* BaseVC.h */,
 				1969916C1CA2B72E0042350A /* BaseVC.m */,
+				196991691CA2B72E0042350A /* BaseCell.h */,
+				1969916A1CA2B72E0042350A /* BaseCell.m */,
 				1969916D1CA2B72E0042350A /* CustomNavgationButtonVC.h */,
 				1969916E1CA2B72E0042350A /* CustomNavgationButtonVC.m */,
 			);
@@ -599,7 +591,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1969919A1CA2B72E0042350A /* AddressToolBar.xib in Resources */,
 				19C8B7B01C9C47660044D0C3 /* LaunchScreen.storyboard in Resources */,
 				19C8B7AD1C9C47660044D0C3 /* Assets.xcassets in Resources */,
 				19C8B7AB1C9C47660044D0C3 /* Main.storyboard in Resources */,
@@ -680,7 +671,6 @@
 				196991AF1CA2B72E0042350A /* PersonalCenterVC.m in Sources */,
 				196991AE1CA2B72E0042350A /* PersonalInfoCell.m in Sources */,
 				19C8B81F1C9E850F0044D0C3 /* MeBabyInfoItem.m in Sources */,
-				196991991CA2B72E0042350A /* AddressToolBar.m in Sources */,
 				19C8B85B1C9F98040044D0C3 /* Mother.m in Sources */,
 				1969919C1CA2B72E0042350A /* AddAddressVC.m in Sources */,
 				1969919D1CA2B72E0042350A /* MyAddressVC.m in Sources */,
