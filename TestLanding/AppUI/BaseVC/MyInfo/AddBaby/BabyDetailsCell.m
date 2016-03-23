@@ -69,7 +69,7 @@ static NSInteger const kAvatarSize = 70;
     if (babyItem.avatar == nil) {
         avatar.image = [UIImage imageNamed:@"default-avatar"];
     }else {
-        avatar.image = [UIImage imageNamed:babyItem.avatar];
+        [avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://res.yimama.com.cn/media/%@",babyItem.avatar]]];
     }
     babyName.text = babyItem.nickName;
     babySex.text = (babyItem.sex == GenderMan) ? @"小王纸" : @"小公举";

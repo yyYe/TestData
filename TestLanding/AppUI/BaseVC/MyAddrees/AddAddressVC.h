@@ -15,6 +15,5 @@ typedef void(^refreshTableView)();
 
 @property (nonatomic, strong) refreshTableView refresh;
 @property (nonatomic, strong) MyAddress *address;
-@property (nonatomic, assign) BOOL isModify;
 
 @end

@@ -17,22 +17,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
+    [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
     if (self.isModify == YES) {
         [self setupNavRightBtnWithTitle:nil];
         self.title = self.babyInfo.nickName;
     }else {
         self.title = @"新增宝宝信息";
     }
+    
 }
 
 - (void)contentData {
-    [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
-    [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
-    
     PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.babyInfo.avatar targrtClass:nil];
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
-
+    
     MeLableItem *nikeNameItem = [MeLableItem itemWithTitle:@"昵称" details:self.isModify == NO ? @"" : self.babyInfo.nickName targrtClass:[ModifyNameVC class]];
     NSString *sex = (self.babyInfo.sex == GenderMan) ? @"小王纸" : @"小公举";
     MeLableItem *sexItem = [MeLableItem itemWithTitle:@"性别" details:self.isModify == NO ? @"小公举" : sex targrtClass:[BabySexVC class]];
@@ -110,16 +110,109 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        
+        [self showSheetView];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSArray *list = self.data[indexPath.section];
-    id item = list[indexPath.row];
+    else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        NSArray *list = self.data[indexPath.section];
+        id item = list[indexPath.row];
+        
+        UIViewController *vc = [[[item targetClass]alloc]init];
+        vc.title = [item title];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
-    UIViewController *vc = [[[item targetClass]alloc]init];
-    vc.title = [item title];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
+
+#pragma mark UIAlertController
+- (void)showSheetView {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openGallery];
+    }];
+    UIAlertAction *cameraActon = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:photoAction];
+    [alertController addAction:cameraActon];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark UIImagePickerController
+- (void)openGallery {
+    UIImagePickerController *pickerController = [UIImagePickerController new];
+    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    UIImage *iconImage = [image generateThumbnail:YMMIconSize];
+    NSData *data = UIImageJPEGRepresentation(iconImage, 1.0f);
+    PersonalCenter *personal = [PersonalCenter new];
+    personal.avatarData = data;
+    FGPictureFile *picture = [FGPictureFile fileWithData:data];
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"xuid":kXuid,
+                                   @"fileName":picture.name,
+                                   @"filePath":picture.filename
+                                   },
+                           @"header":@{
+                                   @"msgId":kMsgID,
+                                   @"msgType":@"fileList",
+                                   @"token":kToken
+                                   }
+                           };
+    NSString *filePath = [NSString stringWithFormat:@"%@?token=%@",kPost_upload_batch,kToken];
+    [self.manager POST:filePath parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileData:picture.data name:picture.name fileName:picture.filename mimeType:picture.mimeType];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *list = responseObject[@"fileList"];
+        if (list.count == 0) { //上传失败
+        } else{ //上传成功
+            for (NSDictionary *dict in list) {
+                NSString *item = dict[@"filePath"];
+                [self motherHeader:item];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+}
+
+- (void)motherHeader:(NSString *)item {
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"xuid":kXuid,
+                                   @"headerImg":item
+                                   },
+                           @"header":@{
+                                   @"msgId":kMsgID,
+                                   @"msgType":@"modifyBabyHeaderImg",
+                                   @"token":kToken
+                                   }
+                           };
+    [self.manager POST:kModifyBabyHeaderImg parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"response-%@",responseObject);
+        [self contentData];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

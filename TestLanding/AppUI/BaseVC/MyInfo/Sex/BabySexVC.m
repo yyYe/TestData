@@ -19,7 +19,31 @@
 - (void)rightBtnAction {
     self.person = [PersonBase new];
     self.person.gender = (self.selectedRow == 0) ? GenderMan : GenderWoman;
+    [self modifyBabyInfo];
+}
 
+- (void)modifyMamaInfo {
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"xuid":kXuid,
+                                   @"gender":@(self.person.gender),
+                                   },
+                           @"header":@{
+                                   @"msgType":@"modifyMamaInfo",
+                                   @"token":kToken
+                                   }
+                           };
+    [self.manager POST:kModifyMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject-%@",responseObject);
+        self.refresh();
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+- (void)modifyBabyInfo {
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
@@ -37,26 +61,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
-}
-
-- (void)modifyMamaInfo {
-    NSDictionary *dict = @{
-                           @"data":@{
-                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"gender":@(self.person.gender),
-                                   },
-                           @"header":@{
-                                   @"msgType":@"mygrouplist",
-                                   @"token":kToken
-                                   }
-                           };
-    [self.manager POST:kModifyMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject-%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error-%@",error);
-    }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

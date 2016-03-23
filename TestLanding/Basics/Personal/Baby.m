@@ -18,7 +18,7 @@
 //    baby.name = dict[@"babyName"]; baby只用nickName
     baby.nickName = nonNullString(dict[@"babyName"]);
     baby.birthday = nonNullString(dict[@"birthday"]);
-//    baby.avatar.originalUrl = nonNullString(dict[@"headerImg"]);
+    baby.avatarString = nonNullString(dict[@"headerImg"]);
     baby.intro = nonNullString(dict[@"intro"]);
     baby.xuid = nonNullString(dict[@"xuid"]);
     baby.ageDesc = nonNullString(dict[@"babyAgeDesc"]);

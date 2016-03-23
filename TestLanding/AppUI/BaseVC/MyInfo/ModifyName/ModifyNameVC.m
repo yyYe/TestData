@@ -55,7 +55,6 @@
             [self.tableView reloadData];
         } else {
             self.person.nickName = tfText;
-            [self.tableView reloadData];
         }
     };
     return nameCell;
