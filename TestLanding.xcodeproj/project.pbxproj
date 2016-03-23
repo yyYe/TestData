@@ -251,6 +251,7 @@
 		19C8B8911CA11F070044D0C3 /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
+				19C8B9881CA12DFF0044D0C3 /* Base */,
 				19C8B9981CA136500044D0C3 /* Login */,
 				19C8B94D1CA12DC90044D0C3 /* MyInfo */,
 				19C8B9071CA127790044D0C3 /* MyOrder */,
@@ -323,7 +324,6 @@
 		19C8B94D1CA12DC90044D0C3 /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				19C8B9881CA12DFF0044D0C3 /* Base */,
 				19C8B9691CA12DC90044D0C3 /* Personal */,
 				19C8B94E1CA12DC90044D0C3 /* AddBaby */,
 				19C8B9591CA12DC90044D0C3 /* Birthday */,
@@ -415,7 +415,8 @@
 				19C8B98D1CA12DFF0044D0C3 /* CustomNavgationButtonVC.h */,
 				19C8B98E1CA12DFF0044D0C3 /* CustomNavgationButtonVC.m */,
 			);
-			path = Base;
+			name = Base;
+			path = BaseVC/MyInfo/Base;
 			sourceTree = "<group>";
 		};
 		19C8B9981CA136500044D0C3 /* Login */ = {

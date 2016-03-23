@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *avatar; //头像
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, strong) NSData *avatarData;
+@property (nonatomic, assign) BOOL isModify;
 @property (nonatomic, assign) BOOL needToken;
 @property (nonatomic, assign) Class targetClass;
 @property (nonatomic, copy) void(^doneBlock)();

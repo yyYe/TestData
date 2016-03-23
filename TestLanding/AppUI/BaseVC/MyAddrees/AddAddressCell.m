@@ -35,7 +35,11 @@
 
 - (void)setPersonalCenter:(PersonalCenter *)personalCenter {
     nameLabel.text = personalCenter.title;
-    tfText.placeholder = personalCenter.placeholder;
+    if (personalCenter.isModify == YES) {
+        tfText.text = personalCenter.placeholder;
+    } else {
+        tfText.placeholder = personalCenter.placeholder;
+    }
 }
 
 - (void)tfTextTapped:(UITextField *)textField {

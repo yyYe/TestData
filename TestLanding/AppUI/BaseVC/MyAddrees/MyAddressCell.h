@@ -7,7 +7,11 @@
 //
 
 #import "BaseCell.h"
+#import "MyAddress.h"
 
-@interface MyAddressCell : BaseCell
-
+@interface MyAddressCell : BaseCell {
+    UILabel *nameLabel;
+    UILabel *addressLabel;
+}
+@property (nonatomic, strong) MyAddress *address;
 @end

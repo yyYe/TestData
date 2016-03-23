@@ -15,11 +15,11 @@
     ivLogo.image = [UIImage imageNamed:@"defaultAddress"];
     [self addSubview:ivLogo];
     
-    UILabel *nameLabel = [UILabel new];
+    nameLabel = [UILabel new];
     [self addSubview:nameLabel];
     
-    UILabel *addresslabel = [UILabel new];
-    [self addSubview:addresslabel];
+    addressLabel = [UILabel new];
+    [self addSubview:addressLabel];
     
     [ivLogo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.top.equalTo(self).offset(5);
@@ -29,10 +29,15 @@
         make.left.top.equalTo(self).offset(5);
     }];
     
-    [addresslabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(nameLabel).offset(5);
+    [addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(nameLabel.mas_bottom).offset(5);
         make.left.equalTo(nameLabel);
     }];
+}
+
+- (void)setAddress:(MyAddress *)address {
+    nameLabel.text = address.fullname;
+    addressLabel.text = address.street;
 }
 
 @end

@@ -7,7 +7,14 @@
 //
 
 #import "BaseVC.h"
+#import "MyAddress.h"
+
+typedef void(^refreshTableView)();
 
 @interface AddAddressVC : BaseVC
+
+@property (nonatomic, strong) refreshTableView refresh;
+@property (nonatomic, strong) MyAddress *address;
+@property (nonatomic, assign) BOOL isModify;
 
 @end
