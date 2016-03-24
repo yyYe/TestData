@@ -210,7 +210,6 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
-   
 }
 
 #pragma mark UITableViewDelegate

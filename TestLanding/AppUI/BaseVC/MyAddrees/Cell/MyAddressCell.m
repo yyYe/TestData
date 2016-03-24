@@ -173,7 +173,7 @@
 }
 
 - (void)deleteButtonTapped {
-    
+    self.deleteTapped();
 }
 
 @end

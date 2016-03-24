@@ -20,7 +20,6 @@
 @implementation MyAddressVC
 
 - (void)contentData {
-    self.tableView.layer.borderColor = [UIColor grayColor].CGColor;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.left.equalTo(self.view).offset(10);
@@ -150,11 +149,46 @@
     cell.edit = ^(){
         [self buttonTapped:YES row:indexPath.section];
     };
+    cell.deleteTapped = ^(){
+        [self alertDeleteAddress:indexPath.section];
+    };
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self buttonTapped:YES row:indexPath.section];
+- (void)alertDeleteAddress:(NSInteger)row {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"你确定要删除?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cameraActon = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self deleteAddressData:row];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:cameraActon];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
+
+- (void)deleteAddressData:(NSInteger)index{
+//    self.address = [MyAddress new];
+    self.address = self.data[index];
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"deliveryId":self.address.deliveryid
+                                   },
+                           @"header":@{
+//                                   @"msgId":kMsgID,
+                                   @"msgType":@"deleteUserAddress",
+                                   @"timestamp":@"2016-03-24 23:24:41.000",
+                                   @"token":kToken
+                                   }
+                           };
+    
+    [self.manager POST:kDeleteUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject-%@",responseObject);
+        [self addAddressInfo];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

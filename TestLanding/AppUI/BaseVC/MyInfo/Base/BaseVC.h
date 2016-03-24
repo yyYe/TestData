@@ -44,6 +44,7 @@ static NSString *const kUserAddressList = @"http://app.yimama.com.cn/api/adr/use
 static NSString *const kAddUserAddress = @"http://app.yimama.com.cn/api/adr/addUserAddress";
 static NSString *const kUpdateUserAddress = @"http://app.yimama.com.cn/api/adr/updateUserAddress";
 static NSString *const kDefaultUserAddress = @"http://app.yimama.com.cn/api/adr/defaultUserAddress";
+static NSString *const kDeleteUserAddress = @"http://app.yimama.com.cn/api/adr/deleteUserAddress";
 
 #define screenHeight [UIScreen mainScreen].bounds.size.height
 #define screenWidth [UIScreen mainScreen].bounds.size.width

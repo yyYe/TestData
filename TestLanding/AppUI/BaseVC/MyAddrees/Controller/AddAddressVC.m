@@ -20,6 +20,9 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
     NSArray *proList;
     NSMutableArray *citiesList;
     NSMutableArray *areaList;
+    NSString *proCode;
+    NSString *cityCode;
+    NSString *areaCode;
 }
 
 @end
@@ -27,17 +30,28 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
 @implementation AddAddressVC
 
 - (void)contentData {
+    proCode = self.address.provCode;
+    cityCode = self.address.cityCode;
+    areaCode = self.address.areaCode;
     [self.tableView registerClass:[AddAddressCell class] forCellReuseIdentifier:@"AddAddressCell"];
     [self addressData];
     [self buttonLayout];
 }
 
 - (void)buttonLayout {
+    NSString *buttonTitle;
+    if (self.isModify == YES) {
+        //这里是修改的
+        buttonTitle = @"修改";
+    } else {
+        //这里是添加的
+        buttonTitle = @"添加";
+    }
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.layer.masksToBounds = YES;
     button.layer.cornerRadius = 5;
     button.backgroundColor = YMMNavBarColor;
-    [button setTitle:@"登陆" forState:UIControlStateNormal];
+    [button setTitle:buttonTitle forState:UIControlStateNormal];
     [button addTarget:self action:@selector(addressItem) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -195,8 +209,8 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
         citiesList = @[].mutableCopy;
         areaList = @[].mutableCopy;
         [self loadProvinceInfoFromServer];
-        [self loadCitiesInfoFromServer];
-        [self loadAreaInfoFromServer];
+        [self loadCitiesInfoFromServer:nil];
+        [self loadAreaInfoFromServer:nil];
     }
     if (pickerContainerView.hidden == YES) {
         pickerContainerView.hidden = NO;
@@ -238,13 +252,14 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
     addressPickerView.dataSource = self;
     addressPickerView.delegate = self;
     [pickerContainerView addSubview:addressPickerView];
-    [addressPickerView reloadAllComponents];
     
 }
 
 - (void)cancelBtnTapped {
     pickerContainerView.hidden = YES;
 }
+
+#pragma mark UIPickerViewDataSource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 3;
@@ -260,6 +275,7 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
     }
 }
 
+#pragma mark UIPickerViewDelegate
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     CityAddress *city;
     if (component == 0) {
@@ -272,6 +288,50 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
     return city.name;
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if (component == 0) {
+        CityAddress *prov = proList[row];
+        proCode = prov.code;
+        [self loadCitiesInfoFromServer:^{
+            
+            [pickerView reloadComponent:1];
+            [pickerView selectRow:0 inComponent:1 animated:YES];
+            
+            CityAddress *city = citiesList[0];
+            cityCode = city.code;
+            
+            [self loadAreaInfoFromServer:^{
+                [pickerView reloadComponent:2];
+                [pickerView selectRow:0 inComponent:2 animated:YES];
+                
+                CityAddress *area = areaList[0];
+                areaCode = area.code;
+            }];
+        }];
+    }
+    else if (component == 1) {
+        CityAddress *city = citiesList[row];
+        cityCode = city.code;
+        [self loadAreaInfoFromServer:^{
+            [pickerView reloadComponent:2];
+            [pickerView selectRow:0 inComponent:2 animated:YES];
+            CityAddress *area = areaList[0];
+            areaCode = area.code;
+        }];
+    }
+    else {
+        CityAddress *area = areaList[row];
+        areaCode = area.code;
+    }
+}
+
+//- (void)selectedAddress:(UIPickerView *)pickerView {
+//    NSInteger prov = [pickerView selectedRowInComponent:0];
+//    NSInteger city = [pickerView selectedRowInComponent:1];
+//    NSInteger area = [pickerView selectedRowInComponent:2];
+//}
+
+//省
 - (void)loadProvinceInfoFromServer {
     NSDictionary *dict = @{
                            @"data":@{
@@ -290,6 +350,9 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
         if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
             proList = [responseObject valueForKeyPath:@"data.proList"];
             proList = [CityAddress mj_objectArrayWithKeyValuesArray:proList];
+            if (citiesList.count > 0 && areaList.count > 0) {
+                [addressPickerView reloadAllComponents];
+            }
         } else {
             [self alertMessage:responseObject[@"resultMsg"]];
         }
@@ -298,10 +361,11 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
     }];
 }
 
-- (void)loadCitiesInfoFromServer {
+//市
+- (void)loadCitiesInfoFromServer:(void (^)())success {
     NSDictionary *dict = @{
                            @"data":@{
-                                   @"addressCode":self.address.provCode,
+                                   @"addressCode":proCode,
                                    },
                            @"header":@{
                                    @"msgId":kMsgID,
@@ -315,6 +379,12 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
         //如果resultCode的最后一位是0，表示返回请求成功
         if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
             citiesList = [[CityAddress mj_objectArrayWithKeyValuesArray:[responseObject valueForKeyPath:@"data.citiesList"]] mutableCopy];
+            if (success) {
+                success();
+            }
+            if (proList.count > 0 && areaList.count > 0) {
+                [addressPickerView reloadAllComponents];
+            }
         } else {
             [self alertMessage:responseObject[@"resultMsg"]];
         }
@@ -323,12 +393,13 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
     }];
 }
 
-- (void)loadAreaInfoFromServer {
+//区
+- (void)loadAreaInfoFromServer:(void (^)())success {
     NSDictionary *dict = @{
                            @"data":@{
-                                   @"addressCode":self.address.provCode,
-                                   @"provCode":self.address.provCode,
-                                   @"cityCode":self.address.cityCode
+//                                   @"addressCode":self.address.provCode,
+                                   @"provCode":proCode,
+                                   @"cityCode":cityCode
                                    },
                            @"header":@{
                                    @"msgId":kMsgID,
@@ -342,6 +413,12 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
         //如果resultCode的最后一位是0，表示返回请求成功
         if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
             areaList = [[CityAddress mj_objectArrayWithKeyValuesArray:[responseObject valueForKeyPath:@"data.areasList"]] mutableCopy];
+            if (success) {
+                success();
+            }
+            if (proList.count > 0 && citiesList.count > 0) {
+                [addressPickerView reloadAllComponents];
+            }
         } else {
             [self alertMessage:responseObject[@"resultMsg"]];
         }
