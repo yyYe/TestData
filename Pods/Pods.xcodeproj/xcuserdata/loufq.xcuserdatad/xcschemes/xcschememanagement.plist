@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJExtension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<key>2007D9BA128A7392D82FB85D5891C412</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>76C3E354928E2D596BE53BF841861E4D</key>
+		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,12 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC94E094ACCD174BD8069E3D06F65058</key>
+		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E92513961BF9174B2035A0E7D5292EAE</key>
+		<key>B337F6225E723790499DCB2C62DBA657</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8FC258BE11A0B281C061BF82FC84E73</key>
 		<dict>
 			<key>primary</key>
 			<true/>

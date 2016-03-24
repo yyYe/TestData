@@ -21,7 +21,7 @@
 #import "Gender.h"
 
 
-static NSString *const kToken = @"397129c4945e4770a2b8d33437cef6a996792493278915830879413699012852";
+static NSString *const kToken = @"6a76b7903f8643eb8a1f49e7c4db08f464233692976582231479748105334166";
 static NSString *const kXuid = @"37865002-b862-11e5-b130-00163e004e00";
 static NSString *const kMsgID = @"ea1b5095-3a23-4ae9-97af-06a4893b5ab9";
 //妈妈信息接口
@@ -39,12 +39,15 @@ static NSString *const kGetUserInfo = @"http://app.yimama.com.cn/api/follow/getU
 static NSString *const kListFollows = @"http://app.yimama.com.cn/api/follow/listFollows";
 static NSString *const kList = @"http://app.yimama.com.cn/api/cforder/list"; //用户订单列表
 static NSString *const kPost_upload_batch = @"http:/app.yimama.com.cn/im/post_upload_batch";
+//地址
 static NSString *const kUserAddressList = @"http://app.yimama.com.cn/api/adr/userAddressList";
 static NSString *const kAddUserAddress = @"http://app.yimama.com.cn/api/adr/addUserAddress";
 static NSString *const kUpdateUserAddress = @"http://app.yimama.com.cn/api/adr/updateUserAddress";
+static NSString *const kDefaultUserAddress = @"http://app.yimama.com.cn/api/adr/defaultUserAddress";
 
 #define screenHeight [UIScreen mainScreen].bounds.size.height
 #define screenWidth [UIScreen mainScreen].bounds.size.width
+
 
 @interface BaseVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

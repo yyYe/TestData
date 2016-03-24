@@ -5,12 +5,22 @@
 //  Created by loufq on 16/3/22.
 //  Copyright © 2016年 yeyy. All rights reserved.
 //
-
+#import <MJExtension/MJExtension.h>
 #import "AddAddressVC.h"
 #import "AddAddressCell.h"
+#import "CityAddress.h"
 
+static NSString *const kPro = @"http://app.yimama.com.cn/api/adr/pro";
+static NSString *const kCities = @"http://app.yimama.com.cn/api/adr/cities";
+static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
 
-@interface AddAddressVC ()
+@interface AddAddressVC () <UIPickerViewDelegate, UIPickerViewDataSource> {
+    UIView *pickerContainerView;
+    UIPickerView *addressPickerView;
+    NSArray *proList;
+    NSMutableArray *citiesList;
+    NSMutableArray *areaList;
+}
 
 @end
 
@@ -78,18 +88,18 @@
 - (void)modifyAddressItem {
     NSDictionary *dict = @{
                            @"data":@{
-                                       @"deliveryId":self.address.deliveryid
-//                                       @"userName":self.address.fullname,
-//                                       @"mobliePhone":self.address.mobliePhone,
-//                                       @"postCode":self.address.postCode,
-//                                       @"addressDetail":self.address.street,
-//                                       @"deliveryId":self.address.deliveryid,
-//                                       @"provCode":self.address.provCode,
-//                                       @"cityCode":self.address.cityCode,
-//                                       @"areaCode":self.address.areaCode
+                                       @"deliveryId":self.address.deliveryid,
+                                       @"userName":self.address.fullname,
+                                       @"mobliePhone":self.address.mobliePhone,
+                                       @"postCode":self.address.postCode,
+                                       @"addressDetail":self.address.street,
+                                       @"deliveryId":self.address.deliveryid,
+                                       @"provCode":self.address.provCode,
+                                       @"cityCode":self.address.cityCode,
+                                       @"areaCode":self.address.areaCode
                                    },
                            @"header":@{
-                                       @"msgId":kMsgID,
+                                       @"msgId":self.address.xuid,
                                        @"msgType":@"modifyUserAddress",
                                        @"token":kToken
                                    }
@@ -110,14 +120,6 @@
     }];
 }
 
-//失败就弹出框，提示错误信息
-- (void)alertMessage:(NSString *)message {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
 - (void)addressData {
     //判断，转进去的如果是空的就显示占位符的
     //不是空的，就是修改的，占位符要换成传进来的值
@@ -136,7 +138,6 @@
 }
 
 - (void)title:(NSString *)title text:(NSString *)text {
-    self.data = [@[] mutableCopy];
     PersonalCenter *name = [PersonalCenter itemWithTitle:title placeholder:text];
     name.isModify = self.isModify;
     [self.data addObject:name];
@@ -156,8 +157,6 @@
 }
 
 - (void)row:(NSInteger)row value:(NSString *)value {
-//    self.address = [MyAddress new];
-    self.data = [@[] mutableCopy];
     switch (row) {
         case 0:
             self.address.fullname = value;
@@ -181,9 +180,199 @@
     [self.data addObject:self.address];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 3) {
+        [self pickerMyAddress];
+        [self.view endEditing:YES];
+    }
+}
+
+- (void)pickerMyAddress{
+    
+    if (addressPickerView == nil) {
+        [self drawPickerView];
+        proList = [NSArray new];
+        citiesList = @[].mutableCopy;
+        areaList = @[].mutableCopy;
+        [self loadProvinceInfoFromServer];
+        [self loadCitiesInfoFromServer];
+        [self loadAreaInfoFromServer];
+    }
+    if (pickerContainerView.hidden == YES) {
+        pickerContainerView.hidden = NO;
+    } else {
+        pickerContainerView.hidden = YES;
+    }
+}
+
+- (void)drawPickerView{
+    pickerContainerView = [UIView new];
+    pickerContainerView.hidden = YES;
+    pickerContainerView.backgroundColor = FGTableBgGrayColor;
+    pickerContainerView.layer.borderWidth = 1;
+    if ([self isKindOfClass:[UITableViewController class]] && self.navigationController) {
+        [self.navigationController.view addSubview:pickerContainerView];
+    } else{
+        [self.view addSubview:pickerContainerView];
+    }
+    [pickerContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.equalTo(@250);
+    }];
+    
+    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    targerTapped(cancelBtn, cancelBtnTapped);
+    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    cancelBtn.frame = CGRectMake(10, 5, 60, 40);
+    [pickerContainerView addSubview:cancelBtn];
+    
+    UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [sureBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    sureBtn.frame = CGRectMake(SCREEN_WIDTH-60-10, 5, 60, 40);
+    [pickerContainerView addSubview:sureBtn];
+    
+    addressPickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 200)];
+    addressPickerView.layer.borderWidth = 1;
+    addressPickerView.dataSource = self;
+    addressPickerView.delegate = self;
+    [pickerContainerView addSubview:addressPickerView];
+    [addressPickerView reloadAllComponents];
+    
+}
+
+- (void)cancelBtnTapped {
+    pickerContainerView.hidden = YES;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 3;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (component == 0) {
+        return proList.count;
+    } else if (component == 1) {
+        return citiesList.count;
+    } else {
+        return areaList.count;
+    }
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    CityAddress *city;
+    if (component == 0) {
+        city = proList[row];
+    } else if (component == 1) {
+        city = citiesList[row];
+    } else if (component == 2) {
+        city = areaList[row];
+    }
+    return city.name;
+}
+
+- (void)loadProvinceInfoFromServer {
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   },
+                           @"header":@{
+                                   @"msgId":kMsgID,
+                                   @"msgType":@"fetchProvince",
+                                   @"token":kToken
+                                   }
+                           };
+//    [self url:kPro path:@"data.proList" dict:dict array:proList];
+    [self.manager POST:kPro parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *resultCode = responseObject[@"resultCode"];
+        //如果resultCode的最后一位是0，表示返回请求成功
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+            proList = [responseObject valueForKeyPath:@"data.proList"];
+            proList = [CityAddress mj_objectArrayWithKeyValuesArray:proList];
+        } else {
+            [self alertMessage:responseObject[@"resultMsg"]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+- (void)loadCitiesInfoFromServer {
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"addressCode":self.address.provCode,
+                                   },
+                           @"header":@{
+                                   @"msgId":kMsgID,
+                                   @"msgType":@"fetchCity",
+                                   @"token":kToken
+                                   }
+                           };
+    [self.manager POST:kCities parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *resultCode = responseObject[@"resultCode"];
+        //如果resultCode的最后一位是0，表示返回请求成功
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+            citiesList = [[CityAddress mj_objectArrayWithKeyValuesArray:[responseObject valueForKeyPath:@"data.citiesList"]] mutableCopy];
+        } else {
+            [self alertMessage:responseObject[@"resultMsg"]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+- (void)loadAreaInfoFromServer {
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"addressCode":self.address.provCode,
+                                   @"provCode":self.address.provCode,
+                                   @"cityCode":self.address.cityCode
+                                   },
+                           @"header":@{
+                                   @"msgId":kMsgID,
+                                   @"msgType":@"fetchDistrict",
+                                   @"token":kToken
+                                   }
+                           };
+    [self.manager POST:kAreas parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *resultCode = responseObject[@"resultCode"];
+        //如果resultCode的最后一位是0，表示返回请求成功
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+            areaList = [[CityAddress mj_objectArrayWithKeyValuesArray:[responseObject valueForKeyPath:@"data.areasList"]] mutableCopy];
+        } else {
+            [self alertMessage:responseObject[@"resultMsg"]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+- (void)url:(NSString *)url path:(NSString *)path dict:(NSDictionary *)dict array:(NSArray *)array {
+    __block NSArray *arrayData = array;
+    [self.manager POST:url parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject-%@",responseObject);
+        NSString *resultCode = responseObject[@"resultCode"];
+        //如果resultCode的最后一位是0，表示返回请求成功
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+            arrayData = [responseObject valueForKeyPath:path];
+        } else {
+            [self alertMessage:responseObject[@"resultMsg"]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+}
+
+//失败就弹出框，提示错误信息
+- (void)alertMessage:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 /*

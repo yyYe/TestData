@@ -11,7 +11,6 @@
 #import "MyAddressCell.h"
 #import "MyAddress.h"
 
-static NSString *const kDefaultUserAddress = @"http://app.yimama.com.cn/api/adr/defaultUserAddress";
 
 @interface MyAddressVC ()
 @property (nonatomic, strong) MyAddress *address;
@@ -63,6 +62,8 @@ static NSString *const kDefaultUserAddress = @"http://app.yimama.com.cn/api/adr/
             self.address.provCode = data[@"provCode"];
             self.address.cityCode = data[@"cityCode"];
             self.address.areaCode = data[@"areaCode"];
+            self.address.xuid = data[@"xuid"];
+//            self.address.msgID = data[@"msgId"];
             [self.data addObject:self.address];
         }
         [self.tableView reloadData];
@@ -77,18 +78,19 @@ static NSString *const kDefaultUserAddress = @"http://app.yimama.com.cn/api/adr/
     NSDictionary *dict = @{
                            @"data":@{
                                    @"deliveryId":self.address.deliveryid,
-//                                   @"xuid":kXuid
+                                   @"xuid":self.address.xuid
                                    },
                            @"header":@{
                                    @"clientRes":@"iOS",
                                    @"msgId":@"9667B374-7534-4479-8394-C4C9A7EECB3B",
-                                   @"timestamp":@"2016-03-23 23:09:59.000",
+                                   @"timestamp":@"2016-03-23 15:42:56",
                                    @"msgType":@"setDefaultAddress",
                                    @"token":kToken
                                    }
                            };
     
-    [self.manager POST:kDefaultUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager POST:kDefaultUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);

@@ -12,6 +12,8 @@
 #import "PersonalCenterVC.h"
 #import "PersonalInfoVC.h"
 #import "MyOrderVC.h"
+#import "MyAddressVC.h"
+
 #import "PersonalCenterCell.h"
 #import "PersonalInfoCell.h"
 
@@ -35,11 +37,10 @@
     
     NSDictionary *dict = @{
                            @"data":@{
-                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
-                                   @"headerImg":@"3"
+                                   @"xuid":kXuid,
                                    },
                            @"header":@{
-                                   @"msgId":@"ea1b5095-3a23-4ae9-97af-06a4893b5ab9",
+                                   @"msgId":kMsgID,
                                    @"msgType":@"getMamaInfo",
                                    @"token":kToken
                                    }
@@ -70,7 +71,7 @@
     myWork.needToken = YES;
     PersonalCenter *myOrder = [PersonalCenter itemWithIcon:@"myOrder" title:@"我的订单" targrtClass:[MyOrderVC class]];
     myOrder.needToken = YES;
-    PersonalCenter *myAddress = [PersonalCenter itemWithIcon:@"myAddress" title:@"我的地址" targrtClass:nil];
+    PersonalCenter *myAddress = [PersonalCenter itemWithIcon:@"myAddress" title:@"我的地址" targrtClass:[MyAddressVC class]];
     myAddress.needToken = YES;
     PersonalCenter *myZone = [PersonalCenter itemWithIcon:@"myZone" title:@"我的空间" targrtClass:nil];
     myZone.needToken = YES;

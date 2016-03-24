@@ -20,9 +20,12 @@
 @property (nonatomic, strong) NSString *areaname; // 区
 
 @property (nonatomic, strong) NSString *postCode; // 邮票
-@property (nonatomic, copy) NSString *provCode; //省编号
-@property (nonatomic, copy) NSString *cityCode; //市编号
-@property (nonatomic, copy) NSString *areaCode; //区编号
+@property (nonatomic, strong) NSString *provCode; //省编号
+@property (nonatomic, strong) NSString *cityCode; //市编号
+@property (nonatomic, strong) NSString *areaCode; //区编号
+
+@property (nonatomic, strong) NSString *xuid;
+//@property (nonatomic, strong) NSString *msgID;
 
 @property (nonatomic, assign, getter=isDefaultAddress) BOOL defaultAddress; //0代表默认地址
 @end

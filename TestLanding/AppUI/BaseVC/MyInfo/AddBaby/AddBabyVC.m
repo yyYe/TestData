@@ -186,7 +186,7 @@
         } else{ //上传成功
             for (NSDictionary *dict in list) {
                 NSString *item = dict[@"filePath"];
-                [self motherHeader:item];
+                [self babyHeader:item];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -195,14 +195,14 @@
     
 }
 
-- (void)motherHeader:(NSString *)item {
+- (void)babyHeader:(NSString *)item {
     NSDictionary *dict = @{
                            @"data":@{
                                    @"xuid":kXuid,
                                    @"headerImg":item
                                    },
                            @"header":@{
-                                   @"msgId":kMsgID,
+//                                   @"msgId":kMsgID,
                                    @"msgType":@"modifyBabyHeaderImg",
                                    @"token":kToken
                                    }

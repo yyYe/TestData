@@ -35,6 +35,9 @@
 
 - (void)setPersonalCenter:(PersonalCenter *)personalCenter {
     nameLabel.text = personalCenter.title;
+    if ([personalCenter.title isEqualToString:@"省市区"]) {
+        tfText.enabled = NO;
+    }
     if (personalCenter.isModify == YES) {
         tfText.text = personalCenter.placeholder;
     } else {

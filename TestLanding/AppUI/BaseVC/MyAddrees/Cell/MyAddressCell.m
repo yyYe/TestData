@@ -8,9 +8,6 @@
 
 #import "MyAddressCell.h"
 
-#define targerTapped(button,buttonTapped) [button addTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
-#define buttonImage(button,image) [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-
 
 @implementation MyAddressCell
 
@@ -41,6 +38,7 @@
     [self addSubview:defaultBtn];
     
     clickBtn = [UIButton new];
+    clickBtn.enabled = NO;
     buttonImage(clickBtn, @"defaultAddressUncheck");
     [defaultBtn addSubview:clickBtn];
     

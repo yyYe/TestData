@@ -17,6 +17,13 @@
     return _mother;
 }
 
+- (NSMutableArray *)data {
+    if (!_data) {
+        _data = [@{} mutableCopy];
+    }
+    return _data;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

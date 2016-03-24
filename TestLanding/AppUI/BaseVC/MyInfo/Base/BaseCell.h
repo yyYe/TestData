@@ -17,6 +17,8 @@
 #import "PersonBase.h"
 
 #define fontSize(size) [UIFont systemFontOfSize:size]
+#define targerTapped(button,buttonTapped) [button addTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
+#define buttonImage(button,image) [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
 
 @interface BaseCell : UITableViewCell
 
