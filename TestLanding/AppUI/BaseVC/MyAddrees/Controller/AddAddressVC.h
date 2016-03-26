@@ -6,14 +6,12 @@
 //  Copyright © 2016年 yeyy. All rights reserved.
 //
 
-#import "BaseVC.h"
+#import "CustomNavgationButtonVC.h"
 #import "MyAddress.h"
 
-typedef void(^refreshTableView)();
+@interface AddAddressVC : CustomNavgationButtonVC
 
-@interface AddAddressVC : BaseVC
-
-@property (nonatomic, strong) refreshTableView refresh;
 @property (nonatomic, strong) MyAddress *address;
+@property (nonatomic, strong) NSIndexPath *addressIndexPath;
 
 @end

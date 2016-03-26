@@ -37,16 +37,17 @@
     
     NSDictionary *dict = @{
                            @"data":@{
-                                   @"xuid":kXuid,
+                                   @"xuid":@"37865002-b862-11e5-b130-00163e004e00",
                                    },
                            @"header":@{
-                                   @"msgId":kMsgID,
+                                   @"msgId":@"495673B2-0E1E-4A3E-9759-8EF873698E53",
                                    @"msgType":@"getMamaInfo",
                                    @"token":kToken
                                    }
                            };
     
-    [self.manager POST:kGetMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {  } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager POST:kGetMamaInfo parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
         NSDictionary *mamaData = [responseObject valueForKeyPath:@"data.mama.mamaInfo"];
         NSDictionary *babyData = [[responseObject valueForKeyPath:@"data.mama.babies"] lastObject];

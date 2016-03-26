@@ -10,11 +10,11 @@
 
 @implementation CustomNavgationButtonVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)contentData {
     [self setupNavLeftBtnWithTitle:@"取消"];
     [self setupNavRightBtnWithTitle:@"保存"];
 }
+
 
 - (void)setupNavLeftBtnWithTitle:(NSString *)title {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(leftBtnAction)];

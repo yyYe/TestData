@@ -21,8 +21,8 @@
 #import "Gender.h"
 
 
-static NSString *const kToken = @"6a76b7903f8643eb8a1f49e7c4db08f464233692976582231479748105334166";
-static NSString *const kXuid = @"37865002-b862-11e5-b130-00163e004e00";
+static NSString *const kToken = @"9be3f1e55e974d87b2d47e5454c3300605894198091979664823200919166769";
+static NSString *const kXuid = @"BDCB5B4E-361E-4875-87C0-470A9FEBAA4E";
 static NSString *const kMsgID = @"ea1b5095-3a23-4ae9-97af-06a4893b5ab9";
 //妈妈信息接口
 static NSString *const kModifyMamaHeaderImg = @"http://app.yimama.com.cn/api/mama/modifyMamaHeaderImg";

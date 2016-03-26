@@ -51,7 +51,9 @@
             self.address = [MyAddress new];
             self.address.fullname = data[@"fullname"];
             self.address.mobliePhone = data[@"mobilephone"];
-            self.address.deliveryid = data[@"deliveryid"];
+//            long num = [[data valueForKey:@"deliveryid"] longValue];
+//            NSNumber *number = [NSNumber numberWithLong:num];
+            self.address.deliveryid = [(NSNumber*)data[@"deliveryid"] stringValue];
             self.address.defaultAddress = [data[@"defaultdeliveraddress"] isEqual: @"1"] ? YES : NO ;
             self.address.prov = data[@"prov"];
             self.address.city = data[@"city"];
@@ -74,15 +76,17 @@
 - (void)defaultAddress:(NSInteger)row {
     self.address = [MyAddress new];
     self.address = self.data[row];
+//    NSDictionary* dint = @{@"a":[NSNumber numberWithInt:2]};
+//    NSString* str = [dint valueForKey:@"a"];
+//    NSNumber *delivertNumber = [NSNumber numberWithLongLong:[self.address.deliveryid longLongValue]];
     NSDictionary *dict = @{
                            @"data":@{
                                    @"deliveryId":self.address.deliveryid,
-                                   @"xuid":self.address.xuid
                                    },
                            @"header":@{
                                    @"clientRes":@"iOS",
                                    @"msgId":@"9667B374-7534-4479-8394-C4C9A7EECB3B",
-                                   @"timestamp":@"2016-03-23 15:42:56",
+                                   @"timestamp":@"2016-03-25 23:21:09.000",
                                    @"msgType":@"setDefaultAddress",
                                    @"token":kToken
                                    }
@@ -115,10 +119,10 @@
 - (void)buttonTapped:(BOOL)yes row:(NSInteger)row {
     AddAddressVC *addVC = [AddAddressVC new];
     if (yes == isYES) {
-        addVC.isModify = isYES;
+        addVC.isModify = YES;
         addVC.address = self.data[row];
     } else {
-        addVC.isModify = isNO;
+        addVC.isModify = NO;
     }
     addVC.refresh = ^(){
         [self addAddressInfo];

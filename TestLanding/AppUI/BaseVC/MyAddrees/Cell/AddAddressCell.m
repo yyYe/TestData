@@ -15,18 +15,18 @@
     [nameLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [self addSubview:nameLabel];
     
-    tfText = [UITextField new];
-    tfText.delegate = self;
-    tfText.font = fontSize(14);
-    [tfText addTarget:self action:@selector(tfTextTapped:) forControlEvents:UIControlEventEditingChanged];
-    [self addSubview:tfText];
+    self.tfText = [LimitTextField new];
+    self.tfText.delegate = self;
+    self.tfText.font = fontSize(14);
+    [self.tfText addTarget:self action:@selector(tfTextTapped:) forControlEvents:UIControlEventEditingChanged];
+    [self addSubview:self.tfText];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
         make.centerY.equalTo(self);
     }];
     
-    [tfText mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.tfText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(nameLabel.mas_right).offset(10);
         make.centerY.equalTo(nameLabel);
         make.right.equalTo(self).offset(-1);
@@ -35,13 +35,16 @@
 
 - (void)setPersonalCenter:(PersonalCenter *)personalCenter {
     nameLabel.text = personalCenter.title;
-    if ([personalCenter.title isEqualToString:@"省市区"]) {
-        tfText.enabled = NO;
-    }
-    if (personalCenter.isModify == YES) {
-        tfText.text = personalCenter.placeholder;
+    self.tfText.text = personalCenter.text;
+    self.tfText.placeholder = personalCenter.placeholder;
+    if ([personalCenter.title isEqualToString:kPhoneTitle] || [personalCenter.title isEqualToString:kZipCodeTitle]) {
+        self.tfText.keyboardType = UIKeyboardTypeNumberPad;
     } else {
-        tfText.placeholder = personalCenter.placeholder;
+        self.tfText.keyboardType = UIKeyboardTypeDefault;
+    }
+    if ([personalCenter.title isEqualToString:kAreaTitle]) {
+        self.tfText.enabled = NO;
+        self.tfText.text = personalCenter.placeholder;
     }
 }
 
@@ -51,6 +54,13 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self endEditing:YES];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (range.location >= 11) {
+        return NO;
+    }
     return YES;
 }
 

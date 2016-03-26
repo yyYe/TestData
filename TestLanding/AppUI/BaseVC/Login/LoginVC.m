@@ -116,14 +116,6 @@ static NSString *const kFastLogin = @"http://app.yimama.com.cn/api/fastLogin";
                                        @"clientRes":@"iOS"
                                    }
                            };
-//    [HttpTool postWithURL:kFastLogin params:dict success:^(id json) {
-//        NSLog(@"responseObject-%@",json);
-//        PersonalInfoVC *infoVC = [PersonalInfoVC new];
-//        infoVC.userID = [json valueForKeyPath:@"data.sessionUser.id"];
-//        [self.navigationController pushViewController:infoVC animated:YES];
-//    } failure:^(NSString *errorMsg, NSString *statusCode) {
-//        NSLog(@"error-%@",errorMsg);
-//    }];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];

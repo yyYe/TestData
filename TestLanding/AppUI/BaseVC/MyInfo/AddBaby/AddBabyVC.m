@@ -15,8 +15,7 @@
 
 @implementation AddBabyVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)contentData {
     [self.tableView registerClass:[MamaAvatarCell class] forCellReuseIdentifier:@"MamaAvatarCell"];
     [self.tableView registerClass:[MamaInfoCell class] forCellReuseIdentifier:@"MamaInfoCell"];
     if (self.isModify == YES) {
@@ -25,10 +24,10 @@
     }else {
         self.title = @"新增宝宝信息";
     }
-    
+    [self babyItem];
 }
 
-- (void)contentData {
+- (void)babyItem {
     PersonalCenter *avatar = [PersonalCenter itemWithTitle:@"头像" avatar:self.babyInfo.avatar targrtClass:nil];
     NSArray *list1 = [NSArray new];
     list1 = @[avatar];
@@ -124,7 +123,7 @@
             BabySexVC *sexVC = (BabySexVC *)vc;
             sexVC.person = self.baby;
             sexVC.refresh = ^(){
-                [self contentData];
+                [self babyItem];
             };
         }
         [self.navigationController pushViewController:vc animated:YES];
@@ -211,7 +210,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"response-%@",responseObject);
-        [self contentData];
+        [self babyItem];
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);

@@ -252,7 +252,6 @@
 				1969917A1CA2B72E0042350A /* Personal */,
 				196991631CA2B72E0042350A /* AddBaby */,
 				1969916F1CA2B72E0042350A /* Birthday */,
-				196991741CA2B72E0042350A /* ModifyBabyInfo */,
 				196991751CA2B72E0042350A /* ModifyName */,
 				1969918D1CA2B72E0042350A /* Sex */,
 			);
@@ -293,13 +292,6 @@
 				196991731CA2B72E0042350A /* BirthdayVC.m */,
 			);
 			path = Birthday;
-			sourceTree = "<group>";
-		};
-		196991741CA2B72E0042350A /* ModifyBabyInfo */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ModifyBabyInfo;
 			sourceTree = "<group>";
 		};
 		196991751CA2B72E0042350A /* ModifyName */ = {

@@ -10,7 +10,4 @@
 
 @interface PersonalCenterVC : BaseVC
 
-@property (nonatomic, strong) NSString *userID;
-@property (nonatomic, strong) NSString *token;
-
 @end
