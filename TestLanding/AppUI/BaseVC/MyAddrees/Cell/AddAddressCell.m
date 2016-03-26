@@ -8,6 +8,8 @@
 
 #import "AddAddressCell.h"
 
+#define textFieldTapped(textField,tapped) [textField addTarget:self action:@selector(tapped) forControlEvents:UIControlEventEditingChanged];
+
 @implementation AddAddressCell
 
 - (void)createUI {
@@ -15,10 +17,11 @@
     [nameLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [self addSubview:nameLabel];
     
-    self.tfText = [LimitTextField new];
+    self.tfText = [UITextField new];
     self.tfText.delegate = self;
     self.tfText.font = fontSize(14);
-    [self.tfText addTarget:self action:@selector(tfTextTapped:) forControlEvents:UIControlEventEditingChanged];
+//    textFieldTapped(self.tfText, tfTextTapped:);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification" object:self.tfText];
     [self addSubview:self.tfText];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -33,19 +36,43 @@
     }];
 }
 
-- (void)setPersonalCenter:(PersonalCenter *)personalCenter {
-    nameLabel.text = personalCenter.title;
-    self.tfText.text = personalCenter.text;
-    self.tfText.placeholder = personalCenter.placeholder;
-    if ([personalCenter.title isEqualToString:kPhoneTitle] || [personalCenter.title isEqualToString:kZipCodeTitle]) {
+- (void)setPersonal:(PersonalCenter *)personal {
+    _personal = personal;
+    nameLabel.text = personal.title;
+    self.tfText.text = personal.text;
+    self.tfText.placeholder = personal.placeholder;
+    if ([personal.title isEqualToString:kPhoneTitle] || [personal.title isEqualToString:kZipCodeTitle]) {
         self.tfText.keyboardType = UIKeyboardTypeNumberPad;
     } else {
         self.tfText.keyboardType = UIKeyboardTypeDefault;
     }
-    if ([personalCenter.title isEqualToString:kAreaTitle]) {
+    if ([personal.title isEqualToString:kAreaTitle]) {
         self.tfText.enabled = NO;
-        self.tfText.text = personalCenter.placeholder;
+        self.tfText.text = personal.placeholder;
     }
+}
+
+-(void)textFiledEditChanged:(NSNotification *)obj{
+    UITextField *textField = (UITextField *)obj.object;
+    NSString *toBeString = textField.text;
+    if ([_personal.title isEqualToString:kNameTitle]){
+        if (toBeString.length > 8) {
+            textField.text = [toBeString substringToIndex:8];
+        }
+    } else if ([_personal.title isEqualToString:kPhoneTitle]) {
+        if (toBeString.length > 11) {
+            textField.text = [toBeString substringToIndex:11];
+        }
+    } else if ([_personal.title isEqualToString:kZipCodeTitle])  {
+        if (toBeString.length > 6) {
+            textField.text = [toBeString substringToIndex:6];
+        }
+    } else {
+        if (toBeString.length > 1000) {
+            textField.text = [toBeString substringToIndex:1000];
+        }
+    }
+    self.value(textField.text);
 }
 
 - (void)tfTextTapped:(UITextField *)textField {
@@ -54,13 +81,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self endEditing:YES];
-    return YES;
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (range.location >= 11) {
-        return NO;
-    }
     return YES;
 }
 

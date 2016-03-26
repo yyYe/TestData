@@ -22,6 +22,8 @@ typedef void(^returnTextFieldValue)(NSString *value);
     UILabel *nameLabel;
 }
 
+@property (nonatomic, strong) UITextField *tfText;
 @property (nonatomic, strong) returnTextFieldValue value;
-@property (nonatomic, strong) LimitTextField *tfText;
+@property (nonatomic, strong) PersonalCenter *personal;
+
 @end

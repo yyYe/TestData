@@ -223,7 +223,7 @@ static NSString *const kAreas = @"http://app.yimama.com.cn/api/adr/areas";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AddAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddAddressCell"];
-    cell.personalCenter = self.data[indexPath.row];
+    cell.personal = self.data[indexPath.row];
     cell.value = ^(NSString *value){
         [self row:indexPath.row value:value];
     };
