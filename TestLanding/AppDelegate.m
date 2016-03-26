@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking/AFNetworking.h>
+
+static NSString *const kToken = @"044b151678c448eb90855a7e4554a69a09411302597819083638886312305387";
+static NSString *const kHeartbeat = @"http://app.yimama.com.cn/api/heartbeat";
 
 @interface AppDelegate ()
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 
 @end
 
@@ -16,7 +21,34 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSDictionary *dict = @{
+                           @"data":@{
+                                   @"token":kToken
+                                   },
+                           @"header":@{
+                                   @"clientRes":@"iOS",
+                                   @"msgId":@"9667B374-7534-4479-8394-C4C9A7EECB3B",
+                                   @"timestamp":@"2016-03-25 23:21:09.000",
+                                   @"msgType":@"heartbeat",
+                                   }
+                           };
+    self.manager = [AFHTTPSessionManager manager];
+    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];
+    [self.manager POST:kHeartbeat parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *resultCode = responseObject[@"resultCode"];
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+            NSLog(@"心跳成功");
+        } else {
+            NSLog(@"心跳失败");
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error-%@",error);
+    }];
+    
+    
     return YES;
 }
 
