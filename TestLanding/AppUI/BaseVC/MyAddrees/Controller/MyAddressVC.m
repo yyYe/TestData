@@ -88,10 +88,25 @@
     
     [self.manager POST:kDefaultUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [self.tableView reloadData];
+        //返回成功了，就给他刷新，失败就提示失败信息
+        NSString *resultCode = responseObject[@"resultCode"];
+        //如果resultCode的最后一位是0，表示返回请求成功
+        if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
+//            [self getAddressInfo];
+            [self.tableView reloadData];
+        } else {
+            [self alertMessage:responseObject[@"resultMsg"]];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
+}
+
+- (void)alertMessage:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)buttonLayout {
