@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190532CB1CA7B32100C540E7 /* MyAddressFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 190532CA1CA7B32100C540E7 /* MyAddressFrame.m */; };
 		196991971CA2B72E0042350A /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1969914E1CA2B72E0042350A /* LoginVC.m */; };
 		196991981CA2B72E0042350A /* AddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196991521CA2B72E0042350A /* AddAddressCell.m */; };
 		1969919B1CA2B72E0042350A /* MyAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196991571CA2B72E0042350A /* MyAddressCell.m */; };
@@ -56,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190532C91CA7B32100C540E7 /* MyAddressFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressFrame.h; sourceTree = "<group>"; };
+		190532CA1CA7B32100C540E7 /* MyAddressFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressFrame.m; sourceTree = "<group>"; };
 		1969914D1CA2B72E0042350A /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		1969914E1CA2B72E0042350A /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		196991511CA2B72E0042350A /* AddAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressCell.h; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 			children = (
 				1969915E1CA2B72E0042350A /* MyAddress.h */,
 				1969915F1CA2B72E0042350A /* MyAddress.m */,
+				190532C91CA7B32100C540E7 /* MyAddressFrame.h */,
+				190532CA1CA7B32100C540E7 /* MyAddressFrame.m */,
 				196991B51CA3E1C30042350A /* CityAddress.h */,
 				196991B61CA3E1C40042350A /* CityAddress.m */,
 			);
@@ -685,6 +690,7 @@
 				19C8B7E41C9D575D0044D0C3 /* HttpTool.m in Sources */,
 				196991B11CA2B72E0042350A /* BabySexVC.m in Sources */,
 				19C8B9971CA12F660044D0C3 /* MeInfoItem.m in Sources */,
+				190532CB1CA7B32100C540E7 /* MyAddressFrame.m in Sources */,
 				196991B31CA2B72E0042350A /* MyOrderCell.m in Sources */,
 				196991A11CA2B72E0042350A /* BabyAddInfoCell.m in Sources */,
 			);

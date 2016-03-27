@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = FGTableBgGrayColor;
     self.manager = [AFHTTPSessionManager manager];
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
     self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/javascript",@"application/json",@"text/json", @"text/html", nil];

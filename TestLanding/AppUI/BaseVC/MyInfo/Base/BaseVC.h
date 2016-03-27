@@ -21,7 +21,7 @@
 #import "Gender.h"
 
 
-static NSString *const kToken = @"044b151678c448eb90855a7e4554a69a09411302597819083638886312305387";
+static NSString *const kToken = @"b8c959669a1b448cb8dc9e6599776b7139068842159876340575284093576594";
 static NSString *const kXuid = @"BDCB5B4E-361E-4875-87C0-470A9FEBAA4E";
 static NSString *const kMsgID = @"ea1b5095-3a23-4ae9-97af-06a4893b5ab9";
 //妈妈信息接口

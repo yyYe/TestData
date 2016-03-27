@@ -10,7 +10,7 @@
 #import "AddAddressVC.h"
 #import "MyAddressCell.h"
 #import "MyAddress.h"
-
+#import "MyAddressFrame.h"
 
 @interface MyAddressVC ()
 @property (nonatomic, strong) MyAddress *address;
@@ -21,17 +21,15 @@
 
 - (void)contentData {
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view);
-        make.left.equalTo(self.view).offset(10);
-        make.right.equalTo(self.view).offset(-10);
+        make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-50);
     }];
     [self.tableView registerClass:[MyAddressCell class] forCellReuseIdentifier:@"MyAddressCell"];
     [self buttonLayout];
-    [self addAddressInfo];
+    [self getAddressInfo];
 }
 
-- (void)addAddressInfo {
+- (void)getAddressInfo {
     NSDictionary *dict = @{
                            @"data":@{
                                        @"xuid":kXuid,
@@ -54,7 +52,7 @@
 //            long num = [[data valueForKey:@"deliveryid"] longValue];
 //            NSNumber *number = [NSNumber numberWithLong:num];
             self.address.deliveryid = [(NSNumber*)data[@"deliveryid"] stringValue];
-            self.address.defaultAddress = [data[@"defaultdeliveraddress"] isEqual: @"1"] ? YES : NO ;
+            self.address.defaultAddress = [data[@"defaultdeliveraddress"] isEqual: @"0"] ? YES : NO;
             self.address.prov = data[@"prov"];
             self.address.city = data[@"city"];
             self.address.areaname = data[@"areaname"];
@@ -73,12 +71,8 @@
     }];
 }
 
-- (void)defaultAddress:(NSInteger)row {
-    self.address = [MyAddress new];
+- (void)setDefaultAddress:(NSInteger)row {
     self.address = self.data[row];
-//    NSDictionary* dint = @{@"a":[NSNumber numberWithInt:2]};
-//    NSString* str = [dint valueForKey:@"a"];
-//    NSNumber *delivertNumber = [NSNumber numberWithLongLong:[self.address.deliveryid longLongValue]];
     NSDictionary *dict = @{
                            @"data":@{
                                    @"deliveryId":self.address.deliveryid,
@@ -94,7 +88,7 @@
     
     [self.manager POST:kDefaultUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject-%@",responseObject);
+        [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];
@@ -125,36 +119,36 @@
         addVC.isModify = NO;
     }
     addVC.refresh = ^(){
-        [self addAddressInfo];
+        [self getAddressInfo];
     };
     [self.navigationController pushViewController:addVC animated:YES];
 }
 
-#pragma mark UITableViewDataSource
+#pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    MyAddressFrame *frame = [MyAddressFrame new];
+    frame.item = self.data[indexPath.row];
+    return frame.cellHeight;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.data.count;
-}
+#pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    NSArray *list = self.data[indexPath.section];
     MyAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyAddressCell"];
-    cell.address = self.data[indexPath.section];
+    cell.address = self.data[indexPath.row];
     cell.defaultTapped = ^(){
-        [self defaultAddress:indexPath.section];
+        [self setDefaultAddress:indexPath.row];
     };
     cell.edit = ^(){
-        [self buttonTapped:YES row:indexPath.section];
+        [self buttonTapped:YES row:indexPath.row];
     };
     cell.deleteTapped = ^(){
-        [self alertDeleteAddress:indexPath.section];
+        [self alertDeleteAddress:indexPath.row];
     };
     return cell;
 }
@@ -189,7 +183,7 @@
     [self.manager POST:kDeleteUserAddress parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject-%@",responseObject);
-        [self addAddressInfo];
+        [self getAddressInfo];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error-%@",error);
     }];

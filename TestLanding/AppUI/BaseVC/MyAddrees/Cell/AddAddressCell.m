@@ -20,8 +20,8 @@
     self.tfText = [UITextField new];
     self.tfText.delegate = self;
     self.tfText.font = fontSize(14);
-//    textFieldTapped(self.tfText, tfTextTapped:);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification" object:self.tfText];
+    textFieldTapped(self.tfText, tfTextTapped:);
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification" object:self.tfText];
     [self addSubview:self.tfText];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,10 +48,14 @@
     }
     if ([personal.title isEqualToString:kAreaTitle]) {
         self.tfText.enabled = NO;
-        self.tfText.text = personal.placeholder;
+        if (personal.text) {
+            self.tfText.text = personal.text;
+        } else {
+            self.tfText.text = personal.placeholder;
+        }
     }
 }
-
+//第一种方法
 -(void)textFiledEditChanged:(NSNotification *)obj{
     UITextField *textField = (UITextField *)obj.object;
     NSString *toBeString = textField.text;
@@ -74,8 +78,26 @@
     }
     self.value(textField.text);
 }
-
+//第二种方法
 - (void)tfTextTapped:(UITextField *)textField {
+    NSString *toBeString = textField.text;
+    if ([_personal.title isEqualToString:kNameTitle]){
+        if (toBeString.length > 8) {
+            textField.text = [toBeString substringToIndex:8];
+        }
+    } else if ([_personal.title isEqualToString:kPhoneTitle]) {
+        if (toBeString.length > 11) {
+            textField.text = [toBeString substringToIndex:11];
+        }
+    } else if ([_personal.title isEqualToString:kZipCodeTitle])  {
+        if (toBeString.length > 6) {
+            textField.text = [toBeString substringToIndex:6];
+        }
+    } else {
+        if (toBeString.length > 1000) {
+            textField.text = [toBeString substringToIndex:1000];
+        }
+    }
     self.value(textField.text);
 }
 
