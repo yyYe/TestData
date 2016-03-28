@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		190532CB1CA7B32100C540E7 /* MyAddressFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 190532CA1CA7B32100C540E7 /* MyAddressFrame.m */; };
+		190532CF1CA7E4E900C540E7 /* SetUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 190532CE1CA7E4E900C540E7 /* SetUpVC.m */; };
 		196991971CA2B72E0042350A /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1969914E1CA2B72E0042350A /* LoginVC.m */; };
 		196991981CA2B72E0042350A /* AddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196991521CA2B72E0042350A /* AddAddressCell.m */; };
 		1969919B1CA2B72E0042350A /* MyAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196991571CA2B72E0042350A /* MyAddressCell.m */; };
@@ -59,6 +60,8 @@
 /* Begin PBXFileReference section */
 		190532C91CA7B32100C540E7 /* MyAddressFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressFrame.h; sourceTree = "<group>"; };
 		190532CA1CA7B32100C540E7 /* MyAddressFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressFrame.m; sourceTree = "<group>"; };
+		190532CD1CA7E4E900C540E7 /* SetUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpVC.h; sourceTree = "<group>"; };
+		190532CE1CA7E4E900C540E7 /* SetUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpVC.m; sourceTree = "<group>"; };
 		1969914D1CA2B72E0042350A /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		1969914E1CA2B72E0042350A /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		196991511CA2B72E0042350A /* AddAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressCell.h; sourceTree = "<group>"; };
@@ -177,6 +180,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		190532CC1CA7E4A900C540E7 /* SetUp */ = {
+			isa = PBXGroup;
+			children = (
+				190532CD1CA7E4E900C540E7 /* SetUpVC.h */,
+				190532CE1CA7E4E900C540E7 /* SetUpVC.m */,
+			);
+			path = SetUp;
+			sourceTree = "<group>";
+		};
 		1969914A1CA2B72E0042350A /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +205,7 @@
 				196991621CA2B72E0042350A /* MyInfo */,
 				1969914F1CA2B72E0042350A /* MyAddrees */,
 				196991901CA2B72E0042350A /* MyOrder */,
+				190532CC1CA7E4A900C540E7 /* SetUp */,
 			);
 			path = BaseVC;
 			sourceTree = "<group>";
@@ -660,6 +673,7 @@
 				19C8B8211C9E850F0044D0C3 /* MeLableItem.m in Sources */,
 				196991A21CA2B72E0042350A /* BaseCell.m in Sources */,
 				1969919B1CA2B72E0042350A /* MyAddressCell.m in Sources */,
+				190532CF1CA7E4E900C540E7 /* SetUpVC.m in Sources */,
 				196991B01CA2B72E0042350A /* PersonalInfoVC.m in Sources */,
 				1969919E1CA2B72E0042350A /* MyAddress.m in Sources */,
 				196991AB1CA2B72E0042350A /* MamaAvatarCell.m in Sources */,

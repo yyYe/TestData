@@ -92,8 +92,8 @@
         NSString *resultCode = responseObject[@"resultCode"];
         //如果resultCode的最后一位是0，表示返回请求成功
         if ([[resultCode substringFromIndex:resultCode.length-1] isEqual:@"0"]) {
-//            [self getAddressInfo];
-            [self.tableView reloadData];
+            
+            [self getAddressInfo];
         } else {
             [self alertMessage:responseObject[@"resultMsg"]];
         }

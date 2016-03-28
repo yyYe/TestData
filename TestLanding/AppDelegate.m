@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <AFNetworking/AFNetworking.h>
 
-static NSString *const kToken = @"b8c959669a1b448cb8dc9e6599776b7139068842159876340575284093576594";
+static NSString *const kToken = @"16f42d445a3341d7bbe2fb7d5d7af1cc87797030419345647975199807067420";
 static NSString *const kHeartbeat = @"http://app.yimama.com.cn/api/heartbeat";
 
 @interface AppDelegate ()

@@ -12,7 +12,7 @@
 #import "MyAddress.h"
 
 #define cellWidthBorder 10
-#define cellHeightBorder 15
+#define cellHeightBorder 20
 #define nameFont [UIFont boldSystemFontOfSize:15]
 #define phoneFont [UIFont systemFontOfSize:13]
 #define addressFont [UIFont systemFontOfSize:13]

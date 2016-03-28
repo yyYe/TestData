@@ -27,5 +27,5 @@
 @property (nonatomic, strong) NSString *xuid;
 //@property (nonatomic, strong) NSString *msgID;
 
-@property (nonatomic, assign, getter=isDefaultAddress) BOOL defaultAddress; //0代表默认地址
+@property (nonatomic, assign) BOOL defaultAddress; //0代表默认地址
 @end

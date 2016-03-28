@@ -45,7 +45,6 @@
     clickBtn = [UIButton new];
     clickBtn.enabled = NO;
     buttonImage(clickBtn, @"defaultAddressUncheck");
-    clickBtn.titleLabel.font = fontSize(13);
     [defaultBtn addSubview:clickBtn];
     
     defaultLabel = [UILabel new];
@@ -166,6 +165,9 @@
     if (address.defaultAddress == YES) {
         ivLogo.image = [UIImage imageNamed:@"defaultAddress"];
         buttonImage(clickBtn, @"gou");
+    } else {
+        ivLogo.image = nil;
+        buttonImage(clickBtn, @"defaultAddressUncheck");
     }
     nameLabel.text = address.fullname;
     phoneLabel.text = address.mobliePhone;
@@ -174,10 +176,10 @@
 
 - (void)defaultButtonTapped {
     //点击的时候判断，
-    if (_address.defaultAddress == NO){
-        ivLogo.image = [UIImage imageNamed:@"defaultAddress"];
-        buttonImage(clickBtn, @"gou");
-    }
+//    if (_address.defaultAddress == NO){
+//        ivLogo.image = [UIImage imageNamed:@"defaultAddress"];
+//        buttonImage(clickBtn, @"gou");
+//    }
     self.defaultTapped();
 }
 
